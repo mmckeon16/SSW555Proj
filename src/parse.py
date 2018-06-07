@@ -21,8 +21,16 @@ def parse(line):
             parse.person = {}
             parse.parent = None
             parse.person['id'] = id
+            parse.person['gender'] = gender
         elif type == 'NAME':
             parse.person['name'] = data
+        elif type == 'FAM' or type == 'FAMS' or type == 'FAMC':
+        	# new fam
+            if 'id' in parse.person:
+                tree[parse.person['id']] = parse.person
+            parse.person = {}
+            parse.parent = None
+            parse.person['id'] = id
 ### SNIP
 # open the file and read it line by line
 with open("../files/test1.ged", 'r') as ged:
