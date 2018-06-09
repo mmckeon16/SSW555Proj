@@ -90,8 +90,10 @@ print(idList)
 
 print ('Sort by keys:')
 for key in sorted(idList.keys()):
-    print ("%s: %s" % (key, idList[key]))
+	num = idList[key]
+	print ("%s: %s" % (key, ind[num]['name']))
 
 print ('Sort by keys:')
 for key in sorted(famList.keys()):
-    print ("%s: %s" % (key, famList[key]))
+	numFam = famList[key]
+	print ("%s: husband = %s, wife = %s" % (key, fam[numFam]['HUSB'], fam[numFam]['WIFE']))
