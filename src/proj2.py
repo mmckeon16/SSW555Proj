@@ -10,6 +10,8 @@ currDate = ""
 currFam = ""
 famCount =0
 isInd = True
+idList = {}
+famList = {}
 
 try:
 	file = open(file_name)
@@ -47,6 +49,7 @@ for line in file:
 		isInd = True
 		count +=1
 		ind[count] = {'id':word_list[1]}
+		idList[currInd] = count
 
 	if isInd:
 		if level == '1' and tag == 'NAME':
@@ -61,10 +64,11 @@ for line in file:
 			ind[count]['family'] = arguments
 
 
-	if level == '0' and tag == 'FAM':
+	if level == '0' and tag == 'FAM': # start of fam tag
 		isInd = False
 		currFam = word_list[1]
 		famCount +=1
+		famList[currFam] = famCount
 
 		fam[famCount] = {'fam': currFam}
 	if isInd == False:
@@ -82,3 +86,12 @@ for line in file:
 				fam[famCount][tag] = [arguments]
 print(ind)
 print(fam)
+print(idList)
+
+print ('Sort by keys:')
+for key in sorted(idList.keys()):
+    print ("%s: %s" % (key, idList[key]))
+
+print ('Sort by keys:')
+for key in sorted(famList.keys()):
+    print ("%s: %s" % (key, famList[key]))
