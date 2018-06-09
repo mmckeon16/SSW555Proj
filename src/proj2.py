@@ -1,4 +1,4 @@
-valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS'), '2':('DATE')}
+valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
 file_name = "../files/oneGen.ged"
 
@@ -68,19 +68,17 @@ for line in file:
 
 		fam[famCount] = {'fam': currFam}
 	if isInd == False:
-		print(word_list)
-		if level == 1 and word_list[1] == 'MARR' or word_list[1] == 'DIV':
+		if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
 			currDate = tag
-			print("in date")
-		if level ==2 and tag == 'DATE':
+		if level =='2' and tag == 'DATE':
 			fam[famCount][currDate] = arguments
-			print("in date")
-		if level == 1 and tag == 'HUSB' or tag == 'WIFE':
-			print(tag)
+		if level == '1' and tag in ('HUSB', 'WIFE'):
 			fam[famCount][tag] = arguments
-		
-		if level == 1 and tag == 'CHIL':
-			if fam[famCount][tag] != null:
+
+		if level == '1' and tag == 'CHIL':
+			if tag in fam[famCount]:
 				fam[famCount][tag].append(arguments)
+			else:
+				fam[famCount][tag] = [arguments]
 print(ind)
 print(fam)
