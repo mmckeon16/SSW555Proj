@@ -79,9 +79,11 @@ for line in file:
 			else:
 				fam[currFam][tag] = [arguments]
 
+f= open("../test/proj3.txt","a+")
+
 indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 indTable.align["ID"] = "1" 
-print("sort by ind id")
+f.write("sort by ind id:"+"\n")
 for key in sorted(ind):
 	famID = ind[key]['family']
 	if fam[famID]['HUSB'] == ind[key]['id'] or fam[famID]['WIFE'] == ind[key]['id']:
@@ -94,15 +96,15 @@ for key in sorted(ind):
 		deat = ind[key]['DEAT']
 	else:
 		deat = "----"
-	print ("%s: %s" % (key, ind[key]['name']))
+	f.write("%s: %s" % (key, ind[key]['name'])+"\n")
 	indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], deat, chil, spouse])
 
-print(indTable)
+f.write(indTable.get_string() + "\n")
 
 famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
 famTable.align["ID"] = "1" 
 # print(famTable.length)
-print ('Sort by famid:')
+f.write('Sort by famid:'+"\n")
 for key in sorted(fam):
 	if 'DIV' in fam[key]:
 		div = fam[key]['DIV']
@@ -114,11 +116,13 @@ for key in sorted(fam):
 
 	wifeID = fam[key]['WIFE']
 	wifeName = ind[wifeID]['name']
+	if 'CHIL' in fam[key] :
+		chil = ','.join(fam[key]['CHIL'])
+	else:
+		chil = "----"
 
-	chil = ','.join(fam[key]['CHIL'])
-
-	print ("%s: husband = %s, wife = %s" % (key, fam[key]['HUSB'], fam[key]['WIFE']))
+	f.write("%s: husband = %s, wife = %s" % (key, fam[key]['HUSB'], fam[key]['WIFE'])+"\n")
 	famTable.add_row([key, fam[key]['MARR'], div, hubID, hubName, wifeID, wifeName, chil])
 
 
-print(famTable)
+f.write(famTable.get_string())
