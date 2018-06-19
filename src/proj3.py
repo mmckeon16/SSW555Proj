@@ -1,4 +1,5 @@
 from prettytable import PrettyTable
+from mmstories import checkIfDateBeforeNow
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -53,7 +54,8 @@ for line in file:
 		if level == '1' and tag == 'BIRT' or tag == 'MARR' or tag == 'DEAT' or tag == 'DIV':
 			currDate = tag
 		if currDate != "" and tag == 'DATE' and level == '2':
-			ind[currInd][currDate] = arguments
+			if(checkIfDateBeforeNow(arguments)): #checks to see if after or before date and does not add if after
+				ind[currInd][currDate] = arguments
 		if level == '1' and tag == 'SEX':
 			ind[currInd]['sex'] = arguments
 		if level == '1' and tag == 'FAMC' or tag == 'FAMS':
@@ -69,7 +71,8 @@ for line in file:
 		if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
 			currDate = tag
 		if level =='2' and tag == 'DATE':
-			fam[currFam][currDate] = arguments
+			if(checkIfDateBeforeNow(arguments)):
+				fam[currFam][currDate] = arguments
 		if level == '1' and tag in ('HUSB', 'WIFE'):
 			fam[currFam][tag] = arguments
 
@@ -78,6 +81,7 @@ for line in file:
 				fam[currFam][tag].append(arguments)
 			else:
 				fam[currFam][tag] = [arguments]
+print(ind);
 
 f= open("../test/proj3.txt","a+")
 
