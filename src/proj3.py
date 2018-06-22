@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-from mmstories import checkIfDateBeforeNow
+import mmstories
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -54,7 +54,7 @@ for line in file:
 		if level == '1' and tag == 'BIRT' or tag == 'MARR' or tag == 'DEAT' or tag == 'DIV':
 			currDate = tag
 		if currDate != "" and tag == 'DATE' and level == '2':
-			if(checkIfDateBeforeNow(arguments)): #checks to see if after or before date and does not add if after
+			if(mmstories.checkIfDateBeforeNow(arguments)): #checks to see if after or before date and does not add if after
 				ind[currInd][currDate] = arguments
 		if level == '1' and tag == 'SEX':
 			ind[currInd]['sex'] = arguments
@@ -71,7 +71,7 @@ for line in file:
 		if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
 			currDate = tag
 		if level =='2' and tag == 'DATE':
-			if(checkIfDateBeforeNow(arguments)):
+			if(mmstories.checkIfDateBeforeNow(arguments)):
 				fam[currFam][currDate] = arguments
 		if level == '1' and tag in ('HUSB', 'WIFE'):
 			fam[currFam][tag] = arguments
@@ -81,7 +81,8 @@ for line in file:
 				fam[currFam][tag].append(arguments)
 			else:
 				fam[currFam][tag] = [arguments]
-print(ind);
+
+mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
 
 f= open("../test/proj3.txt","a+")
 
@@ -115,18 +116,32 @@ for key in sorted(fam):
 	else: 
 		div = "----"
 
-	hubID = fam[key]['HUSB']
-	hubName = ind[hubID]['name']
+	if "HUSB" in fam[key]:
+		hubID = fam[key]['HUSB']
+		hubName = ind[hubID]['name']
+	else:
+		hubID = "----"
+		hubName = "----"
 
-	wifeID = fam[key]['WIFE']
-	wifeName = ind[wifeID]['name']
+	if "WIFE" in fam[key]:
+		wifeID = fam[key]['WIFE']
+		wifeName = ind[wifeID]['name']
+	else:
+		wifeID = "----"
+		wifeName = "----"
+
 	if 'CHIL' in fam[key] :
 		chil = ','.join(fam[key]['CHIL'])
 	else:
 		chil = "----"
 
-	f.write("%s: husband = %s, wife = %s" % (key, fam[key]['HUSB'], fam[key]['WIFE'])+"\n")
-	famTable.add_row([key, fam[key]['MARR'], div, hubID, hubName, wifeID, wifeName, chil])
+	if 'MARR' in fam[key]:
+		marr = fam[key]['MARR']
+	else:
+		marr = "----"
+
+	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
+	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 
 
 f.write(famTable.get_string())
