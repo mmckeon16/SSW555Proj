@@ -1,7 +1,7 @@
 from prettytable import PrettyTable
 import mmstories
 import male_names
-from helperdate import form_d
+import rs_stories
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -21,7 +21,6 @@ except IOError:
 
 for line in file:
 	#print("--> {}".format(line.strip()))
-
 	word_list = line.strip().split()
 	isValid = 'N'
 	level = "NA"
@@ -41,14 +40,22 @@ for line in file:
 
 	elif len(word_list) > 1 and level in valid and tag in valid[level]:
 		isValid = 'Y'
-
 	
-	
+	ids_seen = []
 #if isValid == 'Y': # can create id 
 	if level == '0' and tag == 'INDI': #start of individual
 		currInd = word_list[1]
 		isInd = True
+
+		# US22
+		if currInd in ids_seen:
+			print ("Error: Multiple individuals with the ID " + currInd)
+			currInd = currInd+"0"
+			word_list[1] = currInd
+		ids_seen.append(currInd)
+
 		ind[currInd] = {'id':word_list[1]}
+
 
 	if isInd:
 		if level == '1' and tag == 'NAME':
@@ -109,12 +116,8 @@ for key in sorted(ind):
 
 f.write(indTable.get_string() + "\n")
 
-#print(fam)
-print(ind)
-
 famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
 famTable.align["ID"] = "1" 
-# print(famTable.length)
 f.write('Sort by famid:'+"\n")
 for key in sorted(fam):
 	if 'DIV' in fam[key]:
@@ -147,21 +150,14 @@ for key in sorted(fam):
 		marr = "----"
 
 	#US02 - RS
-	error_wifeus02 = ""
-	error_husbus02 = ""
 	if (wifeID != "----"):
-		if (form_d(ind[fam[key]['WIFE']]['BIRT'], fam[key]['MARR']) == 2):
-			error_wifeus02 = "Error US02: Marriage of " + ind[fam[key]['WIFE']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before her birthday.\n"
+		rs_stories.us02(wifeID, ind[fam[key]['WIFE']]['name'], ind[fam[key]['WIFE']]['BIRT'], fam[key]['MARR'], "her");
 	if (hubID != "----"):
-		if (form_d(ind[fam[key]['HUSB']]['BIRT'], fam[key]['MARR']) == 2):
-			error_husbus02 = "Error US02: Marriage of " + ind[fam[key]['HUSB']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before his birthday.\n"
-
+		rs_stories.us02(hubID, ind[fam[key]['HUSB']]['name'], ind[fam[key]['HUSB']]['BIRT'], fam[key]['MARR'], "his")
 
 	#US04 - RS
-	error_us04 = ""
 	if div != "----" and marr != "----":
-		if (form_d(marr, div) == 2):
-			error_us04 = "Error US04: Divorce of " + hubName + " and " + wifeName + " happens before their marriage date."
+		rs_stories.us04(marr, div, hubName, wifeName)
 
 	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
@@ -169,10 +165,3 @@ for key in sorted(fam):
 
 f.write(famTable.get_string())
 f.write("\n")
-# writing the errors at the end of the text file for US02 - RS
-if (error_wifeus02 != ""):
-	f.write(error_wifeus02)
-if (error_husbus02 != ""):
-	f.write(error_husbus02)
-if (error_us04 != ""):
-	f.write(error_us04)
