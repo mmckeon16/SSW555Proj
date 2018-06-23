@@ -1,5 +1,6 @@
 from prettytable import PrettyTable
 import mmstories
+import male_names
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -83,6 +84,7 @@ for line in file:
 				fam[currFam][tag] = [arguments]
 
 mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
+male_names.checkSameLastNames(fam, ind)
 
 f= open("../test/proj3.txt","a+")
 
@@ -105,6 +107,9 @@ for key in sorted(ind):
 	indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], deat, chil, spouse])
 
 f.write(indTable.get_string() + "\n")
+
+print(fam)
+print(ind)
 
 famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
 famTable.align["ID"] = "1" 
