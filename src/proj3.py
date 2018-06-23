@@ -159,6 +159,12 @@ for key in sorted(fam):
 		marr = fam[key]['MARR']
 	else:
 		marr = "----"
+		
+	#US04 - RS
+	error_us04 = ""
+	if div != "----" and marr != "----":
+		if (form_d(marr, div) == 2):
+			error_us04 = "Error US04: Divorce of " + hubName + " and " + wifeName + " happens before their marriage date."
 
 	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
