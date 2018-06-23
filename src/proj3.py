@@ -1,6 +1,7 @@
 from prettytable import PrettyTable
 import mmstories
 import male_names
+from helperdate import form_d
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -116,6 +117,20 @@ famTable.align["ID"] = "1"
 # print(famTable.length)
 f.write('Sort by famid:'+"\n")
 for key in sorted(fam):
+
+# storing the birthday & marriage date for use in comparison for story US02: marriage before birth -RS
+	us02_birt_w = ind[fam[key]['WIFE']]['BIRT']
+	us02_birt_h = ind[fam[key]['HUSB']]['BIRT']
+	us02_marr = fam[key]['MARR']
+	error_wifeus02 = ""
+	error_husbus02 = ""
+
+	if (form_d(us02_birt_w, us02_marr) == 2):
+		error_wifeus02 = "Error US02: Marriage of " + ind[fam[key]['WIFE']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before her birthday.\n"
+	if (form_d(us02_birt_h, us02_marr) == 2):
+		error_husbus02 = "Error US02: Marriage of " + ind[fam[key]['HUSB']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before his birthday.\n"
+
+
 	if 'DIV' in fam[key]:
 		div = fam[key]['DIV']
 	else: 
@@ -150,3 +165,11 @@ for key in sorted(fam):
 
 
 f.write(famTable.get_string())
+f.write("\n")
+# writing the errors at the end of the text file for US02 - RS
+if (error_wifeus02 != ""):
+	f.write(error_wifeus02)
+if (error_husbus02 != ""):
+	f.write(error_husbus02)
+if (error_us04 != ""):
+	f.write(error_us04)
