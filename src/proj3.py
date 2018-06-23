@@ -109,7 +109,7 @@ for key in sorted(ind):
 
 f.write(indTable.get_string() + "\n")
 
-print(fam)
+#print(fam)
 print(ind)
 
 famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
@@ -117,20 +117,6 @@ famTable.align["ID"] = "1"
 # print(famTable.length)
 f.write('Sort by famid:'+"\n")
 for key in sorted(fam):
-
-# storing the birthday & marriage date for use in comparison for story US02: marriage before birth -RS
-	us02_birt_w = ind[fam[key]['WIFE']]['BIRT']
-	us02_birt_h = ind[fam[key]['HUSB']]['BIRT']
-	us02_marr = fam[key]['MARR']
-	error_wifeus02 = ""
-	error_husbus02 = ""
-
-	if (form_d(us02_birt_w, us02_marr) == 2):
-		error_wifeus02 = "Error US02: Marriage of " + ind[fam[key]['WIFE']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before her birthday.\n"
-	if (form_d(us02_birt_h, us02_marr) == 2):
-		error_husbus02 = "Error US02: Marriage of " + ind[fam[key]['HUSB']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before his birthday.\n"
-
-
 	if 'DIV' in fam[key]:
 		div = fam[key]['DIV']
 	else: 
@@ -159,7 +145,18 @@ for key in sorted(fam):
 		marr = fam[key]['MARR']
 	else:
 		marr = "----"
-		
+
+	#US02 - RS
+	error_wifeus02 = ""
+	error_husbus02 = ""
+	if (wifeID != "----"):
+		if (form_d(ind[fam[key]['WIFE']]['BIRT'], fam[key]['MARR']) == 2):
+			error_wifeus02 = "Error US02: Marriage of " + ind[fam[key]['WIFE']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before her birthday.\n"
+	if (hubID != "----"):
+		if (form_d(ind[fam[key]['HUSB']]['BIRT'], fam[key]['MARR']) == 2):
+			error_husbus02 = "Error US02: Marriage of " + ind[fam[key]['HUSB']]['name'] + " (" + ind[fam[key]['WIFE']]['id'] + ") occurs before his birthday.\n"
+
+
 	#US04 - RS
 	error_us04 = ""
 	if div != "----" and marr != "----":
