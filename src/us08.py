@@ -5,9 +5,6 @@ from datetime import datetime
 def birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool):
 	error_div = False
 	error_bir = False
-	#print(childsname + " / " + childsbirthday + " / " + marrdate + " / " + divdate)
-	#print(rs_stories.form_d(childsbirthday, divdate))
-	#print
 	if ((rs_stories.form_d(childsbirthday, divdate) == 2) and (divBool == True)):
 		#print(childsbirthday)
 		#print(marriagedate)
@@ -17,8 +14,6 @@ def birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, di
 		if (dif_time > 9):
 			print("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is >9 months after their parents' divorce.")
 			error_div = True
-	#print(rs_stories.form_d(childsbirthday, marriagedate)) == 1 every time
-	#print(childsbirthday + " // " + marriagedate)
 	elif (rs_stories.form_d(marrdate, childsbirthday) == 2):
 		print("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is before their parents' marriage.")
 		error_bir = True
