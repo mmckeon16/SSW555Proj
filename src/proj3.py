@@ -2,6 +2,7 @@ from prettytable import PrettyTable
 import mmstories
 import male_names
 import rs_stories
+import us08
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -48,11 +49,13 @@ for line in file:
 		isInd = True
 
 		# US22
-		if currInd in ids_seen:
-			print ("Error: Multiple individuals with the ID " + currInd)
-			currInd = currInd+"0"
-			word_list[1] = currInd
-		ids_seen.append(currInd)
+		#if currInd in ids_seen:
+		#	print(currInd)
+		#	print ("Error: Multiple individuals with the ID " + currInd)
+		#	currInd = currInd+"0"
+		#	word_list[1] = currInd
+		#ids_seen.append(currInd)
+		#print(ids_seen[0])
 
 		ind[currInd] = {'id':word_list[1]}
 
@@ -92,7 +95,7 @@ for line in file:
 				fam[currFam][tag] = [arguments]
 
 mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
-male_names.checkSameLastNames(fam, ind)
+#male_names.checkSameLastNames(fam, ind)
 
 f= open("../test/proj3.txt","a+")
 
@@ -141,6 +144,7 @@ for key in sorted(fam):
 
 	if 'CHIL' in fam[key] :
 		chil = ','.join(fam[key]['CHIL'])
+		#print(ind[fam[key]['CHIL'][0]]['BIRT'])
 	else:
 		chil = "----"
 
@@ -151,13 +155,23 @@ for key in sorted(fam):
 
 	#US02 - RS
 	if (wifeID != "----"):
-		rs_stories.us02(wifeID, ind[fam[key]['WIFE']]['name'], ind[fam[key]['WIFE']]['BIRT'], fam[key]['MARR'], "her");
+		rs_stories.us02(wifeID, wifeName, ind[fam[key]['WIFE']]['BIRT'], marr, "her");
 	if (hubID != "----"):
-		rs_stories.us02(hubID, ind[fam[key]['HUSB']]['name'], ind[fam[key]['HUSB']]['BIRT'], fam[key]['MARR'], "his")
+		rs_stories.us02(hubID, hubName, ind[fam[key]['HUSB']]['BIRT'], marr, "his")
 
 	#US04 - RS
 	if div != "----" and marr != "----":
 		rs_stories.us04(marr, div, hubName, wifeName)
+
+	#US08 - RS & JA
+	count = 0
+	if (chil != "----"):
+		for i in fam[key]['CHIL']:
+			if (div != "----"):
+				us08.birthbeforemarri(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], marr, div, True)
+			else:	
+				us08.birthbeforemarri(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], marr, "N/A", False)	
+			count = count + 1
 
 	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
