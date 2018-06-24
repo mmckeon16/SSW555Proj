@@ -18,7 +18,7 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 	for f in fam:
 		if "CHIL" in fam[f]:
 			if len(fam[f]["CHIL"]) > 4: #could be situation where more than 5
-				children = fam[f]["CHIL"]
+				children = fam[f]["CHIL"].copy()
 				dates = {}
 				for c in children: #have list of children
 					cDate = ind[c]["BIRT"]
@@ -29,16 +29,22 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 				for d in dates:
 					if dates[d] >= 5:
 						#NOT VALID, maybe delete individuals, and siblings in fam
+						for i in range(len(fam[f]["CHIL"])):
+							newList = []
+							print(fam[f]["CHIL"][i])
+							if ind[fam[f]["CHIL"][i]]["BIRT"] != d:
+								newList.append(fam[f]["CHIL"][i])
+						fam[f]["CHIL"] = newList.copy()
+
 						for c in children:
 							if ind[c]["BIRT"] == d:
 								ind.pop(c, None)
-						fam[f].pop("CHIL", None)
+
+						newList = []
+					
 						# print(fam)
 						# print(ind)
-						print("is not valid")
-					else:
-						#VALID, original object is returned
-						print("is valid")
+						print("Sorry this amount of children born on the same day is not valid")
 	
 
 

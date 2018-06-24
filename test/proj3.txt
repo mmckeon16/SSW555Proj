@@ -1,32 +1,10 @@
 sort by ind id:
 I01: Joe /Smith/
 I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
 I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-+-----+------------------+--------+-------------+-------------+-------+--------+
-|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
-| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+
-|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
-| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I19: Dick /Smith/
+I25: Sixth /Test/
 I26: Jane /Smith/
 I30: Mary /Test/
 I32: Nick /Tary/
@@ -36,23 +14,371 @@ I44: Cersi /Lanister/
 +-----+------------------+--------+-------------+-------------+-------+--------+
 | I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
 | I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
 | I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
 | I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I30 |   Mary /Test/    |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I30 |   Mary /Test/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 +-----+------------------+--------+-------------+-------------+-------+--------+
 Sort by famid:
 F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
 F23: husband = Joe /Smith/, wife = Jennifer /Smith/
 +-----+-------------+----------+---------+-------------+---------+------------------+-------------+
 |  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     |   Children  |
 +-----+-------------+----------+---------+-------------+---------+------------------+-------------+
 | F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |     ----    |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |     ----    |
 | F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26,I30 |
-+-----+-------------+----------+---------+-------------+---------+------------------+-------------+sort by ind id:
++-----+-------------+----------+---------+-------------+---------+------------------+-------------+
+sort by ind id:
 I01: Joe /Smith/
 I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
+I19: Dick /Smith/
+I25: Sixth /Test/
+I26: Jane /Smith/
+I32: Nick /Tary/
+I44: Cersi /Lanister/
++-----+------------------+--------+-------------+-------------+-------+--------+
+|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
++-----+------------------+--------+-------------+-------------+-------+--------+
+| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I25 |   Sixth /Test/   |   M    | 13 FEB 1980 |     ----    |  F20  |  ----  |
+| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
+| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
++-----+------------------+--------+-------------+-------------+-------+--------+
+Sort by famid:
+F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
+F23: husband = Joe /Smith/, wife = Jennifer /Smith/
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |   ----   |
+| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
++-----+-------------+----------+---------+-------------+---------+------------------+----------+
+sort by ind id:
+I01: Joe /Smith/
+I07: Jennifer /Smith/
+I10: Test /Wife/
+I11: Test /Hub/
 I19: Dick /Smith/
 I26: Jane /Smith/
 I32: Nick /Tary/
@@ -62,6 +388,8 @@ I44: Cersi /Lanister/
 +-----+------------------+--------+-------------+-------------+-------+--------+
 | I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
 | I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
+| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
 | I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
@@ -69,10 +397,12 @@ I44: Cersi /Lanister/
 +-----+------------------+--------+-------------+-------------+-------+--------+
 Sort by famid:
 F16: husband = ----, wife = ----
+F20: husband = Test /Hub/, wife = Test /Wife/
 F23: husband = Joe /Smith/, wife = Jennifer /Smith/
 +-----+-------------+----------+---------+-------------+---------+------------------+----------+
 |  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
 +-----+-------------+----------+---------+-------------+---------+------------------+----------+
 | F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
+| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |          |
 | F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
 +-----+-------------+----------+---------+-------------+---------+------------------+----------+

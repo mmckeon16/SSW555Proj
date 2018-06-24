@@ -7,7 +7,7 @@ import us09
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
-file_name = "../files/oneGen.ged"
+file_name = "../test/acceptanceTest.ged"
 
 ind = {}
 fam = {}
@@ -96,7 +96,7 @@ for line in file:
 				fam[currFam][tag] = [arguments]
 
 mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
-#male_names.checkSameLastNames(fam, ind)
+male_names.checkSameLastNames(fam, ind)
 
 f= open("../test/proj3.txt","a+")
 
@@ -173,19 +173,16 @@ for key in sorted(fam):
 			else:	
 				us08.birthbeforemarri(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], marr, "N/A", False)	
 			count = count + 1
-
-	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
-	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 	
 	#US09 - JA
 	count = 0
 	if (chil != "----"):
 		for i in fam[key]['CHIL']:
-			if (ind[fam[key]["WIFE"]]["DEAT"] != "----" ):
-			    us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
-		        elif(ind[fam[key]["HUSB"]]["DEAT"] != "----"):
-		            us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
-			
+			if "DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----":
+				us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
+			elif "DEAT" in ind[fam[key]["HUSB"]] and ind[fam[key]["HUSB"]]["DEAT"]  != "----":
+				us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
+				ind[fam[key]["HUSB"]]["DEAT"]
 			count = count + 1
 
 	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
