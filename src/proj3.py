@@ -3,6 +3,7 @@ import mmstories
 import male_names
 import rs_stories
 import us08
+import us09
 
 valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -175,6 +176,21 @@ for key in sorted(fam):
 
 	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
+	
+	#US09 - JA
+	count = 0
+	if (chil != "----"):
+		for i in fam[key]['CHIL']:
+			if (ind[fam[key]["WIFE"]]["DEAT"] != "----" ):
+			    us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
+		        elif(ind[fam[key]["HUSB"]]["DEAT"] != "----"):
+		            us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
+			
+			count = count + 1
+
+	f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
+	famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
+	
 
 
 f.write(famTable.get_string())
