@@ -1,39 +1,40 @@
-import unittest 
+import unittest
 
 def checkIndividual(fam,ind):
 
-#No more than one individual with the same name and birth date should appear in a GEDCOM file
-
+    #No more than one individual with the same name and birth date should appear in a GEDCOM file
+    print(fam)
     for f in fam:
         if "HUSB" or "WIFE" in fam[f]:
             hus = fam[f]["HUSB"] #get ID
             husName = ind[hus]["name"] #get name
             husBDate = ind[hus]["BIRT"] #get bday
-            wife = fam[f]["WIFE"] 
+            wife = fam[f]["WIFE"]
             wifeName = ind[hus]["name"]
-            wifeBDate = (ind[hus]["BIRT"]
-
+            wifeBDate = ind[hus]["BIRT"]
         if "CHIL" in fam[f]:
             for c in fam[f]["CHIL"]:
                 chilName = ind[c]["name"]
                 chilBDate = ind[c]["BIRT"]
+                for i in ind:
+                    if husName == chilName or husName == wifeName or chilName == wifeName:
+                        if husBDate == wifeBDate:
+                          print("Can't have duplicate entries.")
+                          ind.pop(fam[f]["HUSB"], None)
+                          fam[f].pop("HUSB", None)
+                          
+                        if husBDate == chilBDate:
+                            print("Can't have duplicate entries.")
+                            fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
+                            ind.pop(c, None)
+                        if chilBDate == wifeBDate:
+                            print("Can't have duplicate entries.")
+                            fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
+                            ind.pop(c, None)
+                        else:
+                            print("Valid family tree.")
 
-    for i in ind:
-        if husName == chilName or husName == wifeName or chilName == wifeName:
-            if husBDate == wifeBDate:
-               print("Can't have duplicate entries.")
-                fam[f]["husBDate"].pop(fam[f]["husBDate"].index(c))
-                ind.pop(c, None)
-            if husBDate == chilBDate:
-               print("Can't have duplicate entries.")
-                fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
-                ind.pop(c, None)
-            if chilBDate == wifeBDate:
-                print("Can't have duplicate entries.")
-                fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
-                ind.pop(c, None)
-            else:
-                print("Valid family free.")
+    
 
 
 fam = {'F23': #normal
@@ -58,7 +59,7 @@ ind2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex'
   'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
-fam3 = {'F23': #dad and son have same name and bday
+fam3 = {'F23':
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
 ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
@@ -72,13 +73,13 @@ ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex'
 
 class MyTest(unittest.TestCase):
   def test(self):
-        checkIndividual(fam, ind)
+    checkIndividual(fam, ind)
     self.assertTrue(('I01' in ind))
     self.assertTrue(('IO1' in fam['F23']['HUSB']))
-        checkIndividual(fam2, ind2)
+    checkIndividual(fam2, ind2)
     self.assertTrue(('I01' in ind))
     self.assertTrue(('IO1' in fam['F23']['HUSB']))
-        checkIndividual(fam3, ind3)
+    checkIndividual(fam3, ind3)
     self.assertFalse(('I01' in ind))
     self.assertFalse(('IO1' in fam['F23']['HUSB']))
 
