@@ -31,7 +31,6 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 						#NOT VALID, maybe delete individuals, and siblings in fam
 						for i in range(len(fam[f]["CHIL"])):
 							newList = []
-							print(fam[f]["CHIL"][i])
 							if ind[fam[f]["CHIL"][i]]["BIRT"] != d:
 								newList.append(fam[f]["CHIL"][i])
 						fam[f]["CHIL"] = newList.copy()

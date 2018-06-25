@@ -5,19 +5,14 @@ def getLast(name):
 
 def checkSameLastNames(fam, ind):
 	for f in fam:
-		print(f)
 		if "HUSB" in fam[f]:
-
 			hus = fam[f]["HUSB"]
 			lastName = getLast(ind[hus]["name"])
-			print(lastName)
 		else:
 			lastName = ""
-		print(fam[f])
 		if "CHIL" in fam[f] :
 			
 			for c in fam[f]["CHIL"]:
-				print(c)
 				childLast = getLast(ind[c]["name"])
 				gender = ind[c]["sex"]
 				if gender == "M" and childLast != lastName:
