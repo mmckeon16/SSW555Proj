@@ -101,6 +101,7 @@ def gedComProj():
 
 	mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
 	male_names.checkSameLastNames(fam, ind)
+	indi_story.checkIndividual(fam, ind)
 
 	f= open("../test/acceptanceTestOutput.txt","a+")
 
