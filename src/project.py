@@ -102,7 +102,7 @@ def gedComProj():
 	mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
 	male_names.checkSameLastNames(fam, ind)
 
-	f= open("../test/proj3.txt","a+")
+	f= open("../test/acceptanceTestOutput.txt","a+")
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
@@ -192,7 +192,6 @@ def gedComProj():
 		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 		
-
 
 	f.write(famTable.get_string())
 	f.write("\n")
