@@ -10,6 +10,7 @@ def checkIfDateBeforeNow(date):
 		if datetime_object <= currDate:
 			return True
 		else:
+			print("ERROR: US01 The date "+ date+ " is after the current date")
 			return False
 	except:
 		return False

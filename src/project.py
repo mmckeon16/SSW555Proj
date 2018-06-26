@@ -71,8 +71,8 @@ def gedComProj():
 			if level == '1' and tag == 'BIRT' or tag == 'MARR' or tag == 'DEAT' or tag == 'DIV':
 				currDate = tag
 			if currDate != "" and tag == 'DATE' and level == '2':
-				if(mmstories.checkIfDateBeforeNow(arguments)): #checks to see if after or before date and does not add if after
-					ind[currInd][currDate] = arguments
+				mmstories.checkIfDateBeforeNow(arguments)
+				ind[currInd][currDate] = arguments
 			if level == '1' and tag == 'SEX':
 				ind[currInd]['sex'] = arguments
 			if level == '1' and tag == 'FAMC' or tag == 'FAMS':
@@ -88,8 +88,8 @@ def gedComProj():
 			if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
 				currDate = tag
 			if level =='2' and tag == 'DATE':
-				if(mmstories.checkIfDateBeforeNow(arguments)):
-					fam[currFam][currDate] = arguments
+				mmstories.checkIfDateBeforeNow(arguments)
+				fam[currFam][currDate] = arguments
 			if level == '1' and tag in ('HUSB', 'WIFE'):
 				fam[currFam][tag] = arguments
 

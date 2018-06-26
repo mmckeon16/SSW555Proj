@@ -7,130 +7,6 @@ I19: Dick /Smith/
 I26: Jane /Smith/
 I32: Nick /Tary/
 I44: Cersi /Lanister/
-+-----+------------------+--------+-------------+-------------+-------+--------+
-|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
-| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
-| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F20: husband = Test /Hub/, wife = Test /Wife/
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+
-|  ID |   Married   | Divorced | Husb Id |  Husb Name  | Wife Id |    Wife Name     | Children |
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |   ----   |   ----  |     ----    |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/ |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/ |   I07   | Jennifer /Smith/ | I19,I26  |
-+-----+-------------+----------+---------+-------------+---------+------------------+----------+
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-I45: Julie /Lee/
-I46: Jeremy /Lee/
-I47: Remy /Lee/
-+-----+------------------+--------+-------------+-------------+-------+--------+
-|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
-| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
-| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I45 |   Julie /Lee/    |   F    | 13 FEB 1981 |     ----    |  ---- |  F30   |
-| I46 |   Jeremy /Lee/   |   M    | 13 FEB 1981 |     ----    |  ---- |  F30   |
-| I47 |    Remy /Lee/    |   F    | 13 FEB 1982 |     ----    |  F30  |  ----  |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F20: husband = Test /Hub/, wife = Test /Wife/
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-F30: husband = Jeremy /Lee/, wife = Julie /Lee/
-+-----+-------------+----------+---------+--------------+---------+------------------+----------+
-|  ID |   Married   | Divorced | Husb Id |  Husb Name   | Wife Id |    Wife Name     | Children |
-+-----+-------------+----------+---------+--------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |   ----   |   ----  |     ----     |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |   ----   |   I11   |  Test /Hub/  |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |   ----   |   I01   | Joe /Smith/  |   I07   | Jennifer /Smith/ | I19,I26  |
-| F30 | 14 FEB 1980 |   ----   |   I46   | Jeremy /Lee/ |   I45   |   Julie /Lee/    |   I47    |
-+-----+-------------+----------+---------+--------------+---------+------------------+----------+
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-I45: Julie /Lee/
-I46: Jeremy /Lee/
-I47: Remy /Lee/
-+-----+------------------+--------+-------------+-------------+-------+--------+
-|  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-| I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
-| I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
-| I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I45 |   Julie /Lee/    |   F    | 13 FEB 1981 |     ----    |  ---- |  F30   |
-| I46 |   Jeremy /Lee/   |   M    | 13 FEB 1981 |     ----    |  ---- |  F30   |
-| I47 |    Remy /Lee/    |   F    | 13 FEB 1982 |     ----    |  F30  |  ----  |
-+-----+------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F20: husband = Test /Hub/, wife = Test /Wife/
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-F30: husband = Jeremy /Lee/, wife = Julie /Lee/
-+-----+-------------+-------------+---------+--------------+---------+------------------+----------+
-|  ID |   Married   |   Divorced  | Husb Id |  Husb Name   | Wife Id |    Wife Name     | Children |
-+-----+-------------+-------------+---------+--------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |     ----    |   ----  |     ----     |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |     ----    |   I11   |  Test /Hub/  |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |     ----    |   I01   | Joe /Smith/  |   I07   | Jennifer /Smith/ | I19,I26  |
-| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   | Jeremy /Lee/ |   I45   |   Julie /Lee/    |   I47    |
-+-----+-------------+-------------+---------+--------------+---------+------------------+----------+
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-I45: Julie /Lee/
-I46: Jeremy /Lee/
-I47: Remy /Lee/
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
 I45: Julie /Lee/
 I46: Jeremy /Lee/
 I47: Remy /Lee/
@@ -140,15 +16,15 @@ I49: George /Rob/
 |  ID |       NAME       | Gender |     BDay    |    Death    | Child | Spouse |
 +-----+------------------+--------+-------------+-------------+-------+--------+
 | I01 |   Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 | Jennifer /Smith/ |   F    | 23 SEP 1960 |     ----    |  ---- |  F23   |
+| I07 | Jennifer /Smith/ |   F    | 23 SEP 2019 |     ----    |  ---- |  F23   |
 | I10 |   Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
 | I11 |    Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
 | I19 |   Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I26 |   Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I32 |   Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
 | I44 | Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I45 |   Julie /Lee/    |   F    | 13 FEB 1981 |     ----    |  ---- |  F30   |
-| I46 |   Jeremy /Lee/   |   M    | 13 FEB 1981 |     ----    |  ---- |  F30   |
+| I45 |   Julie /Lee/    |   F    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
+| I46 |   Jeremy /Lee/   |   M    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
 | I47 |    Remy /Lee/    |   F    | 13 FEB 1978 |     ----    |  F30  |  ----  |
 | I48 |   George /Rob/   |   F    | 13 FEB 1982 |     ----    |  ---- |  F31   |
 | I49 |   George /Rob/   |   F    | 13 FEB 1982 |     ----    |  ---- |  F31   |
