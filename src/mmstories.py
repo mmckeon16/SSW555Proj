@@ -52,6 +52,27 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 						f=open("../test/acceptanceTestOutput.txt","a+")
 						f.write("ERROR: US14 - Sorry this amount of children born on the same day in "+family+" fam is not valid\n")
 						f.close()
+
+#US04
+def marrBeforeDivorce(fam):
+	for f in fam:
+		if("MARR" in fam[f]):
+			mdate = datetime.strptime(fam[f]["MARR"], '%d %b %Y')
+		else:
+			mdate = "null"
+		if("DIV" in fam[f]):
+			ddate = datetime.strptime(fam[f]["DIV"], '%d %b %Y')
+		else:
+			ddate = "null"
+		if mdate != "null" and ddate!= "null":
+			if mdate > ddate: # divorce came before marrige
+				family = str(f)
+				f=open("../test/acceptanceTestOutput.txt","a+")
+				f.write("ERROR: US04 - in fam "+family+" the divorce is before the marriage\n")
+				f.close()
+				return False
+			else:
+				return True
 	
 
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
@@ -63,9 +84,13 @@ ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex':
 		'I43': {'id': 'I43', 'name': 'Extra /Person/', 'BIRT': '13 FEB 1981','sex': 'M', 'family': 'F16'}}
 
 
-fam = {'F23': 
-		{'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I32', 'I43']},
-		 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007','HUSB': 'I32', 'WIFE': 'I30'}}
+fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I32', 'I43']},
+		 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007','HUSB': 'I32', 'WIFE': 'I30'},
+		 'F12': {'fam': 'F12', 'MARR': '12 DEC 2008','DIV':'12 DEC 2001','HUSB': 'I32', 'WIFE': 'I30'}}
+
+fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I32', 'I43']},
+		 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007','HUSB': 'I32', 'WIFE': 'I30'},
+		 'F12': {'fam': 'F12', 'MARR': '12 DEC 2008','DIV':'12 DEC 2019','HUSB': 'I32', 'WIFE': 'I30'}}
 
 
 
@@ -87,7 +112,13 @@ class MyTest(unittest.TestCase):
 		self.assertTrue("I01" in ind)
 		self.assertTrue(len(fam["F23"]["CHIL"])==0)
 
+		#US04
+		self.assertFalse(marrBeforeDivorce(fam))
+		self.assertTrue(marrBeforeDivorce(fam2))
 		
-# if __name__ == '__main__':
-#     unittest.main()
+
+
+		
+if __name__ == '__main__':
+    unittest.main()
 
