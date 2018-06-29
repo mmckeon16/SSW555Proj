@@ -23,19 +23,25 @@ def checkIndividual(fam,ind):
                     if husName == chilName or husName == wifeName or chilName == wifeName: #if any of the names match
                         if "HUSB" in fam[f]:
                             if husBDate == wifeBDate:
-                                print("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
+                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
+                                f.close()
                                 hus_list = fam[f]["HUSB"]
                                 fam.pop(hus_list, None)
                                 ind.pop(hus_list, None)
                                 break
                             if husBDate == chilBDate:
-                                print("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
+                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
+                                f.close()
                                 hus_list = fam[f]["HUSB"]
                                 fam.pop(hus_list, None)
                                 ind.pop(hus, None)
                                 break
                             if chilBDate == wifeBDate:
-                                print("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
+                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
+                                f.close()
                                 wife_list = fam[f]["WIFE"]
                                 fam.pop(wife_list, None)
                                 ind.pop(wife_list, None)
@@ -90,5 +96,5 @@ class MyTest(unittest.TestCase):
       self.assertFalse(('IO1' in fam['F23']['HUSB']))
 
     
-if __name__ == '__main__':
-        unittest.main()
+# if __name__ == '__main__':
+#         unittest.main()

@@ -1,3 +1,12 @@
+ERROR: US01 The date 23 SEP 2019 is after the current date
+ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
+Incorrect last name for a male child
+Incorrect last name for a male child
+Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
+Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
+Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
+Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
+Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
 sort by ind id:
 I01: Joe /Smith/
 I07: Jennifer /Smith/

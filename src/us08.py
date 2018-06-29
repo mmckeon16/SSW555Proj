@@ -12,10 +12,14 @@ def birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, di
 		date_div = datetime_object = datetime.strptime(divdate, '%d %b %Y')
 		dif_time = ((date_birth-date_div).days/365.25) * 12
 		if (dif_time > 9):
-			print("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is >9 months after their parents' divorce.")
+			f=open("../test/acceptanceTestOutput.txt","a+")
+			f.write("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is >9 months after their parents' divorce.\n")
+			f.close()
 			error_div = True
 	elif (rs_stories.form_d(marrdate, childsbirthday) == 2):
-		print("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is before their parents' marriage.")
+		f=open("../test/acceptanceTestOutput.txt","a+")
+		f.write("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is before their parents' marriage.\n")
+		f.close()
 		error_bir = True
 
 #class MyTest(unittest.TestCase):

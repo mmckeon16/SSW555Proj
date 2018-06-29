@@ -10,7 +10,9 @@ def checkIfDateBeforeNow(date):
 		if datetime_object <= currDate:
 			return True
 		else:
-			print("ERROR: US01 The date "+ date+ " is after the current date")
+			f=open("../test/acceptanceTestOutput.txt","a+")
+			f.write("ERROR: US01 The date "+ date+ " is after the current date\n")
+			f.close()
 			return False
 	except:
 		return False
@@ -45,7 +47,11 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 					
 						# print(fam)
 						# print(ind)
-						print("ERROR: US14 - Sorry this amount of children born on the same day in "+f +" fam is not valid")
+						family = str(f)
+						
+						f=open("../test/acceptanceTestOutput.txt","a+")
+						f.write("ERROR: US14 - Sorry this amount of children born on the same day in "+family+" fam is not valid\n")
+						f.close()
 	
 
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},

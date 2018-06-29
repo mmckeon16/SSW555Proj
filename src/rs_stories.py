@@ -81,16 +81,22 @@ def form_d (date1, date2):
 def us02(id, name, birthdate, mardate, gen):
   if (form_d(birthdate, mardate) == 2) and gen == "her":
     error_wifeus02 = "Error US02: Marriage of " + name + " (" + id + ") occurs before her birthday.\n"
-    print(error_wifeus02, end="")
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_wifeus02)
+    f.close();
   if (form_d(birthdate, mardate) == 2 and gen == "his"):
     error_husbus02 = "Error US02: Marriage of " + name + " (" + id + ") occurs before his birthday.\n"
-    print(error_husbus02, end="")
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_husbus02)
+    f.close()
 
 # code for us04
 def us04(marrdate, divdate, hubname, wifename):
   if (form_d(marrdate, divdate) == 2):
       error_us04 = "Error US04: Divorce of " + hubname + " and " + wifename + " happens before their marriage date."
-      print(error_us04)
+      f=open("../test/acceptanceTestOutput.txt","a+")
+      f.write(error_us04)
+      f.close()
 
 # test for us02
 class MyTest(unittest.TestCase):
@@ -104,8 +110,8 @@ class MyTest(unittest.TestCase):
     self.assertEqual(error_wifeus02, us02("I08", "Jane /Doe", "20 JUN 1923", "12 FEB 2000", "her"))
     #these test us04
 
-if __name__ == '__main__':
-  unittest.main()
+# if __name__ == '__main__':
+#   unittest.main()
 
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
     'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},

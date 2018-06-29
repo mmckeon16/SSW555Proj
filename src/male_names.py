@@ -16,9 +16,12 @@ def checkSameLastNames(fam, ind):
 				childLast = getLast(ind[c]["name"])
 				gender = ind[c]["sex"]
 				if gender == "M" and childLast != lastName:
-					print("Incorrect last name for a male child")
 					fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
 					ind.pop(c, None)
+					f=open("../test/acceptanceTestOutput.txt","a+")
+					f.write("Incorrect last name for a male child\n")
+					f.close()
+					
 		
 
 fam = {'F23': 

@@ -4,6 +4,7 @@ import male_names
 import rs_stories
 import us08
 import us09
+import indi_story
 
 def gedComProj():
 
