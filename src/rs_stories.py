@@ -5,7 +5,6 @@ from datetime import datetime
 
 # code for us02
 def us02(id, name, birthdate, mardate, gen):
-
   if ((datetime.strptime(birthdate, '%d %b %Y')) > (datetime.strptime(mardate, '%d %b %Y')) and gen == "her"):
     error_wifeus02 = "Error US02: Marriage of " + name + " (" + id + ") occurs before her birthday.\n"
     f=open("../test/acceptanceTestOutput.txt","a+")
