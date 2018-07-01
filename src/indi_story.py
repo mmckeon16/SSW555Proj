@@ -1,7 +1,14 @@
-#No more than one individual with the same name and birth date should appear in a GEDCOM file
-
 import unittest 
 
+""" open the file and return the file pointer or raise an IOERROR exception """
+def safe_open(file,mode):
+    try:
+        return open(file, mode)
+    except IOError:
+        raise IOError("Can't open '{}' for '{}'".format(file, mode))
+
+
+""" No more than one individual with the same name and birth date should appear in a GEDCOM file """
 def checkIndividual(fam,ind):
     husName = ''
     wifeName = ''
@@ -11,7 +18,7 @@ def checkIndividual(fam,ind):
             hus = fam[f]["HUSB"] #get ID
             husName = ind[hus]["name"] #get name
             husBDate = ind[hus]["BIRT"] #get bday
-    
+
             if "WIFE" in fam[f]:
                 wife = fam[f]["WIFE"] 
                 wifeName = ind[wife]["name"]
@@ -25,31 +32,18 @@ def checkIndividual(fam,ind):
                     if husName == chilName or husName == wifeName or chilName == wifeName: #if any of the names match
                         if "HUSB" in fam[f]:
                             if husBDate == wifeBDate:
-                                f=open("../test/acceptanceTestOutput.txt","a+")
-                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()
-                                hus_list = fam[f]["HUSB"]
-                                fam.pop(hus_list, None)
-                                ind.pop(hus_list, None)
-                                break
+                                popped(hus)
                             if husBDate == chilBDate:
-                                f=open("../test/acceptanceTestOutput.txt","a+")
-                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()
-                                hus_list = fam[f]["HUSB"]
-                                fam.pop(hus_list, None)
-                                ind.pop(hus, None)
-                                break
+                                popped(hus)
                             if chilBDate == wifeBDate:
-                                f=open("../test/acceptanceTestOutput.txt","a+")
-                                f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()
-                                wife_list = fam[f]["WIFE"]
-                                fam.pop(wife_list, None)
-                                ind.pop(wife_list, None)
-                                break
+                                popped(wife)
                     else:
                         continue
+
+def popped(any_list):
+    fam.pop(any_list, None)
+    ind.pop(any_list, None)
+    break
    
 fam = {'F23': 
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
@@ -96,6 +90,8 @@ class MyTest(unittest.TestCase):
       self.assertFalse(('I01' in ind3))
       self.assertFalse(('HUSB' in fam3['F23']))
 
-    
-if __name__ == '__main__':
-  unittest.main()
+def main():
+  safe_open("acceptanceTestOutput.txt", 'a+')
+
+if __name__ == "__main__":
+    unittest.main()
