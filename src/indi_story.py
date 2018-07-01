@@ -87,14 +87,14 @@ class MyTest(unittest.TestCase):
   def test(self):
       checkIndividual(fam, ind)
       self.assertTrue(('I01' in ind))
-      self.assertTrue(('IO1' in fam['F23']['HUSB']))
+      self.assertTrue(('I01' == fam['F23']['HUSB']))
       checkIndividual(fam2, ind2)
       self.assertTrue(('I01' in ind2))
-      self.assertTrue(('IO1' in fam2['F23']['HUSB']))
+      self.assertTrue(('I01' in fam2['F23']['HUSB']))
       checkIndividual(fam3, ind3)
       self.assertFalse(('I01' in ind3))
-      self.assertFalse(('IO1' in fam3['F23']['HUSB']))
+      self.assertFalse(('I01' in fam3['F23']['HUSB']))
 
     
-# if __name__ == '__main__':
-#         unittest.main()
+if __name__ == '__main__':
+  unittest.main()
