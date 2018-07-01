@@ -1,9 +1,10 @@
+#No more than one individual with the same name and birth date should appear in a GEDCOM file
+
 import unittest 
 
 def checkIndividual(fam,ind):
     husName = ''
     wifeName = ''
-#No more than one individual with the same name and birth date should appear in a GEDCOM file
 
     for f in fam:
         if "HUSB" in fam[f]:
