@@ -24,25 +24,25 @@ def checkIndividual(fam,ind):
                     if husName == chilName or husName == wifeName or chilName == wifeName: #if any of the names match
                         if "HUSB" in fam[f]:
                             if husBDate == wifeBDate:
-                                '''f=open("../test/acceptanceTestOutput.txt","a+")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
                                 f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()'''
+                                f.close()
                                 hus_list = fam[f]["HUSB"]
                                 fam.pop(hus_list, None)
                                 ind.pop(hus_list, None)
                                 break
                             if husBDate == chilBDate:
-                                '''f=open("../test/acceptanceTestOutput.txt","a+")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
                                 f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()'''
+                                f.close()
                                 hus_list = fam[f]["HUSB"]
                                 fam.pop(hus_list, None)
                                 ind.pop(hus, None)
                                 break
                             if chilBDate == wifeBDate:
-                                '''f=open("../test/acceptanceTestOutput.txt","a+")
+                                f=open("../test/acceptanceTestOutput.txt","a+")
                                 f.write("ERROR: INDIVIDUAL: US23: Must have unique name and birth dates.\n")
-                                f.close()'''
+                                f.close()
                                 wife_list = fam[f]["WIFE"]
                                 fam.pop(wife_list, None)
                                 ind.pop(wife_list, None)
