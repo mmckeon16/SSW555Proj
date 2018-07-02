@@ -28,13 +28,25 @@ def us04(marrdate, divdate, hubname, wifename):
       return error_us04
 
 # code for us06
-def us06(wifeName, wifedeathdate, hubname, hubdeathdate, divdate):
-  if ((datetime.strptime(wifedeathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y')) or (datetime.strptime(hubdeathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y'))):
-    error_us06 = "Error US06: Divorce of " + wifeName + " and " + hubname + " occurs after one or both of them have died."
+def us06(wifeName, hubName, deathdate, divdate):
+  error_us06 = "-"
+  if ((datetime.strptime(deathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y'))):
+    error_us06 = "Error US06: Divorce of " + wifeName + " and " + hubName + " occurs after one or both of them have died."
+  elif ((datetime.strptime(deathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y'))):
+    error_us06 = "Error US06: Divorce of " + wifeName + " and " + hubName + " occurs after one or both of them have died."
+  
+  if error_us06 != "-":
     f=open("../test/acceptanceTestOutput.txt","a+")
     f.write(error_us06)
     f.close()
     return error_us06
+
+# code for us18
+def us18(wifeName, wifeID, hubName, hubID, fam_dict):
+#  count = 0
+  print(fam_dict)
+
+
 
 class MyTest(unittest.TestCase):
   def test(self):
@@ -46,8 +58,8 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us04("19 JUL 1990", "18 JUL 1990", "Joe /Smith/", "Jane /Doe/"), "Error US04: Divorce of Joe /Smith/ and Jane /Doe/ happens before their marriage date.")
     self.assertEqual(us04("19 JUL 1990", "18 JUL 1995", "Joe /Smith/", "Jane /Doe/"), None)
     # these test us06
-    self.assertEqual(us06("Jane /Doe/", "20 DEC 2030", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.")
-    self.assertEqual(us06("Jane /Doe/", "20 DEC 2010", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
+    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.")
+    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
     
 
 if __name__ == '__main__': unittest.main()
