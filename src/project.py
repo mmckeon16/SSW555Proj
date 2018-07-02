@@ -4,15 +4,13 @@ import male_names
 import rs_stories
 import us08
 import us09
-import indi_story
+#import indi_story
 
 def gedComProj():
 
 	valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
 	file_name = "../test/acceptanceTest.ged"
-
-
 
 	ind = {}
 	fam = {}
@@ -190,6 +188,10 @@ def gedComProj():
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
 					ind[fam[key]["HUSB"]]["DEAT"]
 				count = count + 1
+
+		#US06: divorce before death - RS
+		if (div != "----" and ind[fam[key]["WIFE"]]["DEAT"] != "----" and ind[fam[key]["HUSB"]]["DEAT"] != "----"):
+			rs_stories.us06(wifeName, ind[fam[key]["WIFE"]]["DEAT"], hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
 
 		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
