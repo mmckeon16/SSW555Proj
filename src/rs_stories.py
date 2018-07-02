@@ -44,7 +44,10 @@ def us06(wifeName, hubName, deathdate, divdate):
 # code for us18
 def us18(wifeName, wifeID, hubName, hubID, fam_dict):
 #  count = 0
-  print(fam_dict)
+  for key in fam_dict:
+    for sub_dict in fam_dict[key]['CHIL']
+      if (wifeID in sub_dict and hubID in sub_dict):
+        error_us18 = "Error US18: Siblings " + wifeName + "and " + hubname + "cannot be married." 
 
 
 
@@ -60,6 +63,6 @@ class MyTest(unittest.TestCase):
     # these test us06
     self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.")
     self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
-    
+    # these testu18
 
 if __name__ == '__main__': unittest.main()
