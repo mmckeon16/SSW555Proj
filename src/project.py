@@ -195,7 +195,7 @@ def gedComProj():
 				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
 
 		#US18 - RS
-		#rs_stories.us18(wifeName, wifeID, hubName, hubName, hubID, fam[key])
+		#rs_stories.us18(wifeName, wifeID, hubName, hubName, hubID, fam)
 		
 		# ----
 
