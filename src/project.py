@@ -190,7 +190,7 @@ def gedComProj():
 				count = count + 1
 
 		#US06: divorce before death - RS
-		if (div != "----" and ind[fam[key]["WIFE"]]["DEAT"] != "----" and ind[fam[key]["HUSB"]]["DEAT"] != "----"):
+		if (div != "----" and (ind[fam[key]["WIFE"]]["DEAT"]) != "----" or (ind[fam[key]["HUSB"]]["DEAT"] != "----")):
 			rs_stories.us06(wifeName, ind[fam[key]["WIFE"]]["DEAT"], hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
 
 		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
