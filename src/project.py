@@ -4,10 +4,9 @@ import male_names
 import rs_stories
 import us08
 import us09
-#import indi_story
+import indi_story
 
 def gedComProj():
-
 	valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
 	file_name = "../test/acceptanceTest.ged"
@@ -46,7 +45,6 @@ def gedComProj():
 		elif len(word_list) > 1 and level in valid and tag in valid[level]:
 			isValid = 'Y'
 		
-		ids_seen = []
 	#if isValid == 'Y': # can create id 
 		if level == '0' and tag == 'INDI': #start of individual
 			currInd = word_list[1]
@@ -182,16 +180,24 @@ def gedComProj():
 		count = 0
 		if (chil != "----"):
 			for i in fam[key]['CHIL']:
-				if "DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----":
+				if ("DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----"):
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
 				elif "DEAT" in ind[fam[key]["HUSB"]] and ind[fam[key]["HUSB"]]["DEAT"]  != "----":
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
 					ind[fam[key]["HUSB"]]["DEAT"]
 				count = count + 1
 
-		#US06: divorce before death - RS
-		if (div != "----" and (ind[fam[key]["WIFE"]]["DEAT"]) != "----" or (ind[fam[key]["HUSB"]]["DEAT"] != "----")):
-			rs_stories.us06(wifeName, ind[fam[key]["WIFE"]]["DEAT"], hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
+		#US06 - RS
+		if ((wifeID != "----") and (hubID != "----") and (div != "----")):
+			if ("DEAT" in ind[fam[key]["WIFE"]] and (ind[fam[key]["WIFE"]] != "----") and (ind[fam[key]["WIFE"]]["DEAT"] != "----")):
+				rs_stories.us06(wifeName, hubName, ind[fam[key]["WIFE"]]["DEAT"], div)
+			elif(("DEAT" in ind[fam[key]["HUSB"]] and (ind[fam[key]['HUSB']]["DEAT"]) != "----" and (ind[fam[key]["HUSB"]]["DEAT"] != "----"))):
+				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
+
+		#US18 - RS
+		#rs_stories.us18(wifeName, wifeID, hubName, hubName, hubID, fam[key])
+		
+		# ----
 
 		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
