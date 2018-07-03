@@ -43,11 +43,14 @@ def us06(wifeName, hubName, deathdate, divdate):
 
 # code for us18
 def us18(wifeName, wifeID, hubName, hubID, fam_dict):
-#  count = 0
   for key in fam_dict:
-    for sub_dict in fam_dict[key]['CHIL']
-      if (wifeID in sub_dict and hubID in sub_dict):
-        error_us18 = "Error US18: Siblings " + wifeName + "and " + hubname + "cannot be married." 
+    if 'CHIL' in fam_dict[key]:
+        if (wifeID in fam_dict[key]['CHIL'] and hubID in fam_dict[key]['CHIL']):
+          error_us18 = "Error US18: Siblings " + wifeName + " and " + hubName + " cannot be married." 
+          f=open("../test/acceptanceTestOutput.txt","a+")
+          f.write(error_us18)
+          f.close()
+          return error_us18
 
 
 
@@ -64,5 +67,10 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.")
     self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
     # these testu18
+    fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007', 'HUSB': "I19", 'WIFE': 'I26'}}
+    self.assertEqual(us18("Jane /Doe/", "I26", "Josh /Doe/", "I19", fam), "Error US18: Siblings Jane /Doe/ and Josh /Doe/ cannot be married.")
+    fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
+    self.assertEqual(us18("Jane /Doe/", "I07", "Josh /Doe/", "I01", fam2), None)
+
 
 if __name__ == '__main__': unittest.main()
