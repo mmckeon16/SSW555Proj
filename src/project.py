@@ -195,7 +195,7 @@ def gedComProj():
 				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
 
 		#US18 - RS
-		rs_stories.us18(wifeName, wifeID, hubName, hubName, hubID, fam)
+		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
 		
 		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
