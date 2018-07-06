@@ -7,22 +7,25 @@ def safe_open(file,mode):
     except IOError:
         raise IOError("Can't open '{}' for '{}'".format(file, mode))
 
-
 """Marriage should not occur during marriage to another spouse"""
 def checkBigamy(fam,ind):
     #if the value of husb or the value of husb in one family is equal to the value of husb or the value of wife of another fam
+    newDictionary = {}
+    count = 0
     for f in fam:
         hus_id = fam[f]['HUSB']
         wife_id = fam[f]['WIFE']
 
-    for f in fam2:
-        hus_id2 = fam2[f]['HUSB']
-        wife_id2 = fam2[f]['WIFE']
-
-    if hus_id2 == hus_id or if wife_id == wife_id2:
-        print("US11 ERROR: Marriage should not occur during marriage to another spouse")
-
-
+        wife_count = 0
+        husb_count = 0
+        #then do another for loop
+        for f in fam:
+            hus_id2 = fam[f]['HUSB']
+            wife_id2 = fam[f]['WIFE']
+            #compre the 2 husbands, if they are the same, add one to the husb_count
+            #compare the 2 wives, if they are the same, add one to the wife_count
+        #check if husb_count or wife_count is greater than 1, if so, save the error. If not, continue
+        
 fam = {'F23': 
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
@@ -67,8 +70,11 @@ class MyTest(unittest.TestCase):
       self.assertFalse(('I01' in ind3))
       self.assertFalse(('HUSB' in fam3['F23']))
 
+
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')
+
+checkBigamy(fam, ind)
 
 if __name__ == "__main__":
     unittest.main()
