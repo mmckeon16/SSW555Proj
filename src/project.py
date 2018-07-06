@@ -7,6 +7,7 @@ import us09
 import indi_story
 
 def gedComProj():
+	f= open("../test/acceptanceTestOutput.txt","a+")
 
 	valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
 
@@ -72,7 +73,7 @@ def gedComProj():
 			if level == '1' and tag == 'BIRT' or tag == 'MARR' or tag == 'DEAT' or tag == 'DIV':
 				currDate = tag
 			if currDate != "" and tag == 'DATE' and level == '2':
-				mmstories.checkIfDateBeforeNow(arguments)
+				mmstories.checkIfDateBeforeNow(arguments, f)
 				ind[currInd][currDate] = arguments
 			if level == '1' and tag == 'SEX':
 				ind[currInd]['sex'] = arguments
@@ -89,7 +90,7 @@ def gedComProj():
 			if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
 				currDate = tag
 			if level =='2' and tag == 'DATE':
-				mmstories.checkIfDateBeforeNow(arguments)
+				mmstories.checkIfDateBeforeNow(arguments, f)
 				fam[currFam][currDate] = arguments
 			if level == '1' and tag in ('HUSB', 'WIFE'):
 				fam[currFam][tag] = arguments
@@ -100,11 +101,11 @@ def gedComProj():
 				else:
 					fam[currFam][tag] = [arguments]
 
-	mmstories.checkLessThan5SharedSiblingBdays(fam, ind);
+	mmstories.checkLessThan5SharedSiblingBdays(fam, ind, f);
+	mmstories.logLargeAgeDif(fam, ind, f)
+	mmstories.marrAfter14(fam, ind, f)
 	male_names.checkSameLastNames(fam, ind)
 	indi_story.checkIndividual(fam, ind)
-
-	f= open("../test/acceptanceTestOutput.txt","a+")
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

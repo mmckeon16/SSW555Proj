@@ -1,0 +1,4 @@
+ERROR: US01 The date 17 JUN 2029 is after the current date
+ERROR: US01 The date 17 JUN 2029 is after the current date
+ERROR: US10 - The individual I45 was married before 14, this is invalid
+US34: The couple I01 and I07 have a large age difference

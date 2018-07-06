@@ -132,6 +132,19 @@
 2 DATE 13 FEB 1982
 1 SEX F
 1 FAMC F31
+0 NOTE start of sprint 2 users, twice age and marr after 14
+0 I50 INDI
+1 NAME Andrew /Svensson/
+1 BIRT
+2 DATE 13 FEB 1963
+1 SEX M
+1 FAMC F32
+0 I51 INDI
+1 NAME Megan /Murtle/
+1 BIRT
+2 DATE 13 FEB 2010
+1 SEX F
+1 FAMC F32
 0 NOTE this is the start of the families
 0 F23 FAM
 1 MARR
@@ -170,3 +183,8 @@
 2 DATE 12 MAY 1995
 1 HUSB I48
 1 WIFE I49
+0 F32 FAM
+1 MARR
+2 DATE 14 FEB 2018
+1 HUSB I50
+1 WIFE I51

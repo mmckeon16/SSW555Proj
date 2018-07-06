@@ -1,24 +1,21 @@
 import unittest
 from datetime import datetime
 
-#takes date in form DD Mon YYYY
 #US01
-def checkIfDateBeforeNow(date):
+def checkIfDateBeforeNow(date, f):
 	try:
-		datetime_object = datetime.strptime(date, '%d %b %Y')
+		givenDate = datetime.strptime(date, '%d %b %Y')
 		currDate = datetime.today()
-		if datetime_object <= currDate:
+		if givenDate <= currDate:
 			return True
 		else:
-			f=open("../test/acceptanceTestOutput.txt","a+")
 			f.write("ERROR: US01 The date "+ date+ " is after the current date\n")
-			f.close()
 			return False
 	except:
 		return False
 
 #US14
-def checkLessThan5SharedSiblingBdays(fam, ind):
+def checkLessThan5SharedSiblingBdays(fam, ind, file):
 	for f in fam:
 		if "CHIL" in fam[f]:
 			if len(fam[f]["CHIL"]) > 4: #could be situation where more than 5
@@ -44,81 +41,64 @@ def checkLessThan5SharedSiblingBdays(fam, ind):
 								ind.pop(c, None)
 
 						newList = []
-					
-						# print(fam)
-						# print(ind)
 						family = str(f)
 						
-						f=open("../test/acceptanceTestOutput.txt","a+")
-						f.write("ERROR: US14 - Sorry this amount of children born on the same day in "+family+" fam is not valid\n")
-						f.close()
+						file.write("ERROR: US14 - Sorry this amount of children born on the same day in "+family+" fam is not valid\n")
 
-#US04
-def marrBeforeDivorce(fam):
-	for f in fam:
-		if("MARR" in fam[f]):
-			mdate = datetime.strptime(fam[f]["MARR"], '%d %b %Y')
-		else:
-			mdate = "null"
-		if("DIV" in fam[f]):
-			ddate = datetime.strptime(fam[f]["DIV"], '%d %b %Y')
-		else:
-			ddate = "null"
-		if mdate != "null" and ddate!= "null":
-			if mdate > ddate: # divorce came before marrige
-				family = str(f)
-				f=open("../test/acceptanceTestOutput.txt","a+")
-				f.write("ERROR: US04 - in fam "+family+" the divorce is before the marriage\n")
-				f.close()
-				return False
-			else:
-				return True
+#Get Age
+def getAge(born):
+	born = datetime.strptime(born, '%d %b %Y')
+	today = datetime.today()
+	return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+#Get Age
+def getAgeAt(born, given):
+	born = datetime.strptime(born, '%d %b %Y')
+	given = datetime.strptime(given, '%d %b %Y')
+	return given.year - born.year - ((given.month, given.day) < (born.month, born.day))
+
+#US10
+def marrAfter14(fam, ind, file):
+	result = True
 	
+	for f in fam:
+		if("HUSB" in fam[f]): #check husb age
+			husb = fam[f]["HUSB"]
+			if(husb in ind and "BIRT" in ind[husb]):
+				age = 0
+				if("MARR" in fam[f]):
+					age = getAgeAt(ind[husb]["BIRT"], fam[f]["MARR"])
+				if(age <=14):
+					file.write("ERROR: US10 - The individual "+husb+" was married before 14, this is invalid\n")
+					result = False
+		if("WIFE" in fam[f]): #check wife age
+			wife = fam[f]["WIFE"]
+			if(wife in ind and "BIRT" in ind[wife]):
+				age = 0
+				if("MARR" in fam[f]):
+					age = getAge(ind[wife]["BIRT"])
+				if(age <=14):
+					file.write("ERROR: US10 - The individual "+wife+" was married before 14, this is invalid\n")
+					result = False			
+	return result
 
-ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
-		'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
-		'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981','sex': 'M', 'family': 'F23'},
-		'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
-		'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F16'},
-		'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981','sex': 'M', 'family': 'F16'},
-		'I43': {'id': 'I43', 'name': 'Extra /Person/', 'BIRT': '13 FEB 1981','sex': 'M', 'family': 'F16'}}
+#US34
+def logLargeAgeDif(fam, ind, file):
+	result = True
+	for f in fam:
+		husAge = 0
+		wifeAge = 0
+		if("HUSB" in fam[f]):
+			husb = fam[f]["HUSB"]
+			if husb in ind and "BIRT" in ind[husb]:
+				husAge = getAge(ind[husb]["BIRT"])
+		if("WIFE" in fam[f]):
+			wife = fam[f]["WIFE"]
+			if wife in ind and "BIRT" in ind[wife]:
+				wifeAge = getAge(ind[wife]["BIRT"])
+		if abs(husAge-wifeAge) > wifeAge or abs(husAge-wifeAge) > husAge:
+			file.write("US34: The couple "+husb+" and "+wife+" have a large age difference\n")
+			result = False
+	return result
 
-
-fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I32', 'I43']},
-		 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007','HUSB': 'I32', 'WIFE': 'I30'},
-		 'F12': {'fam': 'F12', 'MARR': '12 DEC 2008','DIV':'12 DEC 2001','HUSB': 'I32', 'WIFE': 'I30'}}
-
-fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I32', 'I43']},
-		 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007','HUSB': 'I32', 'WIFE': 'I30'},
-		 'F12': {'fam': 'F12', 'MARR': '12 DEC 2008','DIV':'12 DEC 2019','HUSB': 'I32', 'WIFE': 'I30'}}
-
-
-
-
-class MyTest(unittest.TestCase):
-	def test(self):
-		#US01
-		self.assertTrue(checkIfDateBeforeNow("23 SEP 1960"))
-		self.assertEqual(checkIfDateBeforeNow("17 JUN 2029"), False)
-		self.assertTrue(checkIfDateBeforeNow(datetime.today().strftime('%d %b %Y')))
-		self.assertEqual(checkIfDateBeforeNow("123 JUN 2020"), False)
-		self.assertEqual(checkIfDateBeforeNow("31 FEB 2011"), False)
-
-		#US14
-		checkLessThan5SharedSiblingBdays(fam, ind)
-		self.assertFalse("I19" in ind)
-		self.assertFalse("I32" in ind)
-		self.assertFalse("I43" in ind)
-		self.assertTrue("I01" in ind)
-		self.assertTrue(len(fam["F23"]["CHIL"])==0)
-
-		#US04
-		self.assertFalse(marrBeforeDivorce(fam))
-		self.assertTrue(marrBeforeDivorce(fam2))
-		
-
-
-		
-if __name__ == '__main__':
-    unittest.main()
-
+#NOTE Tests for these user stories are now in /test under mmstoriesTest
