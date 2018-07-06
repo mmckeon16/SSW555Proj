@@ -1,13 +1,10 @@
 import unittest
-import rs_stories
 from datetime import datetime
 
 def birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool):
 	error_div = False
 	error_bir = False
-	if ((rs_stories.form_d(childsbirthday, divdate) == 2) and (divBool == True)):
-		#print(childsbirthday)
-		#print(marriagedate)
+	if ((datetime.strptime(marrdate, '%d %b %Y')) < (datetime.strptime(childsbirthday, '%d %b %Y')) and (divBool == True)):
 		date_birth = datetime.strptime(childsbirthday, '%d %b %Y')
 		date_div = datetime_object = datetime.strptime(divdate, '%d %b %Y')
 		dif_time = ((date_birth-date_div).days/365.25) * 12
@@ -16,7 +13,7 @@ def birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, di
 			f.write("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is >9 months after their parents' divorce.\n")
 			f.close()
 			error_div = True
-	elif (rs_stories.form_d(marrdate, childsbirthday) == 2):
+	elif ((datetime.strptime(marrdate, '%d %b %Y')) > (datetime.strptime(childsbirthday, '%d %b %Y'))):
 		f=open("../test/acceptanceTestOutput.txt","a+")
 		f.write("Error US08: Birthdate of child " + childsname + " (" + childsid + ") is before their parents' marriage.\n")
 		f.close()

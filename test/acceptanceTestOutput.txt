@@ -1,71 +1,12 @@
-ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
 Incorrect last name for a male child
 Incorrect last name for a male child
 Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
 Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
 Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
-Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
+Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.
+Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
 Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
-ERROR: US01 The date 23 SEP 2019 is after the current date
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-I45: Julie /Lee/
-I46: Jeremy /Lee/
-I47: Remy /Lee/
-I48: George /Rob/
-I49: George /Rob/
-I50: Andrew /Svensson/
-I51: Megan /Murtle/
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-|  ID |        NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-| I01 |    Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 |  Jennifer /Smith/ |   F    | 23 SEP 2019 |     ----    |  ---- |  F23   |
-| I10 |    Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
-| I11 |     Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |    Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |    Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I45 |    Julie /Lee/    |   F    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
-| I46 |    Jeremy /Lee/   |   M    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
-| I47 |     Remy /Lee/    |   F    | 13 FEB 1978 |     ----    |  F30  |  ----  |
-| I48 |    George /Rob/   |   F    | 13 FEB 1982 |     ----    |  ---- |  F31   |
-| I49 |    George /Rob/   |   F    | 13 FEB 1982 |     ----    |  ---- |  F31   |
-| I50 | Andrew /Svensson/ |   M    | 13 FEB 1963 |     ----    |  ---- |  F32   |
-| I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |     ----    |  ---- |  F32   |
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F20: husband = Test /Hub/, wife = Test /Wife/
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-F30: husband = Jeremy /Lee/, wife = Julie /Lee/
-F31: husband = George /Rob/, wife = George /Rob/
-F32: husband = Andrew /Svensson/, wife = Megan /Murtle/
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-|  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     | Children |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ | I19,I26  |
-| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |   I47    |
-| F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I49   |   George /Rob/   |   ----   |
-| F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  |   ----   |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-Incorrect last name for a male child
-Incorrect last name for a male child
-Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
-Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
-Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
-Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
-Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
+Error US06: Divorce of Julie /Lee/ and Jeremy /Lee/ occurs after one or both of them have died.
 ERROR: US01 The date 23 SEP 2019 is after the current date
 ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
 US34: The couple I01 and I07 have a large age difference
@@ -75,22 +16,6 @@ ERROR: US10 - The individual I11 was married before 14, this is invalid
 ERROR: US10 - The individual I46 was married before 14, this is invalid
 ERROR: US10 - The individual I48 was married before 14, this is invalid
 ERROR: US10 - The individual I51 was married before 14, this is invalid
-sort by ind id:
-I01: Joe /Smith/
-I07: Jennifer /Smith/
-I10: Test /Wife/
-I11: Test /Hub/
-I19: Dick /Smith/
-I26: Jane /Smith/
-I32: Nick /Tary/
-I44: Cersi /Lanister/
-I45: Julie /Lee/
-I46: Jeremy /Lee/
-I47: Remy /Lee/
-I48: George /Rob/
-I49: George /Rob/
-I50: Andrew /Svensson/
-I51: Megan /Murtle/
 +-----+-------------------+--------+-------------+-------------+-------+--------+
 |  ID |        NAME       | Gender |     BDay    |    Death    | Child | Spouse |
 +-----+-------------------+--------+-------------+-------------+-------+--------+
@@ -110,13 +35,6 @@ I51: Megan /Murtle/
 | I50 | Andrew /Svensson/ |   M    | 13 FEB 1963 |     ----    |  ---- |  F32   |
 | I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |     ----    |  ---- |  F32   |
 +-----+-------------------+--------+-------------+-------------+-------+--------+
-Sort by famid:
-F16: husband = ----, wife = ----
-F20: husband = Test /Hub/, wife = Test /Wife/
-F23: husband = Joe /Smith/, wife = Jennifer /Smith/
-F30: husband = Jeremy /Lee/, wife = Julie /Lee/
-F31: husband = George /Rob/, wife = George /Rob/
-F32: husband = Andrew /Svensson/, wife = Megan /Murtle/
 +-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
 |  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     | Children |
 +-----+-------------+-------------+---------+-------------------+---------+------------------+----------+

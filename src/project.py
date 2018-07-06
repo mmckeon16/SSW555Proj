@@ -13,8 +13,6 @@ def gedComProj():
 
 	file_name = "../test/acceptanceTest.ged"
 
-
-
 	ind = {}
 	fam = {}
 	currInd = ""
@@ -49,7 +47,6 @@ def gedComProj():
 		elif len(word_list) > 1 and level in valid and tag in valid[level]:
 			isValid = 'Y'
 		
-		ids_seen = []
 	#if isValid == 'Y': # can create id 
 		if level == '0' and tag == 'INDI': #start of individual
 			currInd = word_list[1]
@@ -109,7 +106,6 @@ def gedComProj():
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
-	f.write("sort by ind id:"+"\n")
 	for key in sorted(ind):
 		famID = ind[key]['family']
 		if fam[famID]['HUSB'] == ind[key]['id'] or fam[famID]['WIFE'] == ind[key]['id']:
@@ -122,14 +118,12 @@ def gedComProj():
 			deat = ind[key]['DEAT']
 		else:
 			deat = "----"
-		f.write("%s: %s" % (key, ind[key]['name'])+"\n")
 		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], deat, chil, spouse])
 
 	f.write(indTable.get_string() + "\n")
 
 	famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
 	famTable.align["ID"] = "1" 
-	f.write('Sort by famid:'+"\n")
 	for key in sorted(fam):
 		if 'DIV' in fam[key]:
 			div = fam[key]['DIV']
@@ -185,14 +179,23 @@ def gedComProj():
 		count = 0
 		if (chil != "----"):
 			for i in fam[key]['CHIL']:
-				if "DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----":
+				if ("DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----"):
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
 				elif "DEAT" in ind[fam[key]["HUSB"]] and ind[fam[key]["HUSB"]]["DEAT"]  != "----":
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
 					ind[fam[key]["HUSB"]]["DEAT"]
 				count = count + 1
 
-		f.write("%s: husband = %s, wife = %s" % (key, hubName, wifeName+"\n"))
+		#US06 - RS
+		if ((wifeID != "----") and (hubID != "----") and (div != "----")):
+			if ("DEAT" in ind[fam[key]["WIFE"]] and (ind[fam[key]["WIFE"]] != "----") and (ind[fam[key]["WIFE"]]["DEAT"] != "----")):
+				rs_stories.us06(wifeName, hubName, ind[fam[key]["WIFE"]]["DEAT"], div)
+			elif(("DEAT" in ind[fam[key]["HUSB"]] and (ind[fam[key]['HUSB']]["DEAT"]) != "----" and (ind[fam[key]["HUSB"]]["DEAT"] != "----"))):
+				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
+
+		#US18 - RS
+		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
+		
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 		
 
