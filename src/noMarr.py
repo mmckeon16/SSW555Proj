@@ -15,21 +15,31 @@ def checkBigamy(fam,ind):
         if 'WIFE' in fam[f]: 
             wife = fam[f]["WIFE"] 
 
-        if 'HUSB' in fam[f]:
-            hus = fam[f]["HUSB"] #get ID
+            if 'HUSB' in fam[f]:
+                hus = fam[f]["HUSB"] #get ID
 
-        else:
-          print("No parents, therefore no parents have married any of their descendants.")
+        if "CHIL" in fam[f]:
+            for c in fam[f]["CHIL"]:
+                chil = ind[c]["id"]
 
     for i in ind: #for all individuals
-        if ind[i] != ind[wife] or ind[i] != ind[hus]: #if not a parent, not sure why this line doesn't work
-            descendants.append(i)
+        if ind[i] != ind[wife] or ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
+            descendants.append(i) 
+            print(descendants)
 
-    for desc in descendants:
-        if desc == wife or desc == hus: #if a descendant is a wife or husband, that means they married a descendant
-            print("US17 ERROR: Parents should not marry any of their descendants")
+    for desc in descendants: #if desc is a wife or husband, that means they married a descendant
+        if chil == hus or chil == wife:
+            popped(wife)
+        if desc == hus or desc == wife: 
+            popped(hus)
+
+def popped(any_list):
+    print("US17 ERROR: Parents should not marry any of their descendants")
+    fam.pop(any_list, None)
+    ind.pop(any_list, None)
    
-fam = {'F23': 
+   
+fam = {'F23': #no errors
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
@@ -40,8 +50,8 @@ ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex':
   'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
-fam2 = {'F23': #dad and son have same name
-  {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+fam2 = {'F23': #child is husband
+  {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': '119', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
 ind2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
  'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
@@ -51,8 +61,8 @@ ind2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex'
   'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
-fam3 = {'F23': #dad and son have same name and bday
-  {'fam': 'F23', 'MARR': '14 FEB 1980', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+fam3 = {'F23': #descendant is wife
+  {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I30', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
 ind3 = {'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
  'I19': {'id': 'I19', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23'},
@@ -62,19 +72,19 @@ ind3 = {'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
 
-"""class MyTest(unittest.TestCase):
+class MyTest(unittest.TestCase):
   def test(self):
-      checkIndividual(fam, ind)
+      checkBigamy(fam, ind)
       self.assertTrue(('I01' in ind))
       self.assertTrue(('I01' == fam['F23']['HUSB']))
-      checkIndividual(fam2, ind2)
-      self.assertTrue(('I01' in ind2))
-      self.assertTrue(('I01' in fam2['F23']['HUSB']))
-      checkIndividual(fam3, ind3)
-      self.assertFalse(('I01' in ind3))
-      self.assertFalse(('HUSB' in fam3['F23']))
+      checkBigamy(fam2, ind2)
+      self.assertFalse(('I07' in ind2))
+      self.assertFalse(('I07' in fam2['F23']['WIFE']))
+      checkBigamy(fam3, ind3)
+      self.assertFalse(('I30' in ind3))
+      self.assertFalse(('WIFE' in fam3['F23']))
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')
 
 if __name__ == "__main__":
-    unittest.main()"""
+    unittest.main()
