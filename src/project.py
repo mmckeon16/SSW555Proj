@@ -5,6 +5,8 @@ import rs_stories
 import us08
 import us09
 import indi_story
+import noMarr
+import noBigamy
 
 def gedComProj():
 	f= open("../test/acceptanceTestOutput.txt","a+")
@@ -103,6 +105,8 @@ def gedComProj():
 	mmstories.marrAfter14(fam, ind, f)
 	male_names.checkSameLastNames(fam, ind)
 	indi_story.checkIndividual(fam, ind)
+	noMarr.checkMarr(fam,ind)
+	noBigamy.checkBigamy(fam,ind)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
