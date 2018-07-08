@@ -10,7 +10,7 @@ def safe_open(file,mode):
 
 
 """Parents should not marry any of their descendants"""
-def checkBigamy(fam,ind):
+def checkMarr(fam,ind):
     for f in fam:
         if 'WIFE' in fam[f]: 
             wife = fam[f]["WIFE"] 
