@@ -7,7 +7,7 @@ def safe_open(file,mode):
         raise IOError("Can't open '{}' for '{}'".format(file, mode))
 
 """Marriage should not occur during marriage to another spouse"""
-def checkBigamy(fam,ind):
+def checkBigamy(fam,ind, file):
     for f in fam:
         if 'HUSB' in fam[f]:
             hus_id = fam[f]['HUSB']
@@ -30,11 +30,11 @@ def checkBigamy(fam,ind):
             else:
               continue
             if husb_count > 1: #if bigamy occurs, remove both instances of a spouse
-                print("US11 ERROR: Marriage should not occur during marriage to another spouse")
+                file.write("US11 ERROR: Marriage should not occur during marriage to another spouse\n")
                 popped(hus_id)
                 break
             if wife_count > 1:
-                print("US11 ERROR: Marriage should not occur during marriage to another spouse")
+                file.write("US11 ERROR: Marriage should not occur during marriage to another spouse\n")
                 popped(wife_id)
                 break
 
@@ -78,21 +78,21 @@ ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex'
 
 class MyTest(unittest.TestCase):
   def test(self):
-      checkBigamy(fam, ind)
+      f=open("../test/ruthyOutput.txt","a+")
+      checkBigamy(fam, ind, f)
       self.assertTrue(('I01' in ind))
       self.assertTrue(('I01' == fam['F23']['HUSB']))
-      checkBigamy(fam2, ind2)
+      checkBigamy(fam2, ind2, f)
       self.assertTrue(('I01' in ind2))
       self.assertTrue(('I01' in fam2['F23']['HUSB']))
-      checkBigamy(fam3, ind3)
+      checkBigamy(fam3, ind3, f)
       self.assertTrue(('I07' in ind3))
       self.assertTrue(('WIFE' in fam3['F23']))
+      f.close()
 
 
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')
-
-checkBigamy(fam, ind)
 
 if __name__ == "__main__":
     unittest.main()

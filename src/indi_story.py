@@ -9,7 +9,7 @@ def safe_open(file,mode):
 
 
 """ No more than one individual with the same name and birth date should appear in a GEDCOM file """
-def checkIndividual(fam,ind):
+def checkIndividual(fam,ind, file):
     husName = ''
     wifeName = ''
 
@@ -32,10 +32,13 @@ def checkIndividual(fam,ind):
                     if husName == chilName or husName == wifeName or chilName == wifeName: #if any of the names match
                         if "HUSB" in fam[f]:
                             if husBDate == wifeBDate:
+                                file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
                                 popped(hus)
                             if husBDate == chilBDate:
+                                file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
                                 popped(hus)
                             if chilBDate == wifeBDate:
+                                file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
                                 popped(wife)
                     else:
                         continue
@@ -80,15 +83,17 @@ ind3 = {'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 
 
 class MyTest(unittest.TestCase):
   def test(self):
-      checkIndividual(fam, ind)
+      f= open("../test/ruthyOutput.txt","a+")
+      checkIndividual(fam, ind, f)
       self.assertTrue(('I01' in ind))
       self.assertTrue(('I01' == fam['F23']['HUSB']))
-      checkIndividual(fam2, ind2)
+      checkIndividual(fam2, ind2, f)
       self.assertTrue(('I01' in ind2))
       self.assertTrue(('I01' in fam2['F23']['HUSB']))
-      checkIndividual(fam3, ind3)
+      checkIndividual(fam3, ind3, f)
       self.assertFalse(('I01' in ind3))
       self.assertFalse(('HUSB' in fam3['F23']))
+      f.close()
 
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')

@@ -103,10 +103,10 @@ def gedComProj():
 	mmstories.checkLessThan5SharedSiblingBdays(fam, ind, f);
 	mmstories.logLargeAgeDif(fam, ind, f)
 	mmstories.marrAfter14(fam, ind, f)
-	male_names.checkSameLastNames(fam, ind)
-	indi_story.checkIndividual(fam, ind)
-	noMarr.checkMarr(fam,ind)
-	noBigamy.checkBigamy(fam,ind)
+	male_names.checkSameLastNames(fam, ind, f)
+	indi_story.checkIndividual(fam, ind, f)
+	noMarr.checkMarr(fam,ind, f)
+	noBigamy.checkBigamy(fam,ind, f)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

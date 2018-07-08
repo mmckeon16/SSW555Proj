@@ -1,9 +1,10 @@
+import unittest 
 
 def getLast(name):
 	theIndex = name.index("/")
 	return name[theIndex:]
 
-def checkSameLastNames(fam, ind):
+def checkSameLastNames(fam, ind, file):
 	for f in fam:
 		if "HUSB" in fam[f]:
 			hus = fam[f]["HUSB"]
@@ -18,9 +19,7 @@ def checkSameLastNames(fam, ind):
 				if gender == "M" and childLast != lastName:
 					fam[f]["CHIL"].pop(fam[f]["CHIL"].index(c))
 					ind.pop(c, None)
-					f=open("../test/acceptanceTestOutput.txt","a+")
-					f.write("Incorrect last name for a male child\n")
-					f.close()
+					file.write("ERROR US16: Incorrect last name for a male child\n")
 					
 		
 
@@ -59,19 +58,15 @@ ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Brown/', 'BIRT': '15 JUL 1960', 'sex'
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
 
-# class MyTest(unittest.TestCase):
-# 	def test(self):
-# 		checkSameLastNames(fam, ind)
-# 		self.assertTrue(('I30' in ind))
-# 		self.assertTrue(('I30' in fam['F23']['CHIL']))
-# 		checkSameLastNames(fam2, ind2)
-# 		self.assertFalse(('I30' in ind))
-# 		self.assertFalse(('I30' in fam['F23']['CHIL']))
-# 		checkSameLastNames(fam3, ind3)
-# 		self.assertFalse(('I30' in ind))
-# 		self.assertFalse(('I30' in fam['F23']['CHIL']))
+class MyTest(unittest.TestCase):
+	def test(self):
+		f=open("../test/ruthyOutput.txt","a+")
+		checkSameLastNames(fam, ind, f)
+		self.assertTrue(('I30' in ind))
+		self.assertTrue(('I30' in fam['F23']['CHIL']))
+		f.close()
 
 		
-# if __name__ == '__main__':
-# 	unittest.main()
+if __name__ == '__main__':
+	unittest.main()
 

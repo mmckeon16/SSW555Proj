@@ -10,7 +10,7 @@ def safe_open(file,mode):
 
 
 """Parents should not marry any of their descendants"""
-def checkMarr(fam,ind):
+def checkMarr(fam,ind, file):
     for f in fam:
         if 'WIFE' in fam[f]: 
             wife = fam[f]["WIFE"] 
@@ -24,17 +24,16 @@ def checkMarr(fam,ind):
 
     for i in ind: #for all individuals
         if ind[i] != ind[wife] or ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
-            descendants.append(i) 
-            print(descendants)
+            descendants.append(i)
 
     for desc in descendants: #if desc is a wife or husband, that means they married a descendant
         if chil == hus or chil == wife:
-            popped(wife)
+            popped(wife, file)
         if desc == hus or desc == wife: 
-            popped(hus)
+            popped(hus,file)
 
-def popped(any_list):
-    print("US17 ERROR: Parents should not marry any of their descendants")
+def popped(any_list, file):
+    file.write("ERROR US17: Parents should not marry any of their descendants\n")
     fam.pop(any_list, None)
     ind.pop(any_list, None)
    
@@ -74,15 +73,17 @@ ind3 = {'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 
 
 class MyTest(unittest.TestCase):
   def test(self):
-      checkBigamy(fam, ind)
+      f= open("../test/ruthyOutput.txt","a+")
+      checkMarr(fam, ind, f)
       self.assertTrue(('I01' in ind))
       self.assertTrue(('I01' == fam['F23']['HUSB']))
-      checkBigamy(fam2, ind2)
+      checkMarr(fam2, ind2, f)
       self.assertFalse(('I07' in ind2))
       self.assertFalse(('I07' in fam2['F23']['WIFE']))
-      checkBigamy(fam3, ind3)
+      checkMarr(fam3, ind3, f)
       self.assertFalse(('I30' in ind3))
       self.assertFalse(('WIFE' in fam3['F23']))
+      f.close()
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')
 

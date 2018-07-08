@@ -97,7 +97,7 @@ def logLargeAgeDif(fam, ind, file):
 			if wife in ind and "BIRT" in ind[wife]:
 				wifeAge = getAge(ind[wife]["BIRT"])
 		if abs(husAge-wifeAge) > wifeAge or abs(husAge-wifeAge) > husAge:
-			file.write("US34: The couple "+husb+" and "+wife+" have a large age difference\n")
+			file.write("ERROR US34: The couple "+husb+" and "+wife+" have a large age difference\n")
 			result = False
 	return result
 
