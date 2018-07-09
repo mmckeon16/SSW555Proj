@@ -8,8 +8,6 @@ def unique_ids(individuals, families, file):
     individual_list = []
     family_list = []
     for individual in individuals:
-        print(individual_list)
-        print(individual)
         if individual in individual_list:
             error_descrip = "Individual ID already exists"
             error_location = [individual]
@@ -25,7 +23,6 @@ def unique_ids(individuals, families, file):
             return_flag = False
         else:
             family_list.append(family)
-    print(individual_list)
     return return_flag
 
 fam = {'F23':

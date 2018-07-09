@@ -26,7 +26,6 @@ def checkMarr(fam,ind, file):
         if ind[i] != ind[wife] or ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
             descendants.append(i)
 
-    print(descendants)
     for desc in descendants: #if desc is a wife or husband, that means they married a descendant
         if chil == hus or chil == wife:
             popped(wife, file)

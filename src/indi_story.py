@@ -33,13 +33,13 @@ def checkIndividual(fam,ind, file):
                         if "HUSB" in fam[f]:
                             if husBDate == wifeBDate:
                                 file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
-                                popped(hus)
+                                return False
                             if husBDate == chilBDate:
                                 file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
-                                popped(hus)
+                                return False
                             if chilBDate == wifeBDate:
                                 file.write("ERROR US23: There is a shared Name and Birthdate in family "+f+"\n")
-                                popped(wife)
+                                return False
                     else:
                         continue
 

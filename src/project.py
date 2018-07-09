@@ -29,7 +29,6 @@ def gedComProj():
 		raise IOError("Can't open '{}'".format(file_name))
 
 	for line in file:
-		#print("--> {}".format(line.strip()))
 		word_list = line.strip().split()
 		isValid = 'N'
 		level = "NA"
@@ -151,7 +150,6 @@ def gedComProj():
 
 		if 'CHIL' in fam[key] :
 			chil = ','.join(fam[key]['CHIL'])
-			#print(ind[fam[key]['CHIL'][0]]['BIRT'])
 		else:
 			chil = "----"
 

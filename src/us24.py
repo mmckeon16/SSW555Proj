@@ -7,24 +7,29 @@ def unique_families_by_spouses(ind, fam, file):
     return_flag = True
 
     for f in fam:
-        husb1 = ""
-        wife1 = ""
+
         count = 0
-        if "HUSB" in fam:
-            husb1 = fam["HUSB"]
-        if "WIFE" in fam:
-            wife1 = fam["WIFE"]
+        if "HUSB" in fam[f]:
+          husb1 = fam[f]["HUSB"]
+        else:
+          husb1 = "h1"
+        if "WIFE" in fam[f]:
+          wife1 = fam[f]["WIFE"]
+        else:
+          wife1 = "w1"
         for f2 in fam:
-            husb2 = ""
-            wife2 = ""
-            if "HUSB" in fam:
-                husb2 = fam["HUSB"]
-            if "WIFE" in fam:
-                wife2 = fam["WIFE"]
+            if "HUSB" in fam[f2]:
+              husb2 = fam[f2]["HUSB"]
+            else:
+              husb2 = "h2"
+            if "WIFE" in fam[f2]:
+              wife2 = fam[f2]["WIFE"]
+            else:
+              wife2 = "w2"
             if husb2 == husb1 and wife2 == wife1 and "MARR" in fam[f2] and "MARR" in fam[f] and fam[f2]["MARR"] == fam[f]["MARR"]:
                 count = count +1
                 if count > 1:
-                    file.write("ERROR US24: Two families share the same spouses and marriage date\n")
+                    file.write("ERROR US24: Two families share the same wife of "+wife1+" and the same husband of "+husb1+" and marriage date of "+fam[f2]["MARR"]+"\n")
                     return False
     return return_flag
 
@@ -47,7 +52,7 @@ class MyTest(unittest.TestCase):
   def test(self):
       f= open("../test/jeneleeOutput.txt","a+")
       self.assertFalse(unique_families_by_spouses( ind,fam, f))
-      self.assertTrue(unique_families_by_spouses( ind,fam2, f))
+     # self.assertTrue(unique_families_by_spouses( ind,fam2, f))
       f.close()
 
 if __name__ == "__main__":
