@@ -52,7 +52,11 @@ def us18(wifeName, wifeID, hubName, hubID, fam_dict):
           f.close()
           return error_us18
 
-
+# code for us27
+def us27(birthday):
+  birthdate = datetime.strptime(birthday, '%d %b %Y')
+  current = datetime.today()
+  return current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
 
 class MyTest(unittest.TestCase):
   def test(self):
@@ -61,16 +65,19 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us02("I07", "Joe /Smith/", "19 JUL 1990", "20 JUN 1880", "his"), "Error US02: Marriage of Joe /Smith/ (I07) occurs before his birthday.\n")
     self.assertEqual(us02("I08", "Jane /Doe/", "20 JUN 1923", "12 FEB 2000", "her"), None)
     # these test us04
-    self.assertEqual(us04("19 JUL 1990", "18 JUL 1990", "Joe /Smith/", "Jane /Doe/"), "Error US04: Divorce of Joe /Smith/ and Jane /Doe/ happens before their marriage date.")
+    self.assertEqual(us04("19 JUL 1990", "18 JUL 1990", "Joe /Smith/", "Jane /Doe/"), "Error US04: Divorce of Joe /Smith/ and Jane /Doe/ happens before their marriage date.\n")
     self.assertEqual(us04("19 JUL 1990", "18 JUL 1995", "Joe /Smith/", "Jane /Doe/"), None)
     # these test us06
-    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.")
+    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.\n")
     self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
-    # these testu18
+    # these test us18
     fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007', 'HUSB': "I19", 'WIFE': 'I26'}}
-    self.assertEqual(us18("Jane /Doe/", "I26", "Josh /Doe/", "I19", fam), "Error US18: Siblings Jane /Doe/ and Josh /Doe/ cannot be married.")
+    self.assertEqual(us18("Jane /Doe/", "I26", "Josh /Doe/", "I19", fam), "Error US18: Siblings Jane /Doe/ and Josh /Doe/ cannot be married.\n")
     fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
     self.assertEqual(us18("Jane /Doe/", "I07", "Josh /Doe/", "I01", fam2), None)
-
+    # these test us27
+    self.assertEqual(us27("14 MAY 2099"), -81)
+    self.assertEqual(us27("25 JUN 2017"), 1)
+    self.assertEqual(us27("23 APR 1998"), 20)
 
 if __name__ == '__main__': unittest.main()
