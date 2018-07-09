@@ -107,8 +107,7 @@ def gedComProj():
 	noBigamy.checkBigamy(fam,ind, f)
 	us24.unique_families_by_spouses(ind, fam, f)
 
-
-	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
+	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
 	for key in sorted(ind):
 		famID = ind[key]['family']
@@ -122,7 +121,10 @@ def gedComProj():
 			deat = ind[key]['DEAT']
 		else:
 			deat = "----"
-		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], deat, chil, spouse])
+
+		#US27 - RS
+		age = rs_stories.us27(ind[key]['BIRT'])
+		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], age, deat, chil, spouse])
 
 	f.write(indTable.get_string() + "\n")
 
@@ -198,7 +200,7 @@ def gedComProj():
 
 		#US18 - RS
 		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
-		
+
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 		
 
