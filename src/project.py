@@ -7,6 +7,7 @@ import us09
 import indi_story
 import noMarr
 import noBigamy
+import us24
 
 def gedComProj():
 	f= open("../test/acceptanceTestOutput.txt","a+")
@@ -52,16 +53,12 @@ def gedComProj():
 	#if isValid == 'Y': # can create id 
 		if level == '0' and tag == 'INDI': #start of individual
 			currInd = word_list[1]
-			isInd = True
 
-			# US22
-			#if currInd in ids_seen:
-			#	print(currInd)
-			#	print ("Error: Multiple individuals with the ID " + currInd)
-			#	currInd = currInd+"0"
-			#	word_list[1] = currInd
-			#ids_seen.append(currInd)
-			#print(ids_seen[0])
+			#US22
+			if currInd in ind:
+				f.write("ERROR US22: Individual ID "+currInd+" already exists\n")
+
+			isInd = True
 
 			ind[currInd] = {'id':word_list[1]}
 
@@ -83,6 +80,8 @@ def gedComProj():
 		if level == '0' and tag == 'FAM': # start of fam tag
 			isInd = False
 			currFam = word_list[1]
+			if currFam in fam:
+				f.write("ERROR US22: Family ID "+currFam+" already exists\n")
 
 			fam[currFam] = {'fam': currFam}
 		if isInd == False:
@@ -107,6 +106,8 @@ def gedComProj():
 	indi_story.checkIndividual(fam, ind, f)
 	noMarr.checkMarr(fam,ind, f)
 	noBigamy.checkBigamy(fam,ind, f)
+	us24.unique_families_by_spouses(ind, fam, f)
+
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

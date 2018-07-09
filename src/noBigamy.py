@@ -30,11 +30,11 @@ def checkBigamy(fam,ind, file):
             else:
               continue
             if husb_count > 1: #if bigamy occurs, remove both instances of a spouse
-                file.write("US11 ERROR: Marriage should not occur during marriage to another spouse\n")
+                file.write("ERROR US11: Marriage should not occur during marriage to another spouse\n")
                 popped(hus_id)
                 break
             if wife_count > 1:
-                file.write("US11 ERROR: Marriage should not occur during marriage to another spouse\n")
+                file.write("ERROR US11: Marriage should not occur during marriage to another spouse\n")
                 popped(wife_id)
                 break
 

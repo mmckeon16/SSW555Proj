@@ -1,0 +1,13 @@
+ERROR US17: Parents should not marry any of their descendants
+ERROR US17: Parents should not marry any of their descendants
+ERROR US17: Parents should not marry any of their descendants
+ERROR US17: Parents should not marry any of their descendants
+ERROR US17: Parents should not marry any of their descendants
+ERROR US17: Parents should not marry any of their descendants
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
+ERROR US23: There is a shared Name and Birthdate in family F23
