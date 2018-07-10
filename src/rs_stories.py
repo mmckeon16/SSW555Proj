@@ -52,6 +52,17 @@ def us18(wifeName, wifeID, hubName, hubID, fam_dict):
           f.close()
           return error_us18
 
+# code for us15
+def us15(fam):
+  for key in fam:
+    if 'CHIL' in fam[key]:
+      if (len(fam[key]['CHIL']) > 14):
+        error_us15 = "Error US15: There are more than 15 siblings for family " + key + ".\n"
+        f=open("../test/acceptanceTestOutput.txt","a+")
+        f.write(error_us15)
+        f.close()
+        return error_us15
+
 # code for us27
 def us27(birthday):
   birthdate = datetime.strptime(birthday, '%d %b %Y')
@@ -75,6 +86,10 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us18("Jane /Doe/", "I26", "Josh /Doe/", "I19", fam), "Error US18: Siblings Jane /Doe/ and Josh /Doe/ cannot be married.\n")
     fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
     self.assertEqual(us18("Jane /Doe/", "I07", "Josh /Doe/", "I01", fam2), None)
+    # these test us15
+    fam3 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I01', 'I09', 'I22', 'I12', 'I03', 'I05', 'I07', 'I08', 'I11', 'I14', 'I99', 'I98', 'I97']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
+    self.assertEqual(us15(fam3), "Error US15: There are more than 15 siblings for family F23.\n")
+    self.assertEqual(us15(fam2), None)
     # these test us27
     self.assertEqual(us27("14 MAY 2099"), -81)
     self.assertEqual(us27("25 JUN 2017"), 1)
