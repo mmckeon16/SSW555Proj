@@ -56,12 +56,9 @@ def gedComProj():
 			#US22
 			if currInd in ind:
 				f.write("ERROR US22: Individual ID "+currInd+" already exists\n")
-
 			isInd = True
-
 			ind[currInd] = {'id':word_list[1]}
-
-
+			
 		if isInd:
 			if level == '1' and tag == 'NAME':
 				ind[currInd]['name'] = arguments
@@ -74,7 +71,6 @@ def gedComProj():
 				ind[currInd]['sex'] = arguments
 			if level == '1' and tag == 'FAMC' or tag == 'FAMS':
 				ind[currInd]['family'] = arguments
-
 
 		if level == '0' and tag == 'FAM': # start of fam tag
 			isInd = False
@@ -190,18 +186,16 @@ def gedComProj():
 					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
 					ind[fam[key]["HUSB"]]["DEAT"]
 				count = count + 1
-
+				
 		#US06 - RS
 		if ((wifeID != "----") and (hubID != "----") and (div != "----")):
 			if ("DEAT" in ind[fam[key]["WIFE"]] and (ind[fam[key]["WIFE"]] != "----") and (ind[fam[key]["WIFE"]]["DEAT"] != "----")):
 				rs_stories.us06(wifeName, hubName, ind[fam[key]["WIFE"]]["DEAT"], div)
 			elif(("DEAT" in ind[fam[key]["HUSB"]] and (ind[fam[key]['HUSB']]["DEAT"]) != "----" and (ind[fam[key]["HUSB"]]["DEAT"] != "----"))):
 				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
-
 		#US15 - RS
 		if (chil != "----"):
 			rs_stories.us15(fam)
-
 		#US18 - RS
 		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
 
