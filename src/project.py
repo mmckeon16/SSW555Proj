@@ -198,6 +198,10 @@ def gedComProj():
 			elif(("DEAT" in ind[fam[key]["HUSB"]] and (ind[fam[key]['HUSB']]["DEAT"]) != "----" and (ind[fam[key]["HUSB"]]["DEAT"] != "----"))):
 				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
 
+		#US15 - RS
+		if (chil != "----"):
+			rs_stories.us15(fam)
+
 		#US18 - RS
 		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
 
