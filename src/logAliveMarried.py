@@ -1,7 +1,7 @@
 import unittest
 
 def logAliveMarried(fam, ind):
-	result = True
+    result = True
     for f in fam:
         if 'MARR' in fam[f]:
             hus_id = fam[f]['HUSB']
