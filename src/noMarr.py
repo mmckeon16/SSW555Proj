@@ -8,7 +8,6 @@ def safe_open(file,mode):
     except IOError:
         raise IOError("Can't open '{}' for '{}'".format(file, mode))
 
-
 """Parents should not marry any of their descendants"""
 def checkMarr(fam,ind, file):
     for f in fam:
@@ -21,16 +20,17 @@ def checkMarr(fam,ind, file):
         if "CHIL" in fam[f]:
             for c in fam[f]["CHIL"]:
                 chil = ind[c]["id"]
+                break
 
     for i in ind: #for all individuals
-        if ind[i] != ind[wife] or ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
+        if ind[i] != ind[wife] and ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
             descendants.append(i)
 
     for desc in descendants: #if desc is a wife or husband, that means they married a descendant
-        if chil == hus or chil == wife:
-            popped(wife, file)
-        if desc == hus or desc == wife: 
-            popped(hus,file)
+            if desc == wife or chil == wife:
+                popped(wife,file)
+            if desc == hus or chil == hus: 
+                popped(hus,file)
 
 def popped(any_list, file):
     file.write("ERROR US17: Parents should not marry any of their descendants\n")
@@ -50,9 +50,9 @@ ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex':
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
 
 fam2 = {'F23': #child is husband
-  {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': '119', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+  {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I19', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
-ind2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
+ind2 = {
  'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
  'I19': {'id': 'I19', 'name': 'Joe /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
   'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
@@ -63,13 +63,13 @@ ind2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex'
 fam3 = {'F23': #descendant is wife
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I30', 'CHIL': ['I19', 'I26', 'I30']},
    'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
-ind3 = {'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
- 'I19': {'id': 'I19', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23'},
+ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
+  'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
+  'I19': {'id': 'I19', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23'},
   'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
   'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
   'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
   'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
-
 
 class MyTest(unittest.TestCase):
   def test(self):
@@ -78,12 +78,13 @@ class MyTest(unittest.TestCase):
       self.assertTrue(('I01' in ind))
       self.assertTrue(('I01' == fam['F23']['HUSB']))
       checkMarr(fam2, ind2, f)
-      self.assertFalse(('I07' in ind2))
-      self.assertFalse(('I07' in fam2['F23']['WIFE']))
+      self.assertFalse(('I19' in ind2))
+      self.assertFalse(('I19' in fam2['F23']['WIFE']))
       checkMarr(fam3, ind3, f)
       self.assertFalse(('I30' in ind3))
       self.assertFalse(('WIFE' in fam3['F23']))
       f.close()
+
 def main():
   safe_open("acceptanceTestOutput.txt", 'a+')
 
