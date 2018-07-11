@@ -19,7 +19,7 @@ def logOrphans(fam, ind):
                 c_born_day = str(c_born[0])
                 c_born_month = str(c_born[1])
                 c_born_year = str(c_born[2])
-                age = today.year - c_born_year - ((today.month, today.day) < (c_born_month, c_born_day))
+                age = today.year - c_born_year - ((today.month, today.day) < (c_born_month, c_born_day)) #not working, str and int issues
 
     for i in ind:
     	if age < 18:
