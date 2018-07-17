@@ -8,7 +8,7 @@ from datetime import datetime
 today = datetime.today()
 
 def logOrphans(fam, ind, file):
-  result = True
+  result = False
   for f in fam:
       if 'HUSB' in fam[f]:
           hus_id = fam[f]['HUSB']
@@ -17,12 +17,13 @@ def logOrphans(fam, ind, file):
       if "CHIL" in fam[f]:
           for c in fam[f]["CHIL"]:
               c_born = ind[c]["BIRT"]
-              age = getAge(c_born) # I looked at the logic and it looked right, but it seemed easier to just add in my function
-              if age < 18: #i put this inside of the for f in fam since this needs to be done for every family and every child
+              age = getAge(c_born) 
+              if age < 18: 
                 if "DEAT" in ind[hus_id] and "DEAT" in ind[wife_id]:
                   file.write("US 33 : The chil of "+hus_id+" and "+wife_id+" are dead, making "+c+" an orphan because they are younger than 18\n")
-                  result = False
-  return result #I added this return for testing, now the result is false if there are orphans which will help with testing
+                  result = True
+  return result
+
 #Get Age
 def getAge(born):
   born = datetime.strptime(born, '%d %b %Y')
@@ -65,7 +66,7 @@ class MyTest(unittest.TestCase):
   def test(self):
       f=open("../test/ruthyOutput.txt","a+")
       self.assertTrue(logOrphans(fam, ind, f))
-      self.assertTrue(logOrphans(fam2, ind2, f))
+      self.assertFalse(logOrphans(fam2, ind2, f))
       self.assertFalse(logOrphans(fam3, ind3, f))
       f.close()
 
