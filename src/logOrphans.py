@@ -7,24 +7,27 @@ from datetime import datetime
 
 today = datetime.today()
 
-def logOrphans(fam, ind):
-    for f in fam:
-        if 'HUSB' in fam[f]:
-            hus_id = fam[f]['HUSB']
-            if 'WIFE' in fam[f]:
-                wife_id = fam[f]['WIFE']
-        if "CHIL" in fam[f]:
-            for c in fam[f]["CHIL"]:
-                c_born = ind[c]["BIRT"].split()
-                c_born_day = str(c_born[0])
-                c_born_month = str(c_born[1])
-                c_born_year = str(c_born[2])
-                age = today.year - c_born_year - ((today.month, today.day) < (c_born_month, c_born_day)) #not working, str and int issues
-
-    for i in ind:
-    	if age < 18:
-    		if "DEAT" in ind[hus_id] and "DEAT" in ind[wife_id]:
-    			f.write("US 33 : List all orphaned children (both parents dead and child < 18 years old) in a GEDCOM file")
+def logOrphans(fam, ind, file):
+  result = True
+  for f in fam:
+      if 'HUSB' in fam[f]:
+          hus_id = fam[f]['HUSB']
+          if 'WIFE' in fam[f]:
+              wife_id = fam[f]['WIFE']
+      if "CHIL" in fam[f]:
+          for c in fam[f]["CHIL"]:
+              c_born = ind[c]["BIRT"]
+              age = getAge(c_born) # I looked at the logic and it looked right, but it seemed easier to just add in my function
+              if age < 18: #i put this inside of the for f in fam since this needs to be done for every family and every child
+                if "DEAT" in ind[hus_id] and "DEAT" in ind[wife_id]:
+                  file.write("US 33 : The chil of "+hus_id+" and "+wife_id+" are dead, making "+c+" an orphan because they are younger than 18\n")
+                  result = False
+  return result #I added this return for testing, now the result is false if there are orphans which will help with testing
+#Get Age
+def getAge(born):
+  born = datetime.strptime(born, '%d %b %Y')
+  today = datetime.today()
+  return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 fam = {'F23': #all orphans
   {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
@@ -62,14 +65,9 @@ class MyTest(unittest.TestCase):
   def test(self):
       f=open("../test/ruthyOutput.txt","a+")
       self.assertTrue(logOrphans(fam, ind, f))
-      self.assertFalse(logOrphans(fam2, ind2, f))
+      self.assertTrue(logOrphans(fam2, ind2, f))
       self.assertFalse(logOrphans(fam3, ind3, f))
-
       f.close()
-
-
-def main():
-  safe_open("acceptanceTestOutput.txt", 'a+')
 
 if __name__ == "__main__":
     unittest.main()
