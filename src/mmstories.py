@@ -101,4 +101,32 @@ def logLargeAgeDif(fam, ind, file):
 			result = False
 	return result
 
+#US28
+def orderChildrenByAge(fam, ind, file):
+	result = False
+	for f in fam:
+		child_tuple = ()
+		if "CHIL" in fam[f]:
+			for c in fam[f]["CHIL"]:
+				if("BIRT" in ind[c]):
+					age = getAge(ind[c]["BIRT"])
+				else:
+					age = 0
+				child_tuple = child_tuple + ((c, age),)
+			child_tuple = sorted(child_tuple, key=lambda child: child[1])
+			result = True
+			file.write("Here is a list of the children and their ages in family "+f+": "+str(child_tuple)+"\n")
+	return result
+
+#US29
+def listDeceased(ind, file):
+	count = 0
+	listDeceased = list()
+	for i in ind:
+		if "DEAT" in ind[i]:
+			listDeceased.append(i)
+			count = count +1
+	file.write("This is a list of deceased people: "+str(listDeceased)+"\n")
+	return count
+
 #NOTE Tests for these user stories are now in /test under mmstoriesTest

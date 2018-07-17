@@ -102,6 +102,8 @@ def gedComProj():
 	noMarr.checkMarr(fam,ind, f)
 	noBigamy.checkBigamy(fam,ind, f)
 	us24.unique_families_by_spouses(ind, fam, f)
+	mmstories.orderChildrenByAge(fam, ind, f)
+	mmstories.listDeceased(ind, f)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

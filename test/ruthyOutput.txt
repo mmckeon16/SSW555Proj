@@ -25,3 +25,9 @@ ERROR US23: There is a shared Name and Birthdate in family F23
 ERROR US23: There is a shared Name and Birthdate in family F23
 ERROR US23: There is a shared Name and Birthdate in family F23
 ERROR US23: There is a shared Name and Birthdate in family F23
+US 33 : List all orphaned children (both parents dead and child < 18 years old) in a GEDCOM fileUS 33 : List all orphaned children (both parents dead and child < 18 years old) in a GEDCOM fileUS 33 : List all orphaned children (both parents dead and child < 18 years old) in a GEDCOM fileUS 33 : The chil of I01 and I07 are dead, making I19 an orphan because they are younger than 18US 33 : The chil of I01 and I07 are dead, making I26 an orphan because they are younger than 18US 33 : The chil of I01 and I07 are dead, making I30 an orphan because they are younger than 18US 33 : The chil of I01 and I07 are dead, making I19 an orphan because they are younger than 18
+US 33 : The chil of I01 and I07 are dead, making I26 an orphan because they are younger than 18
+US 33 : The chil of I01 and I07 are dead, making I30 an orphan because they are younger than 18
+US 33 : The chil of I01 and I07 are dead, making I19 an orphan because they are younger than 18
+US 33 : The chil of I01 and I07 are dead, making I26 an orphan because they are younger than 18
+US 33 : The chil of I01 and I07 are dead, making I30 an orphan because they are younger than 18
