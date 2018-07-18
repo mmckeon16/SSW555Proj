@@ -200,11 +200,11 @@ def gedComProj():
 			rs_stories.us15(fam)
 		#US18 - RS
 		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
-		#US21 - RS
-		if (wifeID != "----"):
-			rs_stories.us21(wifeName, ind[fam[key]['WIFE']]['sex'], "wife")
-		if (hubID != "----"):
-			rs_stories.us21(hubName, ind[fam[key]['HUSB']]['sex'], "husband")
+		#US21 - RS; commented out until next sprint
+		#if (wifeID != "----"):
+		#	rs_stories.us21(wifeName, ind[fam[key]['WIFE']]['sex'], "wife")
+		#if (hubID != "----"):
+		#	rs_stories.us21(hubName, ind[fam[key]['HUSB']]['sex'], "husband")
 
 		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
 		
