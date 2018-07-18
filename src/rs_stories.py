@@ -69,6 +69,21 @@ def us27(birthday):
   current = datetime.today()
   return current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
 
+# code for us21
+def us21(name, gender, role):
+  if (gender == "F" and role != "wife"):
+    error_us21 = "Error US21: Role of " + name + " doesn't match her gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
+  if (gender == "M" and role != "husband"):
+    error_us21 = "Error US21: Role of " + name + " doesn't match his gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
+
 class MyTest(unittest.TestCase):
   def test(self):
     #these test us02
