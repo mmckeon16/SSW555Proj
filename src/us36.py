@@ -1,5 +1,7 @@
-    def us36_print_recent_deaths(self):
-        """" US36 Print deaths in the last 30 days in pretty table
+import unittest
+
+def us36_print_recent_deaths(self):
+    """" US36 Print deaths in the last 30 days in pretty table
         """
         people = self.individuals
         table = PrettyTable(["ID", "Name", "Deathdate"])
