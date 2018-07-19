@@ -1,5 +1,7 @@
-    def us35_print_recent_births(self):
-        """" US35 Print births in the last 30 days in pretty table
+import unittest
+
+def us35_print_recent_births(self):
+    """" US35 Print births in the last 30 days in pretty table
         """
         people = self.individuals
         table = PrettyTable(["ID", "Name", "Birthdate"])
