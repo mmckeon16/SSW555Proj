@@ -40,7 +40,6 @@ class MyTest(unittest.TestCase):
   def test(self):
       f=open("../test/jeneleeOutput.txt","a+")
       self.assertTrue(unique_ids(ind, fam, f))
-      
       f.close()
 
 
