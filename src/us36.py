@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 def us36_print_recent_deaths(ind, file):
     """" US36 Print deaths in the last 30 days in pretty table
         """
+    isThereRecentDeath =False
     table = PrettyTable(["ID", "Name", "Deathdate"])
 
     for person_id in ind:
@@ -17,9 +18,11 @@ def us36_print_recent_deaths(ind, file):
             death_date = datetime.strptime(person["DEAT"], '%d %b %Y') #this is converting the type of person["DEAT"] from string to date so it can be compared to the other dates
             if recent_date < death_date and death_date < datetime.now():
                 table.add_row([person["id"], person["name"], person["DEAT"]])
+                isThereRecentDeath = True
 
     file.write("Recent Deaths\n") #this \n adds a new line to keep the output pretty
     file.write(str(table) + "\n")
+    return isThereRecentDeath #this boolean does not affect the outcome of the function, but it makes it testable
 
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '18 JUL 2018'},
         'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
@@ -34,7 +37,7 @@ ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex':
 class MyTest(unittest.TestCase):
     def test(self):
         f=open("../test/jeneleeOutput.txt","a+")
-        us36_print_recent_deaths(ind, f)
+        self.assertTrue(us36_print_recent_deaths(ind, f))
         f.close()
 
 if __name__ == '__main__':
