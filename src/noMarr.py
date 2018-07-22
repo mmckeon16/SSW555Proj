@@ -22,20 +22,22 @@ def checkMarr(fam,ind, file):
                 chil = ind[c]["id"]
                 break
 
-    for i in ind: #for all individuals
-        if ind[i] != ind[wife] and ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
-            descendants.append(i)
+        for i in ind: #for all individuals
+            if ind[i] != ind[wife] and ind[i] != ind[hus]: #if individual is a parent, they aren't a descendant 
+                descendants.append(i)
 
-    for desc in descendants: #if desc is a wife or husband, that means they married a descendant
-            if desc == wife or chil == wife:
-                popped(wife,file)
-            if desc == hus or chil == hus: 
-                popped(hus,file)
+        for desc in descendants: #if desc is a wife or husband, that means they married a descendant
+                if desc == wife or chil == wife:
+                    file.write("ERROR US17: For family "+f+", Parents should not marry any of their descendants\n")
+                    break
+                if desc == hus or chil == hus: 
+                    file.write("ERROR US17: For family "+f+", Parents should not marry any of their descendants\n")
+                    break
 
 def popped(any_list, file):
     file.write("ERROR US17: Parents should not marry any of their descendants\n")
-    fam.pop(any_list, None)
-    ind.pop(any_list, None)
+    # fam.pop(any_list, None)
+    # ind.pop(any_list, None)
    
    
 fam = {'F23': #no errors

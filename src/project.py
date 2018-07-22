@@ -8,6 +8,10 @@ import indi_story
 import noMarr
 import noBigamy
 import us24
+import us35
+import us36
+import logAliveMarried
+import logOrphans
 
 def gedComProj():
 	f= open("../test/acceptanceTestOutput.txt","a+")
@@ -104,6 +108,10 @@ def gedComProj():
 	us24.unique_families_by_spouses(ind, fam, f)
 	mmstories.orderChildrenByAge(fam, ind, f)
 	mmstories.listDeceased(ind, f)
+	logOrphans.logOrphans(fam, ind, f)
+	logAliveMarried.logAliveMarried(fam, ind, f)
+	us36.us36_print_recent_deaths(ind, f)
+	us35.us35_print_recent_births(ind, f)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

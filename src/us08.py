@@ -33,9 +33,9 @@ class MyTest(unittest.TestCase):
    childsbirthday = "15 JUN 1985"
    birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool)
    self.assertEqual(error_bir, False)
-  divdate = "14 JUN 1983"
+   divdate = "14 JUN 1983"
    childsbirthday = "15 JUN 1985"
-  birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool)
+   birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool)
    self.assertEqual(error_div, True)
    birthbeforemarri(childsname, childsid, childsbirthday, marrdate, divdate, divBool)
    self.assertEqual(error_bir, False)

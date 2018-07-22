@@ -1,22 +1,46 @@
+Error US15: There are more than 15 siblings for family F36.
 Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
+Error US15: There are more than 15 siblings for family F36.
 Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
 Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
 Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.
 Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
 Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
 Error US06: Divorce of Julie /Lee/ and Jeremy /Lee/ occurs after one or both of them have died.
+Error US15: There are more than 15 siblings for family F36.
 Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
+Error US15: There are more than 15 siblings for family F36.
+Error US18: Siblings Cersi /Lanister/ and George /Rob/ cannot be married.
 Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
 Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
+Error US15: There are more than 15 siblings for family F36.
 Error US18: Siblings Cersi /Lanister/ and Julie /Lee/ cannot be married.
 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+Error US15: There are more than 15 siblings for family F36.
 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+Error US15: There are more than 15 siblings for family F36.
+Error US08: Birthdate of child Test /Wife/ (I10) is before their parents' marriage.
+Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
+Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
+Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
+Error US08: Birthdate of child George /Rob/ (I48) is before their parents' marriage.
+Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
+Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+Error US08: Birthdate of child Ames /Rad/ (I55) is before their parents' marriage.
+Error US08: Birthdate of child Cames /Rad/ (I56) is before their parents' marriage.
+Error US08: Birthdate of child Dames /Rad/ (I57) is before their parents' marriage.
+Error US08: Birthdate of child Shames /Rad/ (I58) is before their parents' marriage.
+Error US08: Birthdate of child Bames /Rad/ (I59) is before their parents' marriage.
+Error US08: Birthdate of child Zames /Rad/ (I60) is before their parents' marriage.
+Error US15: There are more than 15 siblings for family F36.
+Error US15: There are more than 15 siblings for family F36.
 ERROR: US01 The date 23 SEP 2019 is after the current date
 ERROR US22: Individual ID I45 already exists
 ERROR US22: Individual ID I53 already exists
 ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
 ERROR US34: The couple I01 and I07 have a large age difference
 ERROR US34: The couple I50 and I51 have a large age difference
+ERROR US34: The couple I52 and I51 have a large age difference
 ERROR US34: The couple I52 and I51 have a large age difference
 ERROR US34: The couple I52 and I51 have a large age difference
 ERROR: US10 - The individual I07 was married before 14, this is invalid
@@ -26,82 +50,21 @@ ERROR: US10 - The individual I48 was married before 14, this is invalid
 ERROR: US10 - The individual I51 was married before 14, this is invalid
 ERROR: US10 - The individual I51 was married before 14, this is invalid
 ERROR: US10 - The individual I51 was married before 14, this is invalid
+ERROR: US10 - The individual I51 was married before 14, this is invalid
+ERROR US16: Incorrect last name for a male child
 ERROR US16: Incorrect last name for a male child
 ERROR US16: Incorrect last name for a male child
 ERROR US23: There is a shared Name and Birthdate in family F31
-ERROR US17: Parents should not marry any of their descendants
-ERROR US17: Parents should not marry any of their descendants
+ERROR US17: For family F20, Parents should not marry any of their descendants
+ERROR US17: For family F30, Parents should not marry any of their descendants
+ERROR US17: For family F31, Parents should not marry any of their descendants
+ERROR US17: For family F32, Parents should not marry any of their descendants
+ERROR US17: For family F33, Parents should not marry any of their descendants
+ERROR US17: For family F34, Parents should not marry any of their descendants
+ERROR US17: For family F35, Parents should not marry any of their descendants
+ERROR US17: For family F36, Parents should not marry any of their descendants
+ERROR US17: For family F37, Parents should not marry any of their descendants
 ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US24: Two families share the same wife of I51 and the same husband of I52 and marriage date of 14 FEB 2018
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-|  ID |        NAME       | Gender |     BDay    |    Death    | Child | Spouse |
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-| I01 |    Joe /Smith/    |   M    | 15 JUL 1960 | 31 DEC 2013 |  ---- |  F23   |
-| I07 |  Jennifer /Smith/ |   F    | 23 SEP 2019 |     ----    |  ---- |  F23   |
-| I10 |    Test /Wife/    |   F    | 23 SEP 1973 |     ----    |  ---- |  F20   |
-| I11 |     Test /Hub/    |   M    | 15 JUL 1970 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |    Dick /Smith/   |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I32 |    Nick /Tary/    |   M    | 13 FEB 1981 |     ----    |  F23  |  ----  |
-| I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |     ----    |  F32  |  ----  |
-| I45 |    Julie /Lee/    |   F    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
-| I46 |    Jeremy /Lee/   |   M    | 13 FEB 1981 | 31 DEC 1975 |  ---- |  F30   |
-| I47 |     Remy /Lee/    |   F    | 13 FEB 1978 |     ----    |  F30  |  ----  |
-| I48 |    George /Rob/   |   F    | 13 FEB 1982 |     ----    |  ---- |  F31   |
-| I49 |    George /Rob/   |   F    | 13 FEB 1982 |     ----    |  F31  |  ----  |
-| I50 | Andrew /Svensson/ |   M    | 13 FEB 1963 |     ----    |  ---- |  F32   |
-| I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |     ----    |  ---- |  F32   |
-| I52 |     Ryan /Rad/    |   M    | 13 FEB 1990 |     ----    |  ---- |  F34   |
-| I53 |    Bryan /Rad/    |   M    | 13 FEB 1991 |     ----    |  F34  |  ----  |
-+-----+-------------------+--------+-------------+-------------+-------+--------+
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-|  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     | Children |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ | I19,I26  |
-| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |   I47    |
-| F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I44   | Cersi /Lanister/ |   I49    |
-| F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  | I45,I44  |
-| F33 | 14 FEB 2018 |     ----    |   I45   |    Julie /Lee/    |   I44   | Cersi /Lanister/ |   ----   |
-| F34 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |   I53    |
-| F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |   I53    |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
-Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
-Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
-Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.
-Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
-Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
-Error US06: Divorce of Julie /Lee/ and Jeremy /Lee/ occurs after one or both of them have died.
-Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
-Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
-Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
-Error US18: Siblings Cersi /Lanister/ and Julie /Lee/ cannot be married.
-Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
-Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
-ERROR: US01 The date 23 SEP 2019 is after the current date
-ERROR US22: Individual ID I45 already exists
-ERROR US22: Individual ID I53 already exists
-ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
-ERROR US34: The couple I01 and I07 have a large age difference
-ERROR US34: The couple I50 and I51 have a large age difference
-ERROR US34: The couple I52 and I51 have a large age difference
-ERROR US34: The couple I52 and I51 have a large age difference
-ERROR: US10 - The individual I07 was married before 14, this is invalid
-ERROR: US10 - The individual I11 was married before 14, this is invalid
-ERROR: US10 - The individual I46 was married before 14, this is invalid
-ERROR: US10 - The individual I48 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR US16: Incorrect last name for a male child
-ERROR US16: Incorrect last name for a male child
-ERROR US23: There is a shared Name and Birthdate in family F31
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
@@ -115,7 +78,35 @@ Here is a list of the children and their ages in family F31: [('I49', 36)]
 Here is a list of the children and their ages in family F32: [('I45', 37), ('I44', 37)]
 Here is a list of the children and their ages in family F34: [('I53', 27)]
 Here is a list of the children and their ages in family F35: [('I53', 27)]
-This is a list of deceased people: ['I01', 'I11', 'I45', 'I46']
+Here is a list of the children and their ages in family F36: [('I07', -2), ('I54', 0), ('I55', 1), ('I59', 1), ('I58', 2), ('I57', 4), ('I56', 7), ('I60', 17), ('I53', 27), ('I48', 36), ('I49', 36), ('I44', 37), ('I45', 37), ('I47', 40), ('I10', 44)]
+Here is a list of the children and their ages in family F37: [('I63', 8)]
+This is a list of deceased people: ['I01', 'I11', 'I45', 'I46', 'I55', 'I61', 'I62']
+US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are younger than 18
+I07 is alive and married!
+I10 is alive and married!
+I48 is alive and married!
+I44 is alive and married!
+I50 is alive and married!
+I51 is alive and married!
+I44 is alive and married!
+I52 is alive and married!
+I51 is alive and married!
+I52 is alive and married!
+I51 is alive and married!
+I52 is alive and married!
+I51 is alive and married!
+Recent Deaths
++-----+------------+-------------+
+|  ID |    Name    |  Deathdate  |
++-----+------------+-------------+
+| I55 | Ames /Rad/ | 13 JUL 2018 |
++-----+------------+-------------+
+Recent Births
++-----+-------------+-------------+
+|  ID |     Name    |  Birthdate  |
++-----+-------------+-------------+
+| I54 | James /Rad/ | 13 JUL 2018 |
++-----+-------------+-------------+
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
 |  ID |        NAME       | Gender |     BDay    | Age |    Death    | Child | Spouse |
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
@@ -125,7 +116,6 @@ This is a list of deceased people: ['I01', 'I11', 'I45', 'I46']
 | I11 |     Test /Hub/    |   M    | 15 JUL 1970 |  48 | 31 DEC 1975 |  ---- |  F20   |
 | I19 |    Dick /Smith/   |   M    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
 | I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
-| I32 |    Nick /Tary/    |   M    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
 | I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |  37 |     ----    |  F32  |  ----  |
 | I45 |    Julie /Lee/    |   F    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
 | I46 |    Jeremy /Lee/   |   M    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
@@ -136,17 +126,29 @@ This is a list of deceased people: ['I01', 'I11', 'I45', 'I46']
 | I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |  8  |     ----    |  ---- |  F32   |
 | I52 |     Ryan /Rad/    |   M    | 13 FEB 1990 |  28 |     ----    |  ---- |  F34   |
 | I53 |    Bryan /Rad/    |   M    | 13 FEB 1991 |  27 |     ----    |  F34  |  ----  |
+| I54 |    James /Rad/    |   M    | 13 JUL 2018 |  0  |     ----    |  F36  |  ----  |
+| I55 |     Ames /Rad/    |   M    | 13 JUL 2017 |  1  | 13 JUL 2018 |  F36  |  ----  |
+| I56 |    Cames /Rad/    |   M    | 13 JUL 2011 |  7  |     ----    |  F36  |  ----  |
+| I57 |    Dames /Rad/    |   M    | 13 JUL 2014 |  4  |     ----    |  F36  |  ----  |
+| I58 |    Shames /Rad/   |   M    | 13 JUL 2016 |  2  |     ----    |  F36  |  ----  |
+| I59 |    Bames /Rad/    |   M    | 13 JUL 2017 |  1  |     ----    |  F36  |  ----  |
+| I60 |    Zames /Rad/    |   M    | 13 JUL 2001 |  17 |     ----    |  F36  |  ----  |
+| I61 |    Dad /Orphan/   |   M    | 13 JUL 1980 |  38 | 13 JUL 2011 |  ---- |  F37   |
+| I62 |    Mom /Orphan/   |   F    | 13 JUL 1981 |  37 | 13 JUL 2011 |  ---- |  F37   |
+| I63 |   Chid /Orphan/   |   M    | 13 JUL 2010 |  8  |     ----    |  F37  |  ----  |
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-|  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     | Children |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
-| F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |   ----   |
-| F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |          |
-| F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ | I19,I26  |
-| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |   I47    |
-| F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I44   | Cersi /Lanister/ |   I49    |
-| F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  | I45,I44  |
-| F33 | 14 FEB 2018 |     ----    |   I45   |    Julie /Lee/    |   I44   | Cersi /Lanister/ |   ----   |
-| F34 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |   I53    |
-| F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |   I53    |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+----------+
++-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
+|  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     |                           Children                          |
++-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
+| F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
+| F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |                                                             |
+| F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ |                           I19,I26                           |
+| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |                             I47                             |
+| F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I44   | Cersi /Lanister/ |                             I49                             |
+| F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  |                           I45,I44                           |
+| F33 | 14 FEB 2018 |     ----    |   I45   |    Julie /Lee/    |   I44   | Cersi /Lanister/ |                             ----                            |
+| F34 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
+| F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
+| F36 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  | I07,I10,I44,I45,I47,I48,I49,I53,I54,I55,I56,I57,I58,I59,I60 |
+| F37 | 14 FEB 2000 |     ----    |   I61   |    Dad /Orphan/   |   I62   |   Mom /Orphan/   |                             I63                             |
++-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+

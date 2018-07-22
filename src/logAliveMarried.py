@@ -1,21 +1,33 @@
 import unittest
 
-def logAliveMarried(fam, ind):
+def logAliveMarried(fam, ind, file):
     result = True
     for f in fam:
-        if 'MARR' in fam[f]:
+        hus_id = "0"
+        wife_id = "0"
+        if 'MARR' in fam[f] and 'HUSB' in fam[f] and 'WIFE' in fam[f]:
             hus_id = fam[f]['HUSB']
             wife_id = fam[f]['WIFE']
-        for i in ind:
-            if i == hus_id:
-                if 'DEAT' not in ind[hus_id]:
-                    print('{} is alive and married!'.format(hus_id))
-            elif i == wife_id:
-                if 'DEAT' not in ind[wife_id]:
-                    print('{} is alive and married!'.format(wife_id))
-            else: 
-            	result = False
-        break
+        if hus_id in ind:
+          if 'DEAT' not in ind[hus_id]:
+            file.write('{} is alive and married!\n'.format(hus_id))
+          else:
+            result = False
+        if wife_id in ind:
+          if 'DEAT' not in ind[wife_id]:
+            file.write('{} is alive and married!\n'.format(wife_id))
+          else:
+            result = False
+        # for i in ind:
+        #     if i == hus_id:
+        #         if 'DEAT' not in ind[hus_id]:
+        #             file.write('{} is alive and married!\n'.format(hus_id))
+        #     elif i == wife_id:
+        #         if 'DEAT' not in ind[wife_id]:
+        #             file.write('{} is alive and married!\n'.format(wife_id))
+        #     else: 
+        #     	result = False
+    return result
 
 fam = {'F23': #one dead hus one alive wife 
 	{'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
@@ -54,8 +66,8 @@ ind3 = {'I01': {'id': 'I01', 'name': 'Joe /Brown/', 'BIRT': '15 JUL 1960', 'sex'
 class MyTest(unittest.TestCase):
   def test(self):
       f=open("../test/ruthyOutput.txt","a+")
-      self.assertTrue(logAliveMarried(fam, ind, f))
-      self.assertTrue(logAliveMarried(fam2, ind2, f))
+      self.assertFalse(logAliveMarried(fam, ind, f))
+      self.assertFalse(logAliveMarried(fam2, ind2, f))
       self.assertFalse(logAliveMarried(fam3, ind3, f))
 
       f.close()

@@ -11,24 +11,27 @@ def us35_print_recent_births(ind, file):
     """
     people = ind #<-- this is just ind
     table = PrettyTable(["ID", "Name", "Birthdate"])
+    isThereRecentBirth = False
 
     for person_id in ind: #this would be "for person_id in ind"
         person = ind[person_id] # to get person, you can say ind[person_id]
         recent_date = datetime.today() - timedelta(days=30)
         
-        if person["BIRT"] in person:
-            birth_date = datetime.striptime(person["BIRT"], '%d %b %Y')
+        if "BIRT" in person:
+            birth_date = datetime.strptime(person["BIRT"], '%d %b %Y')
             if recent_date < birth_date and birth_date < datetime.now():
                table.add_row([person["id"], person["name"], person["BIRT"]])
                isThereRecentBirth = True 
   
-    print("Recent Births")
-    print(table)
+    file.write("Recent Births\n") #this \n adds a new line to keep the output pretty
+    file.write(str(table) + "\n")
+    return isThereRecentBirth #this boolean does not affect the outcome of the function, but it makes it testable
+
 
 #these fam and ind objects you can just copy from me, ruthy, 
 #or rachel's tests, they will be going into your function as I mentioned above
 ind = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23', 'DEAT': '31 DEC 2013'},
-        'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
+        'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '21 JUL 2018', 'sex': 'F', 'family': 'F23'},
         'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981','sex': 'M', 'family': 'F23'},
         'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
         'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F12'},
@@ -43,6 +46,7 @@ fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07'
 #these two functions are the two you need for testing
 class MyTest(unittest.TestCase):
     def test(self):
+        f=open("../test/jeneleeOutput.txt","a+")
         self.assertTrue(us35_print_recent_births(ind, f))
         f.close()
 
