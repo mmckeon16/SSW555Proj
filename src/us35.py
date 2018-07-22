@@ -9,18 +9,19 @@ from datetime import datetime, timedelta # <-- you need this import for that dat
 def us35_print_recent_births(ind, file):
     """" US35 Print births in the last 30 days in pretty table
     """
-    people = self.individuals #<-- this is just ind
+    people = ind #<-- this is just ind
     table = PrettyTable(["ID", "Name", "Birthdate"])
 
-    for person_id in people: #this would be "for person_id in ind"
-        person = self.individuals[person_id] # to get person, you can say ind[person_id]
-        recent_date = self._current_time - timedelta(days=30)
-        if person.get_birth_date() is None: #<--what is this function???? we have a birthday field in the individual dictionary you get with person["BIRT"]
-            pass
-        if person.get_birth_date() is not None:
-            if recent_date < person.get_birth_date() and person.get_birth_date() < self._current_time: #<-- we dont have any of these get functions...
-                table.add_row([person.get_person_id(), person.get_name(), person.get_birth_date()])
-
+    for person_id in ind: #this would be "for person_id in ind"
+        person = ind[person_id] # to get person, you can say ind[person_id]
+        recent_date = datetime.today() - timedelta(days=30)
+        
+        if person["BIRT"] in person:
+            birth_date = datetime.striptime(person["BIRT"], '%d %b %Y')
+            if recent_date < birth_date and birth_date < datetime.now():
+               table.add_row([person["id"], person["name"], person["BIRT"]])
+               isThereRecentBirth = True 
+  
     print("Recent Births")
     print(table)
 
@@ -42,8 +43,7 @@ fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07'
 #these two functions are the two you need for testing
 class MyTest(unittest.TestCase):
     def test(self):
-        f=open("../test/jeneleeOutput.txt","a+")
-        us35_print_recent_births(ind, f)
+        self.assertTrue(us35_print_recent_births(ind, f))
         f.close()
 
 if __name__ == '__main__':
