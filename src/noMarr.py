@@ -27,11 +27,17 @@ def checkMarr(fam,ind, file):
                 descendants.append(i)
 
         for desc in descendants: #if desc is a wife or husband, that means they married a descendant
-                if desc == wife or chil == wife:
-                    file.write("ERROR US17: For family "+f+", Parents should not marry any of their descendants\n")
+                if desc == wife:
+                    file.write("ERROR US17: For family "+f+", {} is married to {}. Parents should not marry any of their descendants\n".format(descendants(desc), wife))
                     break
-                if desc == hus or chil == hus: 
-                    file.write("ERROR US17: For family "+f+", Parents should not marry any of their descendants\n")
+                if chil == wife:
+                    file.write("ERROR US17: For family "+f+", {} is married to {}. Parents should not marry any of their descendants\n".format(chil, wife))
+                    break
+                if desc == hus: 
+                    file.write("ERROR US17: For family "+f+", {} is married to {}. Parents should not marry any of their descendants\n".format(descendants(desc), hus))                    
+                    break
+                if chil == hus: 
+                    file.write("ERROR US17: For family "+f+", {} is married to {}. Parents should not marry any of their descendants\n".format(chil, hus))                    
                     break
 
 def popped(any_list, file):
