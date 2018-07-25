@@ -132,6 +132,9 @@ def gedComProj():
 		age = rs_stories.us27(ind[key]['BIRT'])
 		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], age, deat, chil, spouse])
 
+		#US07 - RS
+		rs_stories(ind[key]['name'], ind[key]['id'], ind[key]['BIRT'], deat)
+
 	f.write(indTable.get_string() + "\n")
 
 	famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
