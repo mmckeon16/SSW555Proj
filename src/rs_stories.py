@@ -69,20 +69,20 @@ def us27(birthday):
   current = datetime.today()
   return current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
 
-# code for us21: commented out until next sprint; took about 40 min
-#def us21(name, gender, role):
-#  if (gender == "F" and role != "wife"):
-#    error_us21 = "Error US21: Role of " + name + " does not match her gender."
-#    f=open("../test/acceptanceTestOutput.txt","a+")
-#    f.write(error_us21)
-#    f.close()
-#    return error_us21
-#  if (gender == "M" and role != "husband"):
-#    error_us21 = "Error US21: Role of " + name + " does not match his gender."
-#    f=open("../test/acceptanceTestOutput.txt","a+")
-#    f.write(error_us21)
-#    f.close()
-#    return error_us21
+# code for us21
+def us21(name, gender, role):
+  if (gender == "F" and role != "wife"):
+    error_us21 = "Error US21: Role of " + name + " does not match her gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
+  if (gender == "M" and role != "husband"):
+    error_us21 = "Error US21: Role of " + name + " does not match his gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
 
 class MyTest(unittest.TestCase):
   def test(self):
@@ -110,9 +110,9 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us27("25 JUN 2017"), 1)
     self.assertEqual(us27("23 APR 1998"), 20)
     # these test us21
-#    self.assertEqual(us21("Joe Smith", "M", "husband"), None)
-#    self.assertEqual(us21("Joe Smith", "M", "wife"), "Error US21: Role of Joe Smith does not match his gender.")
-#    self.assertEqual(us21("Jane Smith", "F", "husband"), "Error US21: Role of Jane Smith does not match her gender.")
-#    self.assertEqual(us21("Jane Smith", "F", "wife"), None)
+    self.assertEqual(us21("Joe Smith", "M", "husband"), None)
+    self.assertEqual(us21("Joe Smith", "M", "wife"), "Error US21: Role of Joe Smith does not match his gender.")
+    self.assertEqual(us21("Jane Smith", "F", "husband"), "Error US21: Role of Jane Smith does not match her gender.")
+    self.assertEqual(us21("Jane Smith", "F", "wife"), None)
     
 if __name__ == '__main__': unittest.main()
