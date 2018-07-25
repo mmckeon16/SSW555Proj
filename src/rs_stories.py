@@ -1,226 +1,139 @@
-from prettytable import PrettyTable
-import mmstories
-import male_names
-import rs_stories
-import us08
-import us09
-import indi_story
-import noMarr
-import noBigamy
-import us24
-import us35
-import us36
-import logAliveMarried
-import logOrphans
+import unittest
+from datetime import datetime
 
-def gedComProj():
-	f= open("../test/acceptanceTestOutput.txt","a+")
+# rachel stern's user stories
 
-	valid = {'0':('INDI','FAM','HEAD','TRLR','NOTE'), '1':('NAME','SEX','BIRT','DEAT','FAMC', 'FAMS', 'CHIL'), '2':('DATE')}
+# code for us02
+def us02(id, name, birthdate, mardate, gen):
+  if ((datetime.strptime(birthdate, '%d %b %Y')) > (datetime.strptime(mardate, '%d %b %Y')) and gen == "her"):
+    error_wifeus02 = "Error US02: Marriage of " + name + " (" + id + ") occurs before her birthday.\n"
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_wifeus02)
+    f.close();
+    return error_wifeus02
+  if ((datetime.strptime(birthdate, '%d %b %Y')) > (datetime.strptime(mardate, '%d %b %Y')) and gen == "his"):
+    error_husbus02 = "Error US02: Marriage of " + name + " (" + id + ") occurs before his birthday.\n"
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_husbus02)
+    f.close()
+    return error_husbus02
 
-	file_name = "../test/acceptanceTest.ged"
+# code for us04
+def us04(marrdate, divdate, hubname, wifename):
+  if ((datetime.strptime(marrdate, '%d %b %Y')) > (datetime.strptime(divdate, '%d %b %Y'))):
+      error_us04 = "Error US04: Divorce of " + hubname + " and " + wifename + " happens before their marriage date.\n"
+      f=open("../test/acceptanceTestOutput.txt","a+")
+      f.write(error_us04)
+      f.close()
+      return error_us04
 
-	ind = {}
-	fam = {}
-	currInd = ""
-	currDate = ""
-	currFam = ""
-	isInd = True
+# code for us06
+def us06(wifeName, hubName, deathdate, divdate):
+  error_us06 = "-"
+  if ((datetime.strptime(deathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y'))):
+    error_us06 = "Error US06: Divorce of " + wifeName + " and " + hubName + " occurs after one or both of them have died.\n"
+  elif ((datetime.strptime(deathdate, '%d %b %Y')) < (datetime.strptime(divdate, '%d %b %Y'))):
+    error_us06 = "Error US06: Divorce of " + wifeName + " and " + hubName + " occurs after one or both of them have died.\n"
+  
+  if error_us06 != "-":
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us06)
+    f.close()
+    return error_us06
 
-	try:
-		file = open(file_name)
-	except IOError:
-		raise IOError("Can't open '{}'".format(file_name))
+# code for us18
+def us18(wifeName, wifeID, hubName, hubID, fam_dict):
+  for key in fam_dict:
+    if 'CHIL' in fam_dict[key]:
+        if (wifeID in fam_dict[key]['CHIL'] and hubID in fam_dict[key]['CHIL']):
+          error_us18 = "Error US18: Siblings " + wifeName + " and " + hubName + " cannot be married.\n" 
+          f=open("../test/acceptanceTestOutput.txt","a+")
+          f.write(error_us18)
+          f.close()
+          return error_us18
 
-	for line in file:
-		word_list = line.strip().split()
-		isValid = 'N'
-		level = "NA"
-		tag = "NA"
-		arguments = " ".join(word_list[2:])
+# code for us15
+def us15(fam):
+  for key in fam:
+    if 'CHIL' in fam[key]:
+      if (len(fam[key]['CHIL']) > 14):
+        error_us15 = "Error US15: There are more than 15 siblings for family " + key + ".\n"
+        f=open("../test/acceptanceTestOutput.txt","a+")
+        f.write(error_us15)
+        f.close()
+        return error_us15
 
-		if len(word_list) == 1:
-			level = word_list[0]
+# code for us27
+def us27(birthday):
+  birthdate = datetime.strptime(birthday, '%d %b %Y')
+  current = datetime.today()
+  return current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
 
-		elif len(word_list) > 1:
-			level = word_list[0]
-			tag = word_list[1]
+# code for us21
+def us21(name, gender, role):
+  if (gender == "F" and role != "wife"):
+    error_us21 = "Error US21: Role of " + name + " does not match her gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
+  if (gender == "M" and role != "husband"):
+    error_us21 = "Error US21: Role of " + name + " does not match his gender."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us21)
+    f.close()
+    return error_us21
 
-		if len(word_list) == 3 and word_list[0] == '0' and word_list[2] in ('INDI', 'FAM'):
-			isValid = 'Y'
-			tag = word_list[2]
+# code for us07
+def us07(name, id, birth, death):
+  birthdate = datetime.strptime(birth, '%d %b %Y')
+  if (death != "----"):
+    deathdate = datetime.strptime(death, '%d %b %Y')
+    age = deathdate.year - birthdate.year - ((deathdate.month, deathdate.day) < (birthdate.month, birthdate.day))
+  if (death == "----"):
+    current = datetime.today()
+    age = current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
+  if age >= 150:
+    error_us07 = "Error US07: Age of " + name + " (" + id + ") should be less than 150 years old."
+    f=open("../test/acceptanceTestOutput.txt","a+")
+    f.write(error_us07)
+    f.close()
+    return error_us07
 
-		elif len(word_list) > 1 and level in valid and tag in valid[level]:
-			isValid = 'Y'
-		
-	#if isValid == 'Y': # can create id 
-		if level == '0' and tag == 'INDI': #start of individual
-			currInd = word_list[1]
+class MyTest(unittest.TestCase):
+  def test(self):
+    #these test us02
+    us02("I07", "Joe /Smith/", "19 JUL 1990", "20 JUN 1880", "his")
+    self.assertEqual(us02("I07", "Joe /Smith/", "19 JUL 1990", "20 JUN 1880", "his"), "Error US02: Marriage of Joe /Smith/ (I07) occurs before his birthday.\n")
+    self.assertEqual(us02("I08", "Jane /Doe/", "20 JUN 1923", "12 FEB 2000", "her"), None)
+    # these test us04
+    self.assertEqual(us04("19 JUL 1990", "18 JUL 1990", "Joe /Smith/", "Jane /Doe/"), "Error US04: Divorce of Joe /Smith/ and Jane /Doe/ happens before their marriage date.\n")
+    self.assertEqual(us04("19 JUL 1990", "18 JUL 1995", "Joe /Smith/", "Jane /Doe/"), None)
+    # these test us06
+    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2029"), "Error US06: Divorce of Jane /Doe/ and Joe /Smith/ occurs after one or both of them have died.\n")
+    self.assertEqual(us06("Jane /Doe/", "Joe /Smith/", "12 OCT 2015", "21 NOV 2009"), None)
+    # these test us18
+    fam = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007', 'HUSB': "I19", 'WIFE': 'I26'}}
+    self.assertEqual(us18("Jane /Doe/", "I26", "Josh /Doe/", "I19", fam), "Error US18: Siblings Jane /Doe/ and Josh /Doe/ cannot be married.\n")
+    fam2 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
+    self.assertEqual(us18("Jane /Doe/", "I07", "Josh /Doe/", "I01", fam2), None)
+    # these test us15
+    fam3 = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30', 'I01', 'I09', 'I22', 'I12', 'I03', 'I05', 'I07', 'I08', 'I11', 'I14', 'I99', 'I98', 'I97']}, 'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
+    self.assertEqual(us15(fam3), "Error US15: There are more than 15 siblings for family F23.\n")
+    self.assertEqual(us15(fam2), None)
+    # these test us27
+    self.assertEqual(us27("14 MAY 2099"), -81)
+    self.assertEqual(us27("25 JUN 2017"), 1)
+    self.assertEqual(us27("23 APR 1998"), 20)
+    # these test us21
+    self.assertEqual(us21("Joe Smith", "M", "husband"), None)
+    self.assertEqual(us21("Joe Smith", "M", "wife"), "Error US21: Role of Joe Smith does not match his gender.")
+    self.assertEqual(us21("Jane Smith", "F", "husband"), "Error US21: Role of Jane Smith does not match her gender.")
+    self.assertEqual(us21("Jane Smith", "F", "wife"), None)
+    # these test us07
+    self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "----"), None)
+    self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "19 JUN 2050"), None)
+    self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "20 JUN 2050"), "Error US07: Age of Joe Smith (I07) should be less than 150 years old.")
 
-			#US22
-			if currInd in ind:
-				f.write("ERROR US22: Individual ID "+currInd+" already exists\n")
-			isInd = True
-			ind[currInd] = {'id':word_list[1]}
-			
-		if isInd:
-			if level == '1' and tag == 'NAME':
-				ind[currInd]['name'] = arguments
-			if level == '1' and tag == 'BIRT' or tag == 'MARR' or tag == 'DEAT' or tag == 'DIV':
-				currDate = tag
-			if currDate != "" and tag == 'DATE' and level == '2':
-				mmstories.checkIfDateBeforeNow(arguments, f)
-				ind[currInd][currDate] = arguments
-			if level == '1' and tag == 'SEX':
-				ind[currInd]['sex'] = arguments
-			if level == '1' and tag == 'FAMC' or tag == 'FAMS':
-				ind[currInd]['family'] = arguments
-
-		if level == '0' and tag == 'FAM': # start of fam tag
-			isInd = False
-			currFam = word_list[1]
-			if currFam in fam:
-				f.write("ERROR US22: Family ID "+currFam+" already exists\n")
-
-			fam[currFam] = {'fam': currFam}
-		if isInd == False:
-			if level == '1' and word_list[1] == 'MARR' or word_list[1] == 'DIV':
-				currDate = tag
-			if level =='2' and tag == 'DATE':
-				mmstories.checkIfDateBeforeNow(arguments, f)
-				fam[currFam][currDate] = arguments
-			if level == '1' and tag in ('HUSB', 'WIFE'):
-				fam[currFam][tag] = arguments
-
-			if level == '1' and tag == 'CHIL':
-				if tag in fam[currFam]:
-					fam[currFam][tag].append(arguments)
-				else:
-					fam[currFam][tag] = [arguments]
-
-	mmstories.checkLessThan5SharedSiblingBdays(fam, ind, f);
-	mmstories.logLargeAgeDif(fam, ind, f)
-	mmstories.marrAfter14(fam, ind, f)
-	male_names.checkSameLastNames(fam, ind, f)
-	indi_story.checkIndividual(fam, ind, f)
-	noMarr.checkMarr(fam,ind, f)
-	noBigamy.checkBigamy(fam,ind, f)
-	us24.unique_families_by_spouses(ind, fam, f)
-	mmstories.orderChildrenByAge(fam, ind, f)
-	mmstories.listDeceased(ind, f)
-	logOrphans.logOrphans(fam, ind, f)
-	logAliveMarried.logAliveMarried(fam, ind, f)
-	us36.us36_print_recent_deaths(ind, f)
-	us35.us35_print_recent_births(ind, f)
-
-	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
-	indTable.align["ID"] = "1" 
-	for key in sorted(ind):
-		famID = ind[key]['family']
-		if fam[famID]['HUSB'] == ind[key]['id'] or fam[famID]['WIFE'] == ind[key]['id']:
-			spouse = famID
-			chil = "----"
-		else:
-			spouse = "----"
-			chil = famID
-		if 'DEAT' in ind[key]:
-			deat = ind[key]['DEAT']
-		else:
-			deat = "----"
-
-		#US27 - RS
-		age = rs_stories.us27(ind[key]['BIRT'])
-		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], age, deat, chil, spouse])
-
-		#US07 - RS
-		rs_stories(ind[key]['name'], ind[key]['id'], ind[key]['BIRT'], deat)
-
-	f.write(indTable.get_string() + "\n")
-
-	famTable = PrettyTable(["ID", "Married", "Divorced", "Husb Id", "Husb Name", "Wife Id", "Wife Name", "Children"])
-	famTable.align["ID"] = "1" 
-	for key in sorted(fam):
-		if 'DIV' in fam[key]:
-			div = fam[key]['DIV']
-		else: 
-			div = "----"
-
-		if "HUSB" in fam[key]:
-			hubID = fam[key]['HUSB']
-			hubName = ind[hubID]['name']
-		else:
-			hubID = "----"
-			hubName = "----"
-
-		if "WIFE" in fam[key]:
-			wifeID = fam[key]['WIFE']
-			wifeName = ind[wifeID]['name']
-		else:
-			wifeID = "----"
-			wifeName = "----"
-
-		if 'CHIL' in fam[key] :
-			chil = ','.join(fam[key]['CHIL'])
-		else:
-			chil = "----"
-
-		if 'MARR' in fam[key]:
-			marr = fam[key]['MARR']
-		else:
-			marr = "----"
-
-		#US02 - RS
-		if (wifeID != "----"):
-			rs_stories.us02(wifeID, wifeName, ind[fam[key]['WIFE']]['BIRT'], marr, "her");
-		if (hubID != "----"):
-			rs_stories.us02(hubID, hubName, ind[fam[key]['HUSB']]['BIRT'], marr, "his")
-
-		#US04 - RS
-		if div != "----" and marr != "----":
-			rs_stories.us04(marr, div, hubName, wifeName)
-
-		#US08 - RS & JA
-		count = 0
-		if (chil != "----"):
-			for i in fam[key]['CHIL']:
-				if (div != "----"):
-					us08.birthbeforemarri(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], marr, div, True)
-				else:	
-					us08.birthbeforemarri(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], marr, "N/A", False)	
-				count = count + 1
-		
-		#US09 - JA
-		count = 0
-		if (chil != "----"):
-			for i in fam[key]['CHIL']:
-				if ("DEAT" in ind[fam[key]["WIFE"]] and ind[fam[key]["WIFE"]]["DEAT"] != "----"):
-					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["WIFE"]]["DEAT"], True)
-				elif "DEAT" in ind[fam[key]["HUSB"]] and ind[fam[key]["HUSB"]]["DEAT"]  != "----":
-					us09.birthbeforedeath(ind[fam[key]['CHIL'][count]]['name'], i, ind[fam[key]['CHIL'][count]]['BIRT'], ind[fam[key]["HUSB"]]["DEAT"], False)
-					ind[fam[key]["HUSB"]]["DEAT"]
-				count = count + 1
-				
-		#US06 - RS
-		if ((wifeID != "----") and (hubID != "----") and (div != "----")):
-			if ("DEAT" in ind[fam[key]["WIFE"]] and (ind[fam[key]["WIFE"]] != "----") and (ind[fam[key]["WIFE"]]["DEAT"] != "----")):
-				rs_stories.us06(wifeName, hubName, ind[fam[key]["WIFE"]]["DEAT"], div)
-			elif(("DEAT" in ind[fam[key]["HUSB"]] and (ind[fam[key]['HUSB']]["DEAT"]) != "----" and (ind[fam[key]["HUSB"]]["DEAT"] != "----"))):
-				rs_stories.us06(wifeName, hubName, ind[fam[key]["HUSB"]]["DEAT"], div)
-		#US15 - RS
-		if (chil != "----"):
-			rs_stories.us15(fam)
-		#US18 - RS
-		rs_stories.us18(wifeName, wifeID, hubName, hubID, fam)
-		#US21 - RS
-		if (wifeID != "----"):
-			rs_stories.us21(wifeName, ind[fam[key]['WIFE']]['sex'], "wife")
-		if (hubID != "----"):
-			rs_stories.us21(hubName, ind[fam[key]['HUSB']]['sex'], "husband")
-
-		famTable.add_row([key, marr, div, hubID, hubName, wifeID, wifeName, chil])
-		
-
-	f.write(famTable.get_string())
-	f.write("\n")
-
-	return {"fam":fam, "ind":ind}
+    
+if __name__ == '__main__': unittest.main()
