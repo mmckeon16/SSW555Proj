@@ -19,7 +19,7 @@ def safe_open(file,mode):
     except IOError:
         raise IOError("Can't open '{}' for '{}'".format(file, mode))
         
-def siblingSpacing(fam, ind, file): 
+def siblingSpacing(fam, ind): 
     result = True 
     for f in fam:
         if "CHIL" in fam[f]: #if person is a child
@@ -28,15 +28,15 @@ def siblingSpacing(fam, ind, file):
                 chil_list.append(chil) #child's siblings --> 'I19, I26, 130'
             for i in range(len(chil_list)): #(0,3) aka 0,2 
                 i_date = ind[chil_list[i]]["BIRT"] #13 feb 1981, 13 feb 1982, 13 feb 1987 
-                i_month = getMonth(i_date) #feb, feb, feb
+                i_month = int(getMonth(i_date)) #2, 2, 2
                 i_day = int(getDay(i_date)) #13, 13, 13
                 for j in range(i + 1, len(chil_list)): #(1,3) aka (1,2)
                     j_date = ind[chil_list[j]]["BIRT"] #13 feb 1982, 13 feb 1987 
-                    j_month = getMonth(j_date) #feb, feb
+                    j_month = int(getMonth(j_date)) #2, 2
                     j_day = int(getDay(j_date)) #13, 13
-                    if not (month_values[i_month] - month_values[j_month] > 8) or not (month_values[j_month] - month_values[i_month] > 8):
+                    if not ([i_month] - [j_month] > 8) or not ([j_month] - [i_month] > 8):
                         file.write("ERROR US13: Birth dates of siblings should be more than 8 months apart\n")                    
-                    elif month_values[i_month] != month_values[j_month]:
+                    elif [i_month] != [j_month]:
                         if not (i_day - j_day < 2) or not (j_day - i_day < 2):
                             file.write("ERROR US13: Birth dates of siblings should be less than 2 days apart\n")                    
                     else:
