@@ -98,6 +98,8 @@ def gedComProj():
 				else:
 					fam[currFam][tag] = [arguments]
 
+	mmstories.birthBeforeDeath(ind, f)
+	mmstories.parentsNotTooOld(fam, ind, f)
 	mmstories.checkLessThan5SharedSiblingBdays(fam, ind, f);
 	mmstories.logLargeAgeDif(fam, ind, f)
 	mmstories.marrAfter14(fam, ind, f)
@@ -106,12 +108,12 @@ def gedComProj():
 	noMarr.checkMarr(fam,ind, f)
 	noBigamy.checkBigamy(fam,ind, f)
 	us24.unique_families_by_spouses(ind, fam, f)
-	mmstories.orderChildrenByAge(fam, ind, f)
-	mmstories.listDeceased(ind, f)
-	logOrphans.logOrphans(fam, ind, f)
 	logAliveMarried.logAliveMarried(fam, ind, f)
 	us36.us36_print_recent_deaths(ind, f)
 	us35.us35_print_recent_births(ind, f)
+	mmstories.orderChildrenByAge(fam, ind, f)
+	mmstories.listDeceased(ind, f)
+	logOrphans.logOrphans(fam, ind, f)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 

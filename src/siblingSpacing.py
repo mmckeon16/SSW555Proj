@@ -25,12 +25,14 @@ def siblingSpacing(fam, ind, file):
         if "CHIL" in fam[f]: #if person is a child
             for c in fam[f]["CHIL"]:
                 chil = ind[c]["id"]
-                b_date = ind[c]["BIRT"]
-                b_month = getMonth(b_date)
-                b_day = getDay(b_date)
-                chilAndBirth.append(chil, b_month, b_day) #child's siblings 
+                
+                chilAndBirth.append(chil) #child's siblings 
             for i in range(len(chilAndBirth)):
+                i_date = ind[chilAndBirth[i]]["BIRT"]
+                i_month = getMonth(i_date)
+                i_day = getDay(i_date)
                 for j in range(i + 1, len(chilAndBirth)):
+                  #same for i, but with j here
                     if not (chilAndBirth[i][b_month] - chilAndBirth[j][b_month] > 8) or not (chilAndBirth[j][b_month] - chilAndBirth[i][b_month] > 8):
                         file.write("ERROR US13: Birth dates of siblings should be more than 8 months apart\n")                    
                     elif chilAndBirth[i][b_month] != chilAndBirth[j][b_month]:
