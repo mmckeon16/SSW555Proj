@@ -1,6 +1,6 @@
 import unittest
-import PrettyTable
-import datetime, timedelta
+from prettytable import PrettyTable
+from datetime import datetime, timedelta
 
 def get_is_alive(individual):
     if "DEAT" in individual:
@@ -37,7 +37,6 @@ def us_38_print_upcoming_birthdays(individuals, file): #why did you have so many
             individual_birthday = get_birth_date(individual)
             if individual_birthday is not 0 and get_is_alive(individual):
                 individual_current_birthday = datetime(today.year, individual_birthday.month, individual_birthday.day)
-                print(str(individual_current_birthday))
                 if 0 <= (abs(individual_current_birthday - today)).days <= 30:
                     #table.add_row([individual.get_person_id(), individual.get_name(), individual_birthday])
                     #the id is just the individual["id"].
@@ -60,7 +59,7 @@ class MyTest(unittest.TestCase):
     def test(self): 
 
         #you are trying to check if something is true but the function is not returning anything
-        f=open("../test/jeneleeOutput.txt","a+")
+        f=open("./jeneleeOutput.txt","a+")
         self.assertTrue(us_38_print_upcoming_birthdays(ind,f))
         #you did not copy over the ind dictionary...
         f.close()

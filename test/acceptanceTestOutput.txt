@@ -7,6 +7,8 @@ ERROR US03: Birth of I46 comes before their death
 ERROR US03: Birth of I65 comes before their death
 ERROR US12: Mother I65 is older than their child, I66 by over 60 years
 ERROR US12: Father I64 is older than their child, I66 by over 80 years
+ERROR US12: Mother I65 is older than their child, I67 by over 60 years
+ERROR US12: Father I64 is older than their child, I67 by over 80 years
 ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
 ERROR US34: The couple I01 and I07 have a large age difference
 ERROR US34: The couple I50 and I51 have a large age difference
@@ -36,6 +38,7 @@ ERROR US17: For family F35, I51 is married to I51. Parents should not marry any 
 ERROR US17: For family F36, I51 is married to I51. Parents should not marry any of their descendants
 ERROR US17: For family F37, I61 is married to I61. Parents should not marry any of their descendants
 ERROR US17: For family F38, I64 is married to I64. Parents should not marry any of their descendants
+ERROR US17: For family F39, I64 is married to I64. Parents should not marry any of their descendants
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
@@ -143,9 +146,31 @@ Here is a table of the children and their ages in family F38:
 | Child | Age |
 +-------+-----+
 |  I66  |  8  |
+|  I67  |  8  |
 +-------+-----+
 This is a list of deceased people: ['I01', 'I11', 'I45', 'I46', 'I55', 'I61', 'I62', 'I65']
 US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are younger than 18
+Upcoming Anniversaries
++-----+---------------------+
+|  ID |     Anniversary     |
++-----+---------------------+
+| F39 | 1920-08-08 00:00:00 |
++-----+---------------------+
+Upcoming Birthdays
++-----+---------------+---------------------+
+|  ID |      Name     |       Birthday      |
++-----+---------------+---------------------+
+| I54 |  James /Rad/  | 2018-07-13 00:00:00 |
+| I56 |  Cames /Rad/  | 2011-07-13 00:00:00 |
+| I57 |  Dames /Rad/  | 2014-07-13 00:00:00 |
+| I58 |  Shames /Rad/ | 2016-07-13 00:00:00 |
+| I59 |  Bames /Rad/  | 2017-07-13 00:00:00 |
+| I60 |  Zames /Rad/  | 2001-07-13 00:00:00 |
+| I63 | Chid /Orphan/ | 2010-07-13 00:00:00 |
+| I64 | Richard /Old/ | 1910-07-13 00:00:00 |
+| I66 |   Kip /Old/   | 2010-07-13 00:00:00 |
+| I67 |  Spaced /Old/ | 2010-07-20 00:00:00 |
++-----+---------------+---------------------+
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
 |  ID |        NAME       | Gender |     BDay    | Age |    Death    | Child | Spouse |
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
@@ -178,6 +203,7 @@ US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are 
 | I64 |   Richard /Old/   |   M    | 13 JUL 1910 | 108 |     ----    |  ---- |  F38   |
 | I65 |   Virginia /Old/  |   F    | 13 JUL 1910 | 108 | 12 JUL 1907 |  ---- |  F38   |
 | I66 |     Kip /Old/     |   M    | 13 JUL 2010 |  8  |     ----    |  F38  |  ----  |
+| I67 |    Spaced /Old/   |   M    | 20 JUL 2010 |  8  |     ----    |  F38  |  ----  |
 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
 Error US15: There are more than 15 siblings for family F36.
 Error US21: Role of Test /Hub/ does not match her gender.
@@ -220,6 +246,7 @@ Error US08: Birthdate of child Zames /Rad/ (I60) is before their parents' marria
 Error US15: There are more than 15 siblings for family F36.
 Error US15: There are more than 15 siblings for family F36.
 Error US09: Birthdate of child Kip /Old/ (I66) is after mother's death.
+Error US09: Birthdate of child Spaced /Old/ (I67) is after mother's death.
 Error US15: There are more than 15 siblings for family F36.
 +-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
 |  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     |                           Children                          |
@@ -235,5 +262,6 @@ Error US15: There are more than 15 siblings for family F36.
 | F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
 | F36 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  | I07,I10,I44,I45,I47,I48,I49,I53,I54,I55,I56,I57,I58,I59,I60 |
 | F37 | 14 FEB 2000 |     ----    |   I61   |    Dad /Orphan/   |   I62   |   Mom /Orphan/   |                             I63                             |
-| F38 | 14 FEB 1920 |     ----    |   I64   |   Richard /Old/   |   I65   |  Virginia /Old/  |                             I66                             |
+| F38 | 14 FEB 1920 |     ----    |   I64   |   Richard /Old/   |   I65   |  Virginia /Old/  |                           I66,I67                           |
+| F39 |  8 AUG 1920 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
 +-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+

@@ -24,12 +24,11 @@ def us_39_print_upcoming_anniversaries(families, file):
             family_marriage = get_anniversary_date(family)
             if family_marriage is not 0:
                 family_current_anniversary = datetime(today.year, family_marriage.month, family_marriage.day)
-                print(str(family_current_anniversary))
                 if 0 <= (abs(family_current_anniversary - today)).days <= 30:
                     table.add_row([family["fam"], family_marriage])
                     result = True
-        print("Upcoming Anniversaries\n")
-        print(str(table) + "\n") 
+        file.write("Upcoming Anniversaries\n")
+        file.write(str(table) + "\n") 
         return result
 
 fam = {'F23': #birth date of Dick Smith and Jane Smith more than 8 months apart 
