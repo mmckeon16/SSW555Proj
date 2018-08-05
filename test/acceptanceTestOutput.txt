@@ -1,5 +1,8 @@
+Error US07: Age of Dick /Smith/ (I19) should be less than 150 years old.
 Error US15: There are more than 15 siblings for family F36.
+Error US21: Role of Test /Hub/ does not match her gender.
 Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
+Error US08: Birthdate of child Dick /Smith/ (I19) is before their parents' marriage.
 Error US15: There are more than 15 siblings for family F36.
 Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
 Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
@@ -11,10 +14,12 @@ Error US15: There are more than 15 siblings for family F36.
 Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
 Error US15: There are more than 15 siblings for family F36.
 Error US18: Siblings Cersi /Lanister/ and George /Rob/ cannot be married.
+Error US21: Role of George /Rob/ does not match her gender.
 Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
 Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
 Error US15: There are more than 15 siblings for family F36.
 Error US18: Siblings Cersi /Lanister/ and Julie /Lee/ cannot be married.
+Error US21: Role of Julie /Lee/ does not match her gender.
 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
 Error US15: There are more than 15 siblings for family F36.
 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
@@ -55,15 +60,15 @@ ERROR US16: Incorrect last name for a male child
 ERROR US16: Incorrect last name for a male child
 ERROR US16: Incorrect last name for a male child
 ERROR US23: There is a shared Name and Birthdate in family F31
-ERROR US17: For family F20, Parents should not marry any of their descendants
-ERROR US17: For family F30, Parents should not marry any of their descendants
-ERROR US17: For family F31, Parents should not marry any of their descendants
-ERROR US17: For family F32, Parents should not marry any of their descendants
-ERROR US17: For family F33, Parents should not marry any of their descendants
-ERROR US17: For family F34, Parents should not marry any of their descendants
-ERROR US17: For family F35, Parents should not marry any of their descendants
-ERROR US17: For family F36, Parents should not marry any of their descendants
-ERROR US17: For family F37, Parents should not marry any of their descendants
+ERROR US17: For family F20, I11 is married to I11. Parents should not marry any of their descendants
+ERROR US17: For family F30, I45 is married to I45. Parents should not marry any of their descendants
+ERROR US17: For family F31, I44 is married to I44. Parents should not marry any of their descendants
+ERROR US17: For family F32, I50 is married to I50. Parents should not marry any of their descendants
+ERROR US17: For family F33, I45 is married to I45. Parents should not marry any of their descendants
+ERROR US17: For family F34, I51 is married to I51. Parents should not marry any of their descendants
+ERROR US17: For family F35, I51 is married to I51. Parents should not marry any of their descendants
+ERROR US17: For family F36, I51 is married to I51. Parents should not marry any of their descendants
+ERROR US17: For family F37, I61 is married to I61. Parents should not marry any of their descendants
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
@@ -71,15 +76,75 @@ ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US24: Two families share the same wife of I51 and the same husband of I52 and marriage date of 14 FEB 2018
-Here is a list of the children and their ages in family F23: [('I19', 37), ('I26', 37)]
-Here is a list of the children and their ages in family F20: []
-Here is a list of the children and their ages in family F30: [('I47', 40)]
-Here is a list of the children and their ages in family F31: [('I49', 36)]
-Here is a list of the children and their ages in family F32: [('I45', 37), ('I44', 37)]
-Here is a list of the children and their ages in family F34: [('I53', 27)]
-Here is a list of the children and their ages in family F35: [('I53', 27)]
-Here is a list of the children and their ages in family F36: [('I07', -2), ('I54', 0), ('I55', 1), ('I59', 1), ('I58', 2), ('I57', 4), ('I56', 7), ('I60', 17), ('I53', 27), ('I48', 36), ('I49', 36), ('I44', 37), ('I45', 37), ('I47', 40), ('I10', 44)]
-Here is a list of the children and their ages in family F37: [('I63', 8)]
+Here is a table of the children and their ages in family F23: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I26  |  37 |
+|  I19  | 237 |
++-------+-----+
+Here is a table of the children and their ages in family F20: 
++-------+-----+
+| Child | Age |
++-------+-----+
++-------+-----+
+Here is a table of the children and their ages in family F30: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I47  |  40 |
++-------+-----+
+Here is a table of the children and their ages in family F31: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I49  |  36 |
++-------+-----+
+Here is a table of the children and their ages in family F32: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I45  |  37 |
+|  I44  |  37 |
++-------+-----+
+Here is a table of the children and their ages in family F34: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I53  |  27 |
++-------+-----+
+Here is a table of the children and their ages in family F35: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I53  |  27 |
++-------+-----+
+Here is a table of the children and their ages in family F36: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I07  |  -2 |
+|  I54  |  0  |
+|  I55  |  1  |
+|  I59  |  1  |
+|  I58  |  2  |
+|  I57  |  4  |
+|  I56  |  7  |
+|  I60  |  17 |
+|  I53  |  27 |
+|  I48  |  36 |
+|  I49  |  36 |
+|  I44  |  37 |
+|  I45  |  37 |
+|  I47  |  40 |
+|  I10  |  44 |
++-------+-----+
+Here is a table of the children and their ages in family F37: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I63  |  8  |
++-------+-----+
 This is a list of deceased people: ['I01', 'I11', 'I45', 'I46', 'I55', 'I61', 'I62']
 US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are younger than 18
 I07 is alive and married!
@@ -113,8 +178,8 @@ Recent Births
 | I01 |    Joe /Smith/    |   M    | 15 JUL 1960 |  58 | 31 DEC 2013 |  ---- |  F23   |
 | I07 |  Jennifer /Smith/ |   F    | 23 SEP 2019 |  -2 |     ----    |  ---- |  F23   |
 | I10 |    Test /Wife/    |   F    | 23 SEP 1973 |  44 |     ----    |  ---- |  F20   |
-| I11 |     Test /Hub/    |   M    | 15 JUL 1970 |  48 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |    Dick /Smith/   |   M    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
+| I11 |     Test /Hub/    |   F    | 15 JUL 1970 |  48 | 31 DEC 1975 |  ---- |  F20   |
+| I19 |    Dick /Smith/   |   M    | 13 FEB 1781 | 237 |     ----    |  F23  |  ----  |
 | I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
 | I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |  37 |     ----    |  F32  |  ----  |
 | I45 |    Julie /Lee/    |   F    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |

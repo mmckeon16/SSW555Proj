@@ -2,7 +2,16 @@ ERROR: US01 The date 17 JUN 2029 is after the current date
 ERROR: US14 - Sorry this amount of children born on the same day in F23 fam is not valid
 ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR US34: The couple I01 and I07 have a large age difference
-Here is a list of the children and their ages in family F23: [('I32', 8), ('I30', 18), ('I19', 19), ('I26', 20), ('I43', 21)]
+Here is a table of the children and their ages in family F23: 
++-------+-----+
+| Child | Age |
++-------+-----+
+|  I32  |  8  |
+|  I30  |  18 |
+|  I19  |  19 |
+|  I26  |  20 |
+|  I43  |  21 |
++-------+-----+
 This is a list of deceased people: ['I01']
 This is a list of deceased people: ['I01', 'I07', 'I19']
 ERROR US03: Birth of I01 comes before their death

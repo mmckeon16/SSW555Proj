@@ -117,7 +117,10 @@ def orderChildrenByAge(fam, ind, file):
 				child_tuple = child_tuple + ((c, age),)
 			child_tuple = sorted(child_tuple, key=lambda child: child[1])
 			result = True
-			file.write("Here is a list of the children and their ages in family "+f+": "+str(child_tuple)+"\n")
+			for t in child_tuple:
+				famTable.add_row([t[0], t[1]])
+			file.write("Here is a table of the children and their ages in family "+f+": \n")
+			file.write(str(famTable)+"\n")
 	return result
 
 #US29
