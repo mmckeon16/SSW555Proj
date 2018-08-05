@@ -1,13 +1,13 @@
 import unittest
-import PrettyTable
-import datetime, timedelta
+from prettytable import PrettyTable
+from datetime import datetime, timedelta
 
 def get_is_alive(individual):
     if "DEAT" in individual:
-        death = datetime.strptime(individual["DEAT"], '%d, %b, %Y')
-        return alive
+        death = datetime.strptime(individual["DEAT"], '%d %b %Y')
+        return False
     else:
-        return 0
+        return True
 
 
 def get_birth_date(individual):
@@ -26,8 +26,8 @@ def us_38_print_upcoming_birthdays(individuals, file): #why did you have so many
 
         result = False
 
-        for person_id in person:
-            individual = self.individuals[person_id]
+        for person_id in people:
+            individual = individuals[person_id]
             #also, no self reference and use people if you made that assignment
             individual = people[person_id] 
             today = datetime.today()
