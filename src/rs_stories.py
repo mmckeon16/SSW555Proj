@@ -72,13 +72,13 @@ def us27(birthday):
 # code for us21
 def us21(name, gender, role):
   if (gender == "F" and role != "wife"):
-    error_us21 = "Error US21: Role of " + name + " does not match her gender."
+    error_us21 = "Error US21: Role of " + name + " does not match her gender.\n"
     f=open("../test/acceptanceTestOutput.txt","a+")
     f.write(error_us21)
     f.close()
     return error_us21
   if (gender == "M" and role != "husband"):
-    error_us21 = "Error US21: Role of " + name + " does not match his gender."
+    error_us21 = "Error US21: Role of " + name + " does not match his gender.\n"
     f=open("../test/acceptanceTestOutput.txt","a+")
     f.write(error_us21)
     f.close()
@@ -94,7 +94,7 @@ def us07(name, id, birth, death):
     current = datetime.today()
     age = current.year - birthdate.year - ((current.month, current.day) < (birthdate.month, birthdate.day))
   if age >= 150:
-    error_us07 = "Error US07: Age of " + name + " (" + id + ") should be less than 150 years old."
+    error_us07 = "Error US07: Age of " + name + " (" + id + ") should be less than 150 years old.\n"
     f=open("../test/acceptanceTestOutput.txt","a+")
     f.write(error_us07)
     f.close()
@@ -127,13 +127,13 @@ class MyTest(unittest.TestCase):
     self.assertEqual(us27("23 APR 1998"), 20)
     # these test us21
     self.assertEqual(us21("Joe Smith", "M", "husband"), None)
-    self.assertEqual(us21("Joe Smith", "M", "wife"), "Error US21: Role of Joe Smith does not match his gender.")
-    self.assertEqual(us21("Jane Smith", "F", "husband"), "Error US21: Role of Jane Smith does not match her gender.")
+    self.assertEqual(us21("Joe Smith", "M", "wife"), "Error US21: Role of Joe Smith does not match his gender.\n")
+    self.assertEqual(us21("Jane Smith", "F", "husband"), "Error US21: Role of Jane Smith does not match her gender.\n")
     self.assertEqual(us21("Jane Smith", "F", "wife"), None)
     # these test us07
     self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "----"), None)
     self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "19 JUN 2050"), None)
-    self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "20 JUN 2050"), "Error US07: Age of Joe Smith (I07) should be less than 150 years old.")
+    self.assertEqual(us07("Joe Smith", "I07", "20 JUN 1900", "20 JUN 2050"), "Error US07: Age of Joe Smith (I07) should be less than 150 years old.\n")
 
     
 if __name__ == '__main__': unittest.main()

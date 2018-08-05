@@ -133,7 +133,7 @@ def gedComProj():
 		indTable.add_row([ind[key]['id'], ind[key]['name'], ind[key]['sex'], ind[key]['BIRT'], age, deat, chil, spouse])
 
 		#US07 - RS
-		rs_stories(ind[key]['name'], ind[key]['id'], ind[key]['BIRT'], deat)
+		rs_stories.us07(ind[key]['name'], ind[key]['id'], ind[key]['BIRT'], deat)
 
 	f.write(indTable.get_string() + "\n")
 
