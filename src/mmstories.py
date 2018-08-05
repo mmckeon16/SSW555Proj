@@ -1,5 +1,6 @@
 import unittest
 from datetime import datetime
+from prettytable import PrettyTable
 
 #US01
 def checkIfDateBeforeNow(date, f):
@@ -105,6 +106,7 @@ def logLargeAgeDif(fam, ind, file):
 def orderChildrenByAge(fam, ind, file):
 	result = False
 	for f in fam:
+		famTable = PrettyTable(["Child", "Age"])
 		child_tuple = ()
 		if "CHIL" in fam[f]:
 			for c in fam[f]["CHIL"]:
@@ -128,5 +130,47 @@ def listDeceased(ind, file):
 			count = count +1
 	file.write("This is a list of deceased people: "+str(listDeceased)+"\n")
 	return count
+
+#US12
+def parentsNotTooOld(fam, ind, file):
+	result = True
+	for f in fam:
+		if "CHIL" in fam[f]:
+			wife = "0"
+			husb = "0"
+			if "HUSB" in fam[f]:
+				husb = fam[f]["HUSB"]
+			if "WIFE" in fam[f]:
+				wife = fam[f]["WIFE"]
+			wifeAge = 0
+			husbAge = 0
+			if wife in ind and "BIRT" in ind[wife]:
+				wifeAge = getAge(ind[wife]["BIRT"])
+			if husb in ind and "BIRT" in ind[husb]:
+				husbAge = getAge(ind[husb]["BIRT"])
+			for c in fam[f]["CHIL"]:
+				childAge = 0
+				if "BIRT" in ind[c]:
+					childAge = getAge(ind[c]["BIRT"])
+				if wifeAge - childAge > 60: #throw wife error
+					file.write("ERROR US12: Mother " +wife+ " is older than their child, "+c+" by over 60 years\n")
+					result = False
+				if husbAge - childAge >80: #throw husb error
+					file.write("ERROR US12: Father " +husb+ " is older than their child, "+c+" by over 80 years\n")
+					result = False
+	return result
+
+#US03
+def birthBeforeDeath(ind, file):
+	result = True
+	for i in ind:
+		if "BIRT" in ind[i] and "DEAT" in ind[i]:
+			birthday = datetime.strptime(ind[i]["BIRT"], '%d %b %Y')
+			deathday = datetime.strptime(ind[i]["DEAT"], '%d %b %Y')
+			if birthday > deathday:
+				file.write("ERROR US03: Birth of "+i+" comes before their death\n")
+				result = False
+	return result
+
 
 #NOTE Tests for these user stories are now in /test under mmstoriesTest

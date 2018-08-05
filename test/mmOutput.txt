@@ -5,3 +5,6 @@ ERROR US34: The couple I01 and I07 have a large age difference
 Here is a list of the children and their ages in family F23: [('I32', 8), ('I30', 18), ('I19', 19), ('I26', 20), ('I43', 21)]
 This is a list of deceased people: ['I01']
 This is a list of deceased people: ['I01', 'I07', 'I19']
+ERROR US03: Birth of I01 comes before their death
+ERROR US12: Mother I07 is older than their child, I19 by over 60 years
+ERROR US12: Father I01 is older than their child, I19 by over 80 years
