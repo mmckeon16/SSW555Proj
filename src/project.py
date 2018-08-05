@@ -14,6 +14,7 @@ import logAliveMarried
 import logOrphans
 import us38
 import us39
+import lineNums
 
 def gedComProj():
 	f= open("../test/acceptanceTestOutput.txt","a+")
@@ -118,7 +119,7 @@ def gedComProj():
 	logOrphans.logOrphans(fam, ind, f)
 	us39.us_39_print_upcoming_anniversaries(fam, f)
 	us38.us_38_print_upcoming_birthdays(ind, f)
-	
+	lineNums.lineNums(f)
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
