@@ -1,6 +1,6 @@
 import unittest
-from prettytable import PrettyTable
-from datetime import datetime, timedelta
+import PrettyTable
+import datetime, timedelta
 
 def get_is_alive(individual):
     if "DEAT" in individual:
