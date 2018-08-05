@@ -1,11 +1,13 @@
 import unittest
-#you did not import pretty table
-from prettytable import PrettyTable
-#you did not import datetime
-from datetime import datetime, timedelta
+import PrettyTable
+import datetime, timedelta
 
-def get_is_alive(individual): #you used the get_is_alive function without putting it in the file...
-    #Try to program this based on how i did the get_birth_date
+def get_is_alive(individual):
+    if "DEAT" in individual:
+        death = datetime.strptime(individual["DEAT"], '%d, %b, %Y')
+        return alive
+    else:
+        return 0
 
 
 def get_birth_date(individual):
@@ -19,16 +21,13 @@ def us_38_print_upcoming_birthdays(individuals, file): #why did you have so many
         """"US38
         Prints birthdays within the next 30 days
         """
-        #people = self.individuals
-        #there is no self
         people = individuals
         table = PrettyTable(["ID", "Name", "Birthday"])
 
         result = False
 
-        for person_id in people:
-            # type: Person
-            #individual = self.individuals[individual_id] #this should be person_id, not individual id
+        for person_id in person:
+            individual = self.individuals[person_id]
             #also, no self reference and use people if you made that assignment
             individual = people[person_id] 
             today = datetime.today()
