@@ -12,7 +12,7 @@ def safe_open(file, mode):
 
 def lineNums(file):
     for line_num, line in enumerate(file): 
-        file.write("Here is a list of line numbers from the GEDCOM source file when reporting errors:'{}\t{}'.format(line_num, line)\n")
+        sys.stdout.write("Here is a list of line numbers from the GEDCOM source file when reporting errors:'{}\t{}'.format(line_num, line)\n")
 
 class MyTest(unittest.TestCase):
   def test(self):
