@@ -15,6 +15,7 @@ import logOrphans
 import us38
 import us39
 import siblingSpacing
+import lineNums
 
 def gedComProj():
 	f= open("../test/acceptanceTestOutput.txt","a+")
@@ -120,8 +121,7 @@ def gedComProj():
 	us39.us_39_print_upcoming_anniversaries(fam, f)
 	us38.us_38_print_upcoming_birthdays(ind, f)
 	siblingSpacing.siblingSpacing(fam, ind, f)
-	
-	
+
 
 	indTable = PrettyTable(["ID", "NAME", "Gender", "BDay", "Age", "Death", "Child", "Spouse"])
 	indTable.align["ID"] = "1" 
@@ -232,5 +232,7 @@ def gedComProj():
 
 	f.write(famTable.get_string())
 	f.write("\n")
+		
+	lineNums.lineNums(f)
 
 	return {"fam":fam, "ind":ind}

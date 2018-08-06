@@ -1,267 +1,362 @@
-Error US07: Age of Dick /Smith/ (I19) should be less than 150 years old.
-ERROR: US01 The date 23 SEP 2019 is after the current date
-ERROR US22: Individual ID I45 already exists
-ERROR US22: Individual ID I53 already exists
-ERROR US03: Birth of I45 comes before their death
-ERROR US03: Birth of I46 comes before their death
-ERROR US03: Birth of I65 comes before their death
-ERROR US12: Mother I65 is older than their child, I66 by over 60 years
-ERROR US12: Father I64 is older than their child, I66 by over 80 years
-ERROR US12: Mother I65 is older than their child, I67 by over 60 years
-ERROR US12: Father I64 is older than their child, I67 by over 80 years
-ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
-ERROR US34: The couple I01 and I07 have a large age difference
-ERROR US34: The couple I50 and I51 have a large age difference
-ERROR US34: The couple I52 and I51 have a large age difference
-ERROR US34: The couple I52 and I51 have a large age difference
-ERROR US34: The couple I52 and I51 have a large age difference
-ERROR: US10 - The individual I07 was married before 14, this is invalid
-ERROR: US10 - The individual I11 was married before 14, this is invalid
-ERROR: US10 - The individual I46 was married before 14, this is invalid
-ERROR: US10 - The individual I48 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I51 was married before 14, this is invalid
-ERROR: US10 - The individual I64 was married before 14, this is invalid
-ERROR US16: Incorrect last name for a male child
-ERROR US16: Incorrect last name for a male child
-ERROR US16: Incorrect last name for a male child
-ERROR US23: There is a shared Name and Birthdate in family F31
-ERROR US17: For family F20, I11 is married to I11. Parents should not marry any of their descendants
-ERROR US17: For family F30, I45 is married to I45. Parents should not marry any of their descendants
-ERROR US17: For family F31, I44 is married to I44. Parents should not marry any of their descendants
-ERROR US17: For family F32, I50 is married to I50. Parents should not marry any of their descendants
-ERROR US17: For family F33, I45 is married to I45. Parents should not marry any of their descendants
-ERROR US17: For family F34, I51 is married to I51. Parents should not marry any of their descendants
-ERROR US17: For family F35, I51 is married to I51. Parents should not marry any of their descendants
-ERROR US17: For family F36, I51 is married to I51. Parents should not marry any of their descendants
-ERROR US17: For family F37, I61 is married to I61. Parents should not marry any of their descendants
-ERROR US17: For family F38, I64 is married to I64. Parents should not marry any of their descendants
-ERROR US17: For family F39, I64 is married to I64. Parents should not marry any of their descendants
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US11: Marriage should not occur during marriage to another spouse
-ERROR US24: Two families share the same wife of I51 and the same husband of I52 and marriage date of 14 FEB 2018
-I07 is alive and married!
-I10 is alive and married!
-I48 is alive and married!
-I44 is alive and married!
-I50 is alive and married!
-I51 is alive and married!
-I44 is alive and married!
-I52 is alive and married!
-I51 is alive and married!
-I52 is alive and married!
-I51 is alive and married!
-I52 is alive and married!
-I51 is alive and married!
-I64 is alive and married!
-Recent Deaths
-+-----+------------+-------------+
-|  ID |    Name    |  Deathdate  |
-+-----+------------+-------------+
-| I55 | Ames /Rad/ | 13 JUL 2018 |
-+-----+------------+-------------+
-Recent Births
-+-----+-------------+-------------+
-|  ID |     Name    |  Birthdate  |
-+-----+-------------+-------------+
-| I54 | James /Rad/ | 13 JUL 2018 |
-+-----+-------------+-------------+
-Here is a table of the children and their ages in family F23: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I26  |  37 |
-|  I19  | 237 |
-+-------+-----+
-Here is a table of the children and their ages in family F20: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-+-------+-----+
-Here is a table of the children and their ages in family F30: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I47  |  40 |
-+-------+-----+
-Here is a table of the children and their ages in family F31: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I49  |  36 |
-+-------+-----+
-Here is a table of the children and their ages in family F32: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I45  |  37 |
-|  I44  |  37 |
-+-------+-----+
-Here is a table of the children and their ages in family F34: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I53  |  27 |
-+-------+-----+
-Here is a table of the children and their ages in family F35: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I53  |  27 |
-+-------+-----+
-Here is a table of the children and their ages in family F36: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I07  |  -2 |
-|  I54  |  0  |
-|  I55  |  1  |
-|  I59  |  1  |
-|  I58  |  2  |
-|  I57  |  4  |
-|  I56  |  7  |
-|  I60  |  17 |
-|  I53  |  27 |
-|  I48  |  36 |
-|  I49  |  36 |
-|  I44  |  37 |
-|  I45  |  37 |
-|  I47  |  40 |
-|  I10  |  44 |
-+-------+-----+
-Here is a table of the children and their ages in family F37: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I63  |  8  |
-+-------+-----+
-Here is a table of the children and their ages in family F38: 
-+-------+-----+
-| Child | Age |
-+-------+-----+
-|  I66  |  8  |
-|  I67  |  8  |
-+-------+-----+
-This is a list of deceased people: ['I01', 'I11', 'I45', 'I46', 'I55', 'I61', 'I62', 'I65']
-US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are younger than 18
-Upcoming Anniversaries
-+-----+---------------------+
-|  ID |     Anniversary     |
-+-----+---------------------+
-| F39 | 1920-08-08 00:00:00 |
-+-----+---------------------+
-Upcoming Birthdays
-+-----+---------------+---------------------+
-|  ID |      Name     |       Birthday      |
-+-----+---------------+---------------------+
-| I54 |  James /Rad/  | 2018-07-13 00:00:00 |
-| I56 |  Cames /Rad/  | 2011-07-13 00:00:00 |
-| I57 |  Dames /Rad/  | 2014-07-13 00:00:00 |
-| I58 |  Shames /Rad/ | 2016-07-13 00:00:00 |
-| I59 |  Bames /Rad/  | 2017-07-13 00:00:00 |
-| I60 |  Zames /Rad/  | 2001-07-13 00:00:00 |
-| I63 | Chid /Orphan/ | 2010-07-13 00:00:00 |
-| I64 | Richard /Old/ | 1910-07-13 00:00:00 |
-| I66 |   Kip /Old/   | 2010-07-13 00:00:00 |
-| I67 |  Spaced /Old/ | 2010-07-20 00:00:00 |
-+-----+---------------+---------------------+
-+-----+-------------------+--------+-------------+-----+-------------+-------+--------+
-|  ID |        NAME       | Gender |     BDay    | Age |    Death    | Child | Spouse |
-+-----+-------------------+--------+-------------+-----+-------------+-------+--------+
-| I01 |    Joe /Smith/    |   M    | 15 JUL 1960 |  58 | 31 DEC 2013 |  ---- |  F23   |
-| I07 |  Jennifer /Smith/ |   F    | 23 SEP 2019 |  -2 |     ----    |  ---- |  F23   |
-| I10 |    Test /Wife/    |   F    | 23 SEP 1973 |  44 |     ----    |  ---- |  F20   |
-| I11 |     Test /Hub/    |   F    | 15 JUL 1970 |  48 | 31 DEC 1975 |  ---- |  F20   |
-| I19 |    Dick /Smith/   |   M    | 13 FEB 1781 | 237 |     ----    |  F23  |  ----  |
-| I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
-| I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |  37 |     ----    |  F32  |  ----  |
-| I45 |    Julie /Lee/    |   F    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
-| I46 |    Jeremy /Lee/   |   M    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
-| I47 |     Remy /Lee/    |   F    | 13 FEB 1978 |  40 |     ----    |  F30  |  ----  |
-| I48 |    George /Rob/   |   F    | 13 FEB 1982 |  36 |     ----    |  ---- |  F31   |
-| I49 |    George /Rob/   |   F    | 13 FEB 1982 |  36 |     ----    |  F31  |  ----  |
-| I50 | Andrew /Svensson/ |   M    | 13 FEB 1963 |  55 |     ----    |  ---- |  F32   |
-| I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |  8  |     ----    |  ---- |  F32   |
-| I52 |     Ryan /Rad/    |   M    | 13 FEB 1990 |  28 |     ----    |  ---- |  F34   |
-| I53 |    Bryan /Rad/    |   M    | 13 FEB 1991 |  27 |     ----    |  F34  |  ----  |
-| I54 |    James /Rad/    |   M    | 13 JUL 2018 |  0  |     ----    |  F36  |  ----  |
-| I55 |     Ames /Rad/    |   M    | 13 JUL 2017 |  1  | 13 JUL 2018 |  F36  |  ----  |
-| I56 |    Cames /Rad/    |   M    | 13 JUL 2011 |  7  |     ----    |  F36  |  ----  |
-| I57 |    Dames /Rad/    |   M    | 13 JUL 2014 |  4  |     ----    |  F36  |  ----  |
-| I58 |    Shames /Rad/   |   M    | 13 JUL 2016 |  2  |     ----    |  F36  |  ----  |
-| I59 |    Bames /Rad/    |   M    | 13 JUL 2017 |  1  |     ----    |  F36  |  ----  |
-| I60 |    Zames /Rad/    |   M    | 13 JUL 2001 |  17 |     ----    |  F36  |  ----  |
-| I61 |    Dad /Orphan/   |   M    | 13 JUL 1980 |  38 | 13 JUL 2011 |  ---- |  F37   |
-| I62 |    Mom /Orphan/   |   F    | 13 JUL 1981 |  37 | 13 JUL 2011 |  ---- |  F37   |
-| I63 |   Chid /Orphan/   |   M    | 13 JUL 2010 |  8  |     ----    |  F37  |  ----  |
-| I64 |   Richard /Old/   |   M    | 13 JUL 1910 | 108 |     ----    |  ---- |  F38   |
-| I65 |   Virginia /Old/  |   F    | 13 JUL 1910 | 108 | 12 JUL 1907 |  ---- |  F38   |
-| I66 |     Kip /Old/     |   M    | 13 JUL 2010 |  8  |     ----    |  F38  |  ----  |
-| I67 |    Spaced /Old/   |   M    | 20 JUL 2010 |  8  |     ----    |  F38  |  ----  |
-+-----+-------------------+--------+-------------+-----+-------------+-------+--------+
-Error US15: There are more than 15 siblings for family F36.
-Error US21: Role of Test /Hub/ does not match her gender.
-Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
-Error US08: Birthdate of child Dick /Smith/ (I19) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
-Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
-Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.
-Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
-Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
-Error US06: Divorce of Julie /Lee/ and Jeremy /Lee/ occurs after one or both of them have died.
-Error US15: There are more than 15 siblings for family F36.
-Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US18: Siblings Cersi /Lanister/ and George /Rob/ cannot be married.
-Error US21: Role of George /Rob/ does not match her gender.
-Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
-Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US18: Siblings Cersi /Lanister/ and Julie /Lee/ cannot be married.
-Error US21: Role of Julie /Lee/ does not match her gender.
-Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US08: Birthdate of child Test /Wife/ (I10) is before their parents' marriage.
-Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
-Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
-Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
-Error US08: Birthdate of child George /Rob/ (I48) is before their parents' marriage.
-Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
-Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
-Error US08: Birthdate of child Ames /Rad/ (I55) is before their parents' marriage.
-Error US08: Birthdate of child Cames /Rad/ (I56) is before their parents' marriage.
-Error US08: Birthdate of child Dames /Rad/ (I57) is before their parents' marriage.
-Error US08: Birthdate of child Shames /Rad/ (I58) is before their parents' marriage.
-Error US08: Birthdate of child Bames /Rad/ (I59) is before their parents' marriage.
-Error US08: Birthdate of child Zames /Rad/ (I60) is before their parents' marriage.
-Error US15: There are more than 15 siblings for family F36.
-Error US15: There are more than 15 siblings for family F36.
-Error US09: Birthdate of child Kip /Old/ (I66) is after mother's death.
-Error US09: Birthdate of child Spaced /Old/ (I67) is after mother's death.
-Error US15: There are more than 15 siblings for family F36.
-+-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
-|  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     |                           Children                          |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
-| F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
-| F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |                                                             |
-| F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ |                           I19,I26                           |
-| F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |                             I47                             |
-| F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I44   | Cersi /Lanister/ |                             I49                             |
-| F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  |                           I45,I44                           |
-| F33 | 14 FEB 2018 |     ----    |   I45   |    Julie /Lee/    |   I44   | Cersi /Lanister/ |                             ----                            |
-| F34 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
-| F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
-| F36 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  | I07,I10,I44,I45,I47,I48,I49,I53,I54,I55,I56,I57,I58,I59,I60 |
-| F37 | 14 FEB 2000 |     ----    |   I61   |    Dad /Orphan/   |   I62   |   Mom /Orphan/   |                             I63                             |
-| F38 | 14 FEB 1920 |     ----    |   I64   |   Richard /Old/   |   I65   |  Virginia /Old/  |                           I66,I67                           |
-| F39 |  8 AUG 1920 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
-+-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
+0 ERROR: US01 The date 23 SEP 2019 is after the current date
+1 ERROR US22: Individual ID I45 already exists
+2 ERROR US22: Individual ID I53 already exists
+3 ERROR US03: Birth of I45 comes before their death
+4 ERROR US03: Birth of I46 comes before their death
+5 ERROR US03: Birth of I65 comes before their death
+6 ERROR US12: Mother I65 is older than their child, I66 by over 60 years
+7 ERROR US12: Father I64 is older than their child, I66 by over 80 years
+8 ERROR US12: Mother I65 is older than their child, I67 by over 60 years
+9 ERROR US12: Father I64 is older than their child, I67 by over 80 years
+10 ERROR: US14 - Sorry this amount of children born on the same day in F20 fam is not valid
+11 ERROR US34: The couple I01 and I07 have a large age difference
+12 ERROR US34: The couple I50 and I51 have a large age difference
+13 ERROR US34: The couple I52 and I51 have a large age difference
+14 ERROR US34: The couple I52 and I51 have a large age difference
+15 ERROR US34: The couple I52 and I51 have a large age difference
+16 ERROR: US10 - The individual I07 was married before 14, this is invalid
+17 ERROR: US10 - The individual I11 was married before 14, this is invalid
+18 ERROR: US10 - The individual I46 was married before 14, this is invalid
+19 ERROR: US10 - The individual I48 was married before 14, this is invalid
+20 ERROR: US10 - The individual I51 was married before 14, this is invalid
+21 ERROR: US10 - The individual I51 was married before 14, this is invalid
+22 ERROR: US10 - The individual I51 was married before 14, this is invalid
+23 ERROR: US10 - The individual I51 was married before 14, this is invalid
+24 ERROR: US10 - The individual I64 was married before 14, this is invalid
+25 ERROR US16: Incorrect last name for a male child
+26 ERROR US16: Incorrect last name for a male child
+27 ERROR US16: Incorrect last name for a male child
+28 ERROR US23: There is a shared Name and Birthdate in family F31
+29 ERROR US17: For family F20, I11 is married to I11. Parents should not marry any of their descendants
+30 ERROR US17: For family F30, I45 is married to I45. Parents should not marry any of their descendants
+31 ERROR US17: For family F31, I44 is married to I44. Parents should not marry any of their descendants
+32 ERROR US17: For family F32, I50 is married to I50. Parents should not marry any of their descendants
+33 ERROR US17: For family F33, I45 is married to I45. Parents should not marry any of their descendants
+34 ERROR US17: For family F34, I51 is married to I51. Parents should not marry any of their descendants
+35 ERROR US17: For family F35, I51 is married to I51. Parents should not marry any of their descendants
+36 ERROR US17: For family F36, I51 is married to I51. Parents should not marry any of their descendants
+37 ERROR US17: For family F37, I61 is married to I61. Parents should not marry any of their descendants
+38 ERROR US17: For family F38, I64 is married to I64. Parents should not marry any of their descendants
+39 ERROR US17: For family F39, I64 is married to I64. Parents should not marry any of their descendants
+40 ERROR US11: Marriage should not occur during marriage to another spouse
+41 ERROR US11: Marriage should not occur during marriage to another spouse
+42 ERROR US11: Marriage should not occur during marriage to another spouse
+43 ERROR US11: Marriage should not occur during marriage to another spouse
+44 ERROR US11: Marriage should not occur during marriage to another spouse
+45 ERROR US11: Marriage should not occur during marriage to another spouse
+46 ERROR US24: Two families share the same wife of I51 and the same husband of I52 and marriage date of 14 FEB 2018
+47 I07 is alive and married!
+48 I10 is alive and married!
+49 I48 is alive and married!
+50 I44 is alive and married!
+51 I50 is alive and married!
+52 I51 is alive and married!
+53 I44 is alive and married!
+54 I52 is alive and married!
+55 I51 is alive and married!
+56 I52 is alive and married!
+57 I51 is alive and married!
+58 I52 is alive and married!
+59 I51 is alive and married!
+60 I64 is alive and married!
+61 Recent Deaths
+62 +-----+------------+-------------+
+63 |  ID |    Name    |  Deathdate  |
+64 +-----+------------+-------------+
+65 | I55 | Ames /Rad/ | 13 JUL 2018 |
+66 +-----+------------+-------------+
+67 Recent Births
+68 +-----+-------------+-------------+
+69 |  ID |     Name    |  Birthdate  |
+70 +-----+-------------+-------------+
+71 | I54 | James /Rad/ | 13 JUL 2018 |
+72 +-----+-------------+-------------+
+73 Here is a table of the children and their ages in family F23: 
+74 +-------+-----+
+75 | Child | Age |
+76 +-------+-----+
+77 |  I26  |  37 |
+78 |  I19  | 237 |
+79 +-------+-----+
+80 Here is a table of the children and their ages in family F20: 
+81 +-------+-----+
+82 | Child | Age |
+83 +-------+-----+
+84 +-------+-----+
+85 Here is a table of the children and their ages in family F30: 
+86 +-------+-----+
+87 | Child | Age |
+88 +-------+-----+
+89 |  I47  |  40 |
+90 +-------+-----+
+91 Here is a table of the children and their ages in family F31: 
+92 +-------+-----+
+93 | Child | Age |
+94 +-------+-----+
+95 |  I49  |  36 |
+96 +-------+-----+
+97 Here is a table of the children and their ages in family F32: 
+98 +-------+-----+
+99 | Child | Age |
+100 +-------+-----+
+101 |  I45  |  37 |
+102 |  I44  |  37 |
+103 +-------+-----+
+104 Here is a table of the children and their ages in family F34: 
+105 +-------+-----+
+106 | Child | Age |
+107 +-------+-----+
+108 |  I53  |  27 |
+109 +-------+-----+
+110 Here is a table of the children and their ages in family F35: 
+111 +-------+-----+
+112 | Child | Age |
+113 +-------+-----+
+114 |  I53  |  27 |
+115 +-------+-----+
+116 Here is a table of the children and their ages in family F36: 
+117 +-------+-----+
+118 | Child | Age |
+119 +-------+-----+
+120 |  I07  |  -2 |
+121 |  I54  |  0  |
+122 |  I55  |  1  |
+123 |  I59  |  1  |
+124 |  I58  |  2  |
+125 |  I57  |  4  |
+126 |  I56  |  7  |
+127 |  I60  |  17 |
+128 |  I53  |  27 |
+129 |  I48  |  36 |
+130 |  I49  |  36 |
+131 |  I44  |  37 |
+132 |  I45  |  37 |
+133 |  I47  |  40 |
+134 |  I10  |  44 |
+135 +-------+-----+
+136 Here is a table of the children and their ages in family F37: 
+137 +-------+-----+
+138 | Child | Age |
+139 +-------+-----+
+140 |  I63  |  8  |
+141 +-------+-----+
+142 Here is a table of the children and their ages in family F38: 
+143 +-------+-----+
+144 | Child | Age |
+145 +-------+-----+
+146 |  I66  |  8  |
+147 |  I67  |  8  |
+148 +-------+-----+
+149 This is a list of deceased people: ['I01', 'I11', 'I45', 'I46', 'I55', 'I61', 'I62', 'I65']
+150 US 33 : The chil of I61 and I62 are dead, making I63 an orphan because they are younger than 18
+151 Upcoming Anniversaries
+152 +-----+---------------------+
+153 |  ID |     Anniversary     |
+154 +-----+---------------------+
+155 | F39 | 1920-08-08 00:00:00 |
+156 +-----+---------------------+
+157 Upcoming Birthdays
+158 +-----+---------------+---------------------+
+159 |  ID |      Name     |       Birthday      |
+160 +-----+---------------+---------------------+
+161 | I54 |  James /Rad/  | 2018-07-13 00:00:00 |
+162 | I56 |  Cames /Rad/  | 2011-07-13 00:00:00 |
+163 | I57 |  Dames /Rad/  | 2014-07-13 00:00:00 |
+164 | I58 |  Shames /Rad/ | 2016-07-13 00:00:00 |
+165 | I59 |  Bames /Rad/  | 2017-07-13 00:00:00 |
+166 | I60 |  Zames /Rad/  | 2001-07-13 00:00:00 |
+167 | I63 | Chid /Orphan/ | 2010-07-13 00:00:00 |
+168 | I64 | Richard /Old/ | 1910-07-13 00:00:00 |
+169 | I66 |   Kip /Old/   | 2010-07-13 00:00:00 |
+170 | I67 |  Spaced /Old/ | 2010-07-20 00:00:00 |
+171 +-----+---------------+---------------------+
+172 ERROR US13: Birth dates of siblings should be more than 8 months apart
+173 ERROR US13: Birth dates of siblings should be more than 8 months apart
+174 ERROR US13: Birth dates of siblings should be more than 8 months apart
+175 ERROR US13: Birth dates of siblings should be more than 8 months apart
+176 ERROR US13: Birth dates of siblings should be more than 8 months apart
+177 ERROR US13: Birth dates of siblings should be more than 8 months apart
+178 ERROR US13: Birth dates of siblings should be more than 8 months apart
+179 ERROR US13: Birth dates of siblings should be more than 8 months apart
+180 ERROR US13: Birth dates of siblings should be more than 8 months apart
+181 ERROR US13: Birth dates of siblings should be more than 8 months apart
+182 ERROR US13: Birth dates of siblings should be more than 8 months apart
+183 ERROR US13: Birth dates of siblings should be more than 8 months apart
+184 ERROR US13: Birth dates of siblings should be more than 8 months apart
+185 ERROR US13: Birth dates of siblings should be more than 8 months apart
+186 ERROR US13: Birth dates of siblings should be more than 8 months apart
+187 Error US07: Age of Dick /Smith/ (I19) should be less than 150 years old.
+188 ERROR US13: Birth dates of siblings should be more than 8 months apart
+189 ERROR US13: Birth dates of siblings should be more than 8 months apart
+190 ERROR US13: Birth dates of siblings should be more than 8 months apart
+191 ERROR US13: Birth dates of siblings should be more than 8 months apart
+192 ERROR US13: Birth dates of siblings should be more than 8 months apart
+193 ERROR US13: Birth dates of siblings should be more than 8 months apart
+194 ERROR US13: Birth dates of siblings should be more than 8 months apart
+195 ERROR US13: Birth dates of siblings should be more than 8 months apart
+196 ERROR US13: Birth dates of siblings should be more than 8 months apart
+197 ERROR US13: Birth dates of siblings should be more than 8 months apart
+198 ERROR US13: Birth dates of siblings should be more than 8 months apart
+199 ERROR US13: Birth dates of siblings should be more than 8 months apart
+200 ERROR US13: Birth dates of siblings should be more than 8 months apart
+201 ERROR US13: Birth dates of siblings should be more than 8 months apart
+202 ERROR US13: Birth dates of siblings should be more than 8 months apart
+203 ERROR US13: Birth dates of siblings should be more than 8 months apart
+204 ERROR US13: Birth dates of siblings should be more than 8 months apart
+205 ERROR US13: Birth dates of siblings should be more than 8 months apart
+206 ERROR US13: Birth dates of siblings should be more than 8 months apart
+207 ERROR US13: Birth dates of siblings should be more than 8 months apart
+208 ERROR US13: Birth dates of siblings should be more than 8 months apart
+209 ERROR US13: Birth dates of siblings should be more than 8 months apart
+210 ERROR US13: Birth dates of siblings should be more than 8 months apart
+211 ERROR US13: Birth dates of siblings should be more than 8 months apart
+212 ERROR US13: Birth dates of siblings should be more than 8 months apart
+213 ERROR US13: Birth dates of siblings should be more than 8 months apart
+214 ERROR US13: Birth dates of siblings should be more than 8 months apart
+215 ERROR US13: Birth dates of siblings should be more than 8 months apart
+216 ERROR US13: Birth dates of siblings should be more than 8 months apart
+217 ERROR US13: Birth dates of siblings should be more than 8 months apart
+218 ERROR US13: Birth dates of siblings should be more than 8 months apart
+219 ERROR US13: Birth dates of siblings should be more than 8 months apart
+220 ERROR US13: Birth dates of siblings should be more than 8 months apart
+221 ERROR US13: Birth dates of siblings should be more than 8 months apart
+222 ERROR US13: Birth dates of siblings should be more than 8 months apart
+223 ERROR US13: Birth dates of siblings should be more than 8 months apart
+224 ERROR US13: Birth dates of siblings should be more than 8 months apart
+225 ERROR US13: Birth dates of siblings should be more than 8 months apart
+226 ERROR US13: Birth dates of siblings should be more than 8 months apart
+227 ERROR US13: Birth dates of siblings should be more than 8 months apart
+228 ERROR US13: Birth dates of siblings should be more than 8 months apart
+229 ERROR US13: Birth dates of siblings should be more than 8 months apart
+230 ERROR US13: Birth dates of siblings should be more than 8 months apart
+231 ERROR US13: Birth dates of siblings should be more than 8 months apart
+232 ERROR US13: Birth dates of siblings should be more than 8 months apart
+233 ERROR US13: Birth dates of siblings should be more than 8 months apart
+234 ERROR US13: Birth dates of siblings should be more than 8 months apart
+235 ERROR US13: Birth dates of siblings should be more than 8 months apart
+236 ERROR US13: Birth dates of siblings should be more than 8 months apart
+237 ERROR US13: Birth dates of siblings should be more than 8 months apart
+238 ERROR US13: Birth dates of siblings should be more than 8 months apart
+239 ERROR US13: Birth dates of siblings should be more than 8 months apart
+240 ERROR US13: Birth dates of siblings should be more than 8 months apart
+241 ERROR US13: Birth dates of siblings should be more than 8 months apart
+242 ERROR US13: Birth dates of siblings should be more than 8 months apart
+243 ERROR US13: Birth dates of siblings should be more than 8 months apart
+244 ERROR US13: Birth dates of siblings should be more than 8 months apart
+245 ERROR US13: Birth dates of siblings should be more than 8 months apart
+246 ERROR US13: Birth dates of siblings should be more than 8 months apart
+247 ERROR US13: Birth dates of siblings should be more than 8 months apart
+248 ERROR US13: Birth dates of siblings should be more than 8 months apart
+249 ERROR US13: Birth dates of siblings should be more than 8 months apart
+250 ERROR US13: Birth dates of siblings should be more than 8 months apart
+251 ERROR US13: Birth dates of siblings should be more than 8 months apart
+252 ERROR US13: Birth dates of siblings should be more than 8 months apart
+253 ERROR US13: Birth dates of siblings should be more than 8 months apart
+254 ERROR US13: Birth dates of siblings should be more than 8 months apart
+255 ERROR US13: Birth dates of siblings should be more than 8 months apart
+256 ERROR US13: Birth dates of siblings should be more than 8 months apart
+257 ERROR US13: Birth dates of siblings should be more than 8 months apart
+258 ERROR US13: Birth dates of siblings should be more than 8 months apart
+259 ERROR US13: Birth dates of siblings should be more than 8 months apart
+260 ERROR US13: Birth dates of siblings should be more than 8 months apart
+261 ERROR US13: Birth dates of siblings should be more than 8 months apart
+262 ERROR US13: Birth dates of siblings should be more than 8 months apart
+263 ERROR US13: Birth dates of siblings should be more than 8 months apart
+264 ERROR US13: Birth dates of siblings should be more than 8 months apart
+265 ERROR US13: Birth dates of siblings should be more than 8 months apart
+266 ERROR US13: Birth dates of siblings should be more than 8 months apart
+267 ERROR US13: Birth dates of siblings should be more than 8 months apart
+268 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
+269 |  ID |        NAME       | Gender |     BDay    | Age |    Death    | Child | Spouse |
+270 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
+271 | I01 |    Joe /Smith/    |   M    | 15 JUL 1960 |  58 | 31 DEC 2013 |  ---- |  F23   |
+272 | I07 |  Jennifer /Smith/ |   F    | 23 SEP 2019 |  -2 |     ----    |  ---- |  F23   |
+273 | I10 |    Test /Wife/    |   F    | 23 SEP 1973 |  44 |     ----    |  ---- |  F20   |
+274 | I11 |     Test /Hub/    |   F    | 15 JUL 1970 |  48 | 31 DEC 1975 |  ---- |  F20   |
+275 | I19 |    Dick /Smith/   |   M    | 13 FEB 1781 | 237 |     ----    |  F23  |  ----  |
+276 | I26 |    Jane /Smith/   |   F    | 13 FEB 1981 |  37 |     ----    |  F23  |  ----  |
+277 | I44 |  Cersi /Lanister/ |   F    | 13 FEB 1981 |  37 |     ----    |  F32  |  ----  |
+278 | I45 |    Julie /Lee/    |   F    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
+279 | I46 |    Jeremy /Lee/   |   M    | 13 FEB 1981 |  37 | 31 DEC 1975 |  ---- |  F30   |
+280 | I47 |     Remy /Lee/    |   F    | 13 FEB 1978 |  40 |     ----    |  F30  |  ----  |
+281 | I48 |    George /Rob/   |   F    | 13 FEB 1982 |  36 |     ----    |  ---- |  F31   |
+282 | I49 |    George /Rob/   |   F    | 13 FEB 1982 |  36 |     ----    |  F31  |  ----  |
+283 | I50 | Andrew /Svensson/ |   M    | 13 FEB 1963 |  55 |     ----    |  ---- |  F32   |
+284 | I51 |   Megan /Murtle/  |   F    | 13 FEB 2010 |  8  |     ----    |  ---- |  F32   |
+285 | I52 |     Ryan /Rad/    |   M    | 13 FEB 1990 |  28 |     ----    |  ---- |  F34   |
+286 | I53 |    Bryan /Rad/    |   M    | 13 FEB 1991 |  27 |     ----    |  F34  |  ----  |
+287 | I54 |    James /Rad/    |   M    | 13 JUL 2018 |  0  |     ----    |  F36  |  ----  |
+288 | I55 |     Ames /Rad/    |   M    | 13 JUL 2017 |  1  | 13 JUL 2018 |  F36  |  ----  |
+289 | I56 |    Cames /Rad/    |   M    | 13 JUL 2011 |  7  |     ----    |  F36  |  ----  |
+290 | I57 |    Dames /Rad/    |   M    | 13 JUL 2014 |  4  |     ----    |  F36  |  ----  |
+291 | I58 |    Shames /Rad/   |   M    | 13 JUL 2016 |  2  |     ----    |  F36  |  ----  |
+292 | I59 |    Bames /Rad/    |   M    | 13 JUL 2017 |  1  |     ----    |  F36  |  ----  |
+293 | I60 |    Zames /Rad/    |   M    | 13 JUL 2001 |  17 |     ----    |  F36  |  ----  |
+294 | I61 |    Dad /Orphan/   |   M    | 13 JUL 1980 |  38 | 13 JUL 2011 |  ---- |  F37   |
+295 | I62 |    Mom /Orphan/   |   F    | 13 JUL 1981 |  37 | 13 JUL 2011 |  ---- |  F37   |
+296 | I63 |   Chid /Orphan/   |   M    | 13 JUL 2010 |  8  |     ----    |  F37  |  ----  |
+297 | I64 |   Richard /Old/   |   M    | 13 JUL 1910 | 108 |     ----    |  ---- |  F38   |
+298 | I65 |   Virginia /Old/  |   F    | 13 JUL 1910 | 108 | 12 JUL 1907 |  ---- |  F38   |
+299 | I66 |     Kip /Old/     |   M    | 13 JUL 2010 |  8  |     ----    |  F38  |  ----  |
+300 | I67 |    Spaced /Old/   |   M    | 20 JUL 2010 |  8  |     ----    |  F38  |  ----  |
+301 +-----+-------------------+--------+-------------+-----+-------------+-------+--------+
+302 Error US15: There are more than 15 siblings for family F36.
+303 Error US21: Role of Test /Hub/ does not match her gender.
+304 Error US02: Marriage of Jennifer /Smith/ (I07) occurs before her birthday.
+305 Error US08: Birthdate of child Dick /Smith/ (I19) is before their parents' marriage.
+306 Error US15: There are more than 15 siblings for family F36.
+307 Error US02: Marriage of Julie /Lee/ (I45) occurs before her birthday.
+308 Error US02: Marriage of Jeremy /Lee/ (I46) occurs before his birthday.
+309 Error US04: Divorce of Jeremy /Lee/ and Julie /Lee/ happens before their marriage date.
+310 Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
+311 Error US09: Birthdate of child Remy /Lee/ (I47) is after mother's death.
+312 Error US06: Divorce of Julie /Lee/ and Jeremy /Lee/ occurs after one or both of them have died.
+313 Error US15: There are more than 15 siblings for family F36.
+314 Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
+315 Error US15: There are more than 15 siblings for family F36.
+316 Error US18: Siblings Cersi /Lanister/ and George /Rob/ cannot be married.
+317 Error US21: Role of George /Rob/ does not match her gender.
+318 Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
+319 Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
+320 Error US15: There are more than 15 siblings for family F36.
+321 Error US18: Siblings Cersi /Lanister/ and Julie /Lee/ cannot be married.
+322 Error US21: Role of Julie /Lee/ does not match her gender.
+323 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+324 Error US15: There are more than 15 siblings for family F36.
+325 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+326 Error US15: There are more than 15 siblings for family F36.
+327 Error US08: Birthdate of child Test /Wife/ (I10) is before their parents' marriage.
+328 Error US08: Birthdate of child Cersi /Lanister/ (I44) is before their parents' marriage.
+329 Error US08: Birthdate of child Julie /Lee/ (I45) is before their parents' marriage.
+330 Error US08: Birthdate of child Remy /Lee/ (I47) is before their parents' marriage.
+331 Error US08: Birthdate of child George /Rob/ (I48) is before their parents' marriage.
+332 Error US08: Birthdate of child George /Rob/ (I49) is before their parents' marriage.
+333 Error US08: Birthdate of child Bryan /Rad/ (I53) is before their parents' marriage.
+334 Error US08: Birthdate of child Ames /Rad/ (I55) is before their parents' marriage.
+335 Error US08: Birthdate of child Cames /Rad/ (I56) is before their parents' marriage.
+336 Error US08: Birthdate of child Dames /Rad/ (I57) is before their parents' marriage.
+337 Error US08: Birthdate of child Shames /Rad/ (I58) is before their parents' marriage.
+338 Error US08: Birthdate of child Bames /Rad/ (I59) is before their parents' marriage.
+339 Error US08: Birthdate of child Zames /Rad/ (I60) is before their parents' marriage.
+340 Error US15: There are more than 15 siblings for family F36.
+341 Error US15: There are more than 15 siblings for family F36.
+342 Error US09: Birthdate of child Kip /Old/ (I66) is after mother's death.
+343 Error US09: Birthdate of child Spaced /Old/ (I67) is after mother's death.
+344 Error US15: There are more than 15 siblings for family F36.
+345 +-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
+346 |  ID |   Married   |   Divorced  | Husb Id |     Husb Name     | Wife Id |    Wife Name     |                           Children                          |
+347 +-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
+348 | F16 | 12 DEC 2007 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
+349 | F20 | 14 FEB 1975 |     ----    |   I11   |     Test /Hub/    |   I10   |   Test /Wife/    |                                                             |
+350 | F23 | 14 FEB 1980 |     ----    |   I01   |    Joe /Smith/    |   I07   | Jennifer /Smith/ |                           I19,I26                           |
+351 | F30 | 14 FEB 1980 | 12 MAY 1979 |   I46   |    Jeremy /Lee/   |   I45   |   Julie /Lee/    |                             I47                             |
+352 | F31 | 14 FEB 1990 | 12 MAY 1995 |   I48   |    George /Rob/   |   I44   | Cersi /Lanister/ |                             I49                             |
+353 | F32 | 14 FEB 2018 |     ----    |   I50   | Andrew /Svensson/ |   I51   |  Megan /Murtle/  |                           I45,I44                           |
+354 | F33 | 14 FEB 2018 |     ----    |   I45   |    Julie /Lee/    |   I44   | Cersi /Lanister/ |                             ----                            |
+355 | F34 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
+356 | F35 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  |                             I53                             |
+357 | F36 | 14 FEB 2018 |     ----    |   I52   |     Ryan /Rad/    |   I51   |  Megan /Murtle/  | I07,I10,I44,I45,I47,I48,I49,I53,I54,I55,I56,I57,I58,I59,I60 |
+358 | F37 | 14 FEB 2000 |     ----    |   I61   |    Dad /Orphan/   |   I62   |   Mom /Orphan/   |                             I63                             |
+359 | F38 | 14 FEB 1920 |     ----    |   I64   |   Richard /Old/   |   I65   |  Virginia /Old/  |                           I66,I67                           |
+360 | F39 |  8 AUG 1920 |     ----    |   ----  |        ----       |   ----  |       ----       |                             ----                            |
+361 +-----+-------------+-------------+---------+-------------------+---------+------------------+-------------------------------------------------------------+
