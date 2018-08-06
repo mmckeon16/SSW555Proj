@@ -30,7 +30,6 @@ def lineNums(file):
   file.writelines(oline)
   return result
   
-
 class MyTest(unittest.TestCase):
   def test(self):
       f=open("../test/ruthyOutput.txt","a+")
