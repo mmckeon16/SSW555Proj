@@ -28,6 +28,7 @@ def siblingSpacing(fam, ind, file):
                 chil = ind[c]["id"]
                 chil_list.append(chil) #child's siblings --> 'I19, I26, 130'
             for i in range(len(chil_list)): #(0,3) aka 0,2
+                i_date = ind[chil_list[i]]["BIRT"]
                 i_date_strip = i_date.strip().split()
                 i_month = month_values[i_date_strip[1]]
                 i_day = int(i_date_strip[0])
@@ -37,10 +38,12 @@ def siblingSpacing(fam, ind, file):
                     j_month = month_values[j_date_strip[1]]
                     j_day = int(j_date_strip[0])
                     if not (i_month - j_month > 8) or not (j_month - i_month > 8):
-                        print("ERROR US13: Birth dates of siblings should be more than 8 months apart\n")                    
+                        file.write("ERROR US13: Birth dates of siblings should be more than 8 months apart\n")                    
+                        break
                     elif i_month != j_month:
                         if not (i_day - j_day < 2) or not (j_day - i_day < 2):
-                            print("ERROR US13: Birth dates of siblings should be less than 2 days apart\n")                    
+                            file.write("ERROR US13: Birth dates of siblings should be less than 2 days apart\n")                    
+                            break
                     else:
                         return False
 def getMonth(born):

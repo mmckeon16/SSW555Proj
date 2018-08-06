@@ -1,8 +1,15 @@
-ERROR US17: For family F23, Parents should not marry any of their descendants
-ERROR US17: For family F16, Parents should not marry any of their descendants
-I07 is alive and married!I01 is alive and married!I07 is alive and married!I07 is alive and married!I01 is alive and married!I07 is alive and married!US 33 : The chil of I01 and I07 are dead, making I19 an orphan because they are younger than 18
-US 33 : The chil of I01 and I07 are dead, making I26 an orphan because they are younger than 18
-US 33 : The chil of I01 and I07 are dead, making I30 an orphan because they are younger than 18
-US 33 : The chil of I01 and I07 are dead, making I19 an orphan because they are younger than 18
-US 33 : The chil of I01 and I07 are dead, making I26 an orphan because they are younger than 18
-US 33 : The chil of I01 and I07 are dead, making I30 an orphan because they are younger than 18
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
+ERROR US13: Birth dates of siblings should be more than 8 months apart
